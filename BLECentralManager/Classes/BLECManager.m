@@ -154,10 +154,10 @@ didDisconnectPeripheral:(CBPeripheral *)peripheral
     NSAssert([dev.UUID isEqual:UUID], @"should be equal.");
 #endif
     [dev.characteristics removeAllObjects];
-    dev.peripheral = nil;
     if ([_delegate respondsToSelector:@selector(deviceDisconnected:device:)]) {
         [_delegate deviceDisconnected:self device:dev];
     }
+    dev.peripheral = nil;
     dev.state = BLECPeripheralStateNone;
 
     //---- workaround attempt for code 6, 10, ... errors ----
@@ -231,12 +231,14 @@ didDiscoverCharacteristicsForService:(CBService *)service
     NSMutableArray<CBCharacteristic *> *characteristics = [[NSMutableArray alloc] initWithCapacity:charCount];
     NSMutableArray *delegates = [[NSMutableArray alloc] initWithCapacity:charCount];
     NSUInteger index = 0;
+    NSUInteger req = 0;
     id<BLECCharacteristicDelegate> charDelegate;
 
     if (sc) {
         //---- fill the characteristic array ----
         for (NSUInteger i = 0; i < charCount; ++i) {
             [delegates addObject:[NSNull null]];
+            [characteristics addObject:[NSNull null]];
         }
     }
 
@@ -249,6 +251,13 @@ didDiscoverCharacteristicsForService:(CBService *)service
             BLECCharacteristicConfig *cc = [sc findCharacteristicConfigFor:aChar.UUID
                                                                      index:&index];
             if (cc) {
+                if (cc.type & BLECCharacteristicTypeRequired) {
+                    req++;
+                } else if (!(cc.type & BLECCharacteristicTypeOptional)) {
+                    DLog(@"Unexpected characteristic found: %@", aChar.UUID);
+                    [_manager cancelPeripheralConnection:peripheral];
+                    return;
+                }
                 [characteristics replaceObjectAtIndex:index withObject:aChar];
                 if (cc.delegate) {
                     charDelegate = cc.delegate;
@@ -259,7 +268,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
                     [delegates replaceObjectAtIndex:index withObject:charDelegate];
                 }
             } else {
-                DLog(@"invalid characteristic.");
+                DLog(@"Unexpected characteristic found: %@", aChar.UUID);
                 [_manager cancelPeripheralConnection:peripheral];
             }
         }

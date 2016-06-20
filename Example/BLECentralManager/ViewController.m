@@ -62,7 +62,6 @@
 
 - (void)update
 {
-    DLog(@"Updating progress with: %ld", (size_t)_dataSize);
     [_progressView setProgress:(float)_dataSize / (float)(640 * 20)
                       animated: YES];
     _dataSize = 0;
