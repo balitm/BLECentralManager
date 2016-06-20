@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BLECentralManager_Example' do
+  pod 'BLECentralManager', :path => '../'
+
+  target 'BLECentralManager_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
