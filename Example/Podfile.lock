@@ -1,0 +1,16 @@
+PODS:
+  - BLECentralManager (0.1.0)
+
+DEPENDENCIES:
+  - BLECentralManager (from `../`)
+
+EXTERNAL SOURCES:
+  BLECentralManager:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BLECentralManager: b0958fa58c85d649638465934e19473fd5af43bc
+
+PODFILE CHECKSUM: f410e7be3444832bf08d5288f9ce19e4a7a61ae5
+
+COCOAPODS: 1.0.0

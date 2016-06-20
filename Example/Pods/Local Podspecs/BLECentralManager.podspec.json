@@ -1,0 +1,22 @@
+{
+  "name": "BLECentralManager",
+  "version": "0.1.0",
+  "summary": "A short description of BLECentralManager.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/BLECentralManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Balázs Kilvády": "bkilvady@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/BLECentralManager.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "BLECentralManager/Classes/**/*"
+}
