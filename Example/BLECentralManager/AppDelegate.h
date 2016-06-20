@@ -1,14 +1,14 @@
 //
-//  BLECAppDelegate.h
+//  AppDelegate.h
 //  BLECentralManager
 //
-//  Created by Balázs Kilvády on 06/20/2016.
+//  Created by Balázs Kilvády on 05/18/2016.
 //  Copyright (c) 2016 Balázs Kilvády. All rights reserved.
 //
 
 @import UIKit;
 
-@interface BLECAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

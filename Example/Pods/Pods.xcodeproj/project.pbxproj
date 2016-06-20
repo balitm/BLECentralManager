@@ -10,12 +10,12 @@
 		05A4C912B82A58F89229A51BB6E02E31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		0B38E2E47D213FF936E52A1C9D538ADC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		257B7B816BC2E24CBCB4556DD86FBB3F /* BLECentralManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D501F4A0ED468E9604BF859ABB724209 /* BLECentralManager-dummy.m */; };
+		290ED1D81D18564500E3C077 /* BLECentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 290ED1D71D18547D00E3C077 /* BLECentralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4696EE066604D7D2BC3E34135F0682C9 /* Pods-BLECentralManager_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE65D9390B6FF95371DEAA3AF6DCC0E /* Pods-BLECentralManager_Tests-dummy.m */; };
 		57D531D9623F3E96712F81DAE5544C31 /* BLECDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D9B12F657785A60337BFE7F9EF6A70A /* BLECDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5AF4E189C70DA73AE8E5C56FAFD34598 /* BLECConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = A24EC42CD0DE1150AEDA24D12087FAF2 /* BLECConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D9CA30AA47CDB0437CF1C5AE692E38E /* BLECConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B904049919FDEF85B8DC9214A53815F /* BLECConfig.m */; };
 		64D77995F3C8D139A152A4A425C88A70 /* Pods-BLECentralManager_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4552B42B96E09303B2184D7249CDE85F /* Pods-BLECentralManager_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		700A97E95EA18325C5DEE1851E2D31AB /* BLECentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C6421E7F9AAFE48549AC41E766CE6A4 /* BLECentralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8686EBCE1A298358DE25804BD03714BE /* BLECCharacteristicDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DDD77F90BF60AC76171C3297C0967ABB /* BLECCharacteristicDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8FAD9771EE16A4A6A9DC05414CFA41C0 /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = C269EE5978B95062A496CF5517AF9F71 /* Log.h */; };
 		98CF3A607F8822D65CF224906D9C066B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
@@ -45,6 +45,7 @@
 		0EE65D9390B6FF95371DEAA3AF6DCC0E /* Pods-BLECentralManager_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BLECentralManager_Tests-dummy.m"; sourceTree = "<group>"; };
 		1743D351D056010B41905F24176BA659 /* Pods-BLECentralManager_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BLECentralManager_Tests.modulemap"; sourceTree = "<group>"; };
 		23FEF3974388F915E12F1A5211D4DDB7 /* Pods-BLECentralManager_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BLECentralManager_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		290ED1D71D18547D00E3C077 /* BLECentralManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLECentralManager.h; sourceTree = "<group>"; };
 		2BAB2073424EB9269E89D189FF0387A8 /* Pods-BLECentralManager_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_Example-resources.sh"; sourceTree = "<group>"; };
 		31260EB01891556AE4EE57D38C865BF2 /* Pods-BLECentralManager_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_Tests-resources.sh"; sourceTree = "<group>"; };
 		420D0AEEC09E4C8221CA6A630F83B86F /* BLECDeviceDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECDeviceDelegate.h; sourceTree = "<group>"; };
@@ -54,7 +55,6 @@
 		5C5A1EADA82A9D86FE971FAC430D266F /* Pods-BLECentralManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		674D3C53621BD687D9C491A6E22CB32E /* Pods_BLECentralManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLECentralManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69706B115ADDC1042BE0510D63663F8E /* BLECentralManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BLECentralManager.xcconfig; sourceTree = "<group>"; };
-		6C6421E7F9AAFE48549AC41E766CE6A4 /* BLECentralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECentralManager.h; sourceTree = "<group>"; };
 		6D9B12F657785A60337BFE7F9EF6A70A /* BLECDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECDevice.h; sourceTree = "<group>"; };
 		80A184082094AC2C0F5F2FF5666CE745 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82C769A7E677805AC2C6D5D7FDD45D7F /* BLECManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECManager.h; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				69706B115ADDC1042BE0510D63663F8E /* BLECentralManager.xcconfig */,
 				D501F4A0ED468E9604BF859ABB724209 /* BLECentralManager-dummy.m */,
 				B283EEB2811590DAAB33765D17C90572 /* BLECentralManager-prefix.pch */,
-				6C6421E7F9AAFE48549AC41E766CE6A4 /* BLECentralManager.h */,
+				290ED1D71D18547D00E3C077 /* BLECentralManager.h */,
 				80A184082094AC2C0F5F2FF5666CE745 /* Info.plist */,
 			);
 			name = "Support Files";
@@ -274,7 +274,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				700A97E95EA18325C5DEE1851E2D31AB /* BLECentralManager.h in Headers */,
+				290ED1D81D18564500E3C077 /* BLECentralManager.h in Headers */,
 				8686EBCE1A298358DE25804BD03714BE /* BLECCharacteristicDelegate.h in Headers */,
 				5AF4E189C70DA73AE8E5C56FAFD34598 /* BLECConfig.h in Headers */,
 				57D531D9623F3E96712F81DAE5544C31 /* BLECDevice.h in Headers */,
@@ -569,7 +569,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BLECentralManager/BLECentralManager.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager";
 				PRODUCT_NAME = BLECentralManager;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -670,7 +669,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/BLECentralManager/BLECentralManager.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager";
 				PRODUCT_NAME = BLECentralManager;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

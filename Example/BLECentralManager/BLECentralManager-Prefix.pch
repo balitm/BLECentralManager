@@ -13,4 +13,15 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
+    @import BLECentralManager;
+
+    #ifdef DEBUG
+		#define DLog(s, ...) \
+            NSLog(@"<%@:%d> %@", \
+                 [[NSString stringWithUTF8String:__FILE__] lastPathComponent], \
+                  __LINE__, \
+                  [NSString stringWithFormat:(s), ##__VA_ARGS__])
+    #else
+        #define DLog(s, ...)
+    #endif
 #endif

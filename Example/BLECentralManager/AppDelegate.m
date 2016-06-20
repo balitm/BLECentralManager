@@ -1,14 +1,14 @@
 //
-//  BLECAppDelegate.m
+//  AppDelegate.m
 //  BLECentralManager
 //
-//  Created by Balázs Kilvády on 06/20/2016.
+//  Created by Balázs Kilvády on 05/18/2016.
 //  Copyright (c) 2016 Balázs Kilvády. All rights reserved.
 //
 
-#import "BLECAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation BLECAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
