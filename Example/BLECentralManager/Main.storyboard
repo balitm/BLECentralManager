@@ -17,30 +17,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5gj-cV-I0i">
-                                <rect key="frame" x="20" y="42" width="560" height="2"/>
-                            </progressView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b9o-v1-caZ">
                                 <rect key="frame" x="20" y="69" width="560" height="511"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RSSI:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3K0-Ye-L7J">
+                                <rect key="frame" x="502" y="34" width="37" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="Bex-Kv-dQS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5gj-cV-I0i">
+                                <rect key="frame" x="20" y="42" width="474" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQT-wl-PS1">
+                                <rect key="frame" x="547" y="34" width="33" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="zyg-5U-CJX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="5gj-cV-I0i" secondAttribute="trailing" id="3sR-2M-KM6"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5gj-cV-I0i" secondAttribute="leading" id="7Et-fp-jh5"/>
                             <constraint firstItem="1ds-D7-5PP" firstAttribute="top" secondItem="b9o-v1-caZ" secondAttribute="bottom" constant="20" id="CS0-Ym-iSG"/>
+                            <constraint firstItem="3K0-Ye-L7J" firstAttribute="leading" secondItem="5gj-cV-I0i" secondAttribute="trailing" constant="8" id="E9p-sv-IEN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b9o-v1-caZ" secondAttribute="trailing" id="Jw6-ex-9c7"/>
+                            <constraint firstItem="3K0-Ye-L7J" firstAttribute="centerY" secondItem="5gj-cV-I0i" secondAttribute="centerY" id="Xpe-ul-5xt"/>
+                            <constraint firstItem="CQT-wl-PS1" firstAttribute="leading" secondItem="3K0-Ye-L7J" secondAttribute="trailing" constant="8" id="c9j-Z7-EHj"/>
                             <constraint firstItem="b9o-v1-caZ" firstAttribute="top" secondItem="5gj-cV-I0i" secondAttribute="bottom" constant="25" id="gWP-U4-Hdv"/>
                             <constraint firstAttribute="leadingMargin" secondItem="b9o-v1-caZ" secondAttribute="leading" id="qhr-bf-X82"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CQT-wl-PS1" secondAttribute="trailing" id="uDm-hK-LV3"/>
                             <constraint firstItem="5gj-cV-I0i" firstAttribute="top" secondItem="7GK-Te-Dbk" secondAttribute="bottom" constant="22" id="xGH-IT-jzp"/>
+                            <constraint firstItem="CQT-wl-PS1" firstAttribute="centerY" secondItem="3K0-Ye-L7J" secondAttribute="centerY" id="ych-g3-hQi"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="logView" destination="b9o-v1-caZ" id="VdM-cm-YGk"/>
                         <outlet property="progressView" destination="5gj-cV-I0i" id="fL6-vc-Hph"/>
+                        <outlet property="rssiLabel" destination="CQT-wl-PS1" id="aC1-8Z-hpw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqq-d6-rim" userLabel="First Responder" sceneMemberID="firstResponder"/>

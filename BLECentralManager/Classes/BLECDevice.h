@@ -37,4 +37,6 @@ typedef NS_OPTIONS(uint32_t, BLECPeripheralState) {
 - (nonnull instancetype)initWithPeripheral:(nonnull CBPeripheral *)peripheral;
 - (nullable CBCharacteristic *)characteristicAt:(NSUInteger)charIndex
                                     inServiceAt:(NSUInteger)serviceIndex;
+- (void)readRSSI;
+
 @end

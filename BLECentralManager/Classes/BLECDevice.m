@@ -53,4 +53,11 @@
     return nil;
 }
 
+- (void)readRSSI
+{
+    if (_peripheral) {
+        [_peripheral readRSSI];
+    }
+}
+
 @end

@@ -73,8 +73,8 @@
             _state = BLECStateUnknown;
     }
     DLog(@"Central manager state: %d", _state);
-    if ([_delegate respondsToSelector:@selector(masterDidUpdateState:)]) {
-        [_delegate masterDidUpdateState:self];
+    if ([_delegate respondsToSelector:@selector(centralDidUpdateState:)]) {
+        [_delegate centralDidUpdateState:self];
     }
 }
 
@@ -119,8 +119,8 @@
         }
     }
 
-    if ([_delegate respondsToSelector:@selector(deviceDiscovered:peripheral:)]) {
-        [_delegate deviceDiscovered:self peripheral:peripheral];
+    if ([_delegate respondsToSelector:@selector(central:didDiscoverPeripheral:RSSI:)]) {
+        [_delegate central:self didDiscoverPeripheral:peripheral RSSI:RSSI];
     }
     [self connect:peripheral];
 }
@@ -130,8 +130,8 @@
 {
     DLog(@"didConnectPeripheral");
 
-    if ([_delegate respondsToSelector:@selector(deviceConnected:peripheral:)]) {
-        [_delegate deviceConnected:self peripheral:peripheral];
+    if ([_delegate respondsToSelector:@selector(central:didConnectPeripheral:)]) {
+        [_delegate central:self didConnectPeripheral:peripheral];
     }
     if ([peripheral.services count] == 0) {
         //---- Get the services ----
@@ -154,8 +154,8 @@ didDisconnectPeripheral:(CBPeripheral *)peripheral
     NSAssert([dev.UUID isEqual:UUID], @"should be equal.");
 #endif
     [dev.characteristics removeAllObjects];
-    if ([_delegate respondsToSelector:@selector(deviceDisconnected:device:)]) {
-        [_delegate deviceDisconnected:self device:dev];
+    if ([_delegate respondsToSelector:@selector(central:didDisconnectDevice:error:)]) {
+        [_delegate central:self didDisconnectDevice:dev error:error];
     }
     dev.peripheral = nil;
     dev.state = BLECPeripheralStateNone;
@@ -173,8 +173,8 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
 {
     DLog(@"Fail to connect to peripheral: %@ with error = %@",
          peripheral, [error localizedDescription]);
-    if ([_delegate respondsToSelector:@selector(connectionFailed:peripheral:)]) {
-        [_delegate connectionFailed:self peripheral:peripheral];
+    if ([_delegate respondsToSelector:@selector(central:didFailToConnectPeripheral:error:)]) {
+        [_delegate central:self didFailToConnectPeripheral:peripheral error:error];
     }
 }
 
@@ -295,6 +295,9 @@ didDiscoverCharacteristicsForService:(CBService *)service
             [charDelegate device:device didFindCharacteristic:aChar];
         }
     }
+    if ([_delegate respondsToSelector:@selector(central:didCheckCharacteristicsDevice:)]) {
+        [_delegate central:self didCheckCharacteristicsDevice:device];
+    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral
@@ -307,6 +310,16 @@ didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
     NSAssert(delegate != nil, @"");
     if ([delegate respondsToSelector:@selector(device:didUpdateValueForCharacteristic:error:)]) {
         [delegate device:device didUpdateValueForCharacteristic:characteristic error:error];
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral
+       didReadRSSI:(NSNumber *)RSSI
+             error:(NSError *)error
+{
+    BLECDevice * __weak dev = [self findDeviceByPeripheral:peripheral];
+    if ([_delegate respondsToSelector:@selector(device:didReadRSSI:error:)]) {
+        [_delegate device:dev didReadRSSI:RSSI error:error];
     }
 }
 

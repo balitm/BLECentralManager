@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
 @property (weak, nonatomic) IBOutlet UITextView *logView;
+@property (weak, nonatomic) IBOutlet UILabel *rssiLabel;
 
 @end

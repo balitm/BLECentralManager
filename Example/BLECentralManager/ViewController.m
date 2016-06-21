@@ -28,6 +28,7 @@
     BLECManager *_manager;
     NSTimer *_timer;
     NSUInteger _dataSize;
+    BLECDevice * __weak _device;
 }
 
 - (void)viewDidLoad
@@ -62,9 +63,13 @@
 
 - (void)update
 {
+    //---- compute speed ----
     [_progressView setProgress:(float)_dataSize / (float)(640 * 20)
                       animated: YES];
     _dataSize = 0;
+
+    //---- read RSSI ----
+    [_device readRSSI];
 }
 
 @end
@@ -111,19 +116,27 @@ static void _appendNSStringLog(ViewController *self, NSString *str)
     self.logView.text = [self.logView.text stringByAppendingFormat:@"%@\n", str];
 }
 
-- (void)masterDidUpdateState:(BLECManager *)manager
+static void _showRSSI(ViewController *self, NSNumber *RSSI)
+{
+    self->_rssiLabel.text = [RSSI stringValue];
+}
+
+- (void)centralDidUpdateState:(BLECManager *)manager
 {
     _appendLog(self, _stateName(manager.state));
 }
 
-- (void)deviceDiscovered:(BLECManager *)manager peripheral:(CBPeripheral *)peripheral
+- (void)central:(BLECManager *)manager
+didDiscoverPeripheral:(CBPeripheral *)peripheral
+           RSSI:(NSNumber *)RSSI
 {
     char str[256];
     snprintf(str, sizeof(str), "Discovered: %s", [[peripheral.identifier UUIDString] UTF8String]);
     _appendLog(self, str);
+    _showRSSI(self, RSSI);
 }
 
-- (void)deviceConnected:(BLECManager *)manager peripheral:(CBPeripheral *)peripheral
+- (void)central:(BLECManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
     _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@", peripheral.identifier]);
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
@@ -133,7 +146,14 @@ static void _appendNSStringLog(ViewController *self, NSString *str)
                                              repeats:YES];
 }
 
-- (void)deviceDisconnected:(BLECManager *)manager device:(BLECDevice *)device
+- (void)central:(BLECManager *)central didCheckCharacteristicsDevice:(nonnull BLECDevice *)device
+{
+    _device = device;
+}
+
+- (void)central:(BLECManager *)central
+didDisconnectDevice:(BLECDevice *)device
+          error:(NSError *)error
 {
     DLog(@"Disconnected");
     _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier]);
@@ -143,7 +163,24 @@ static void _appendNSStringLog(ViewController *self, NSString *str)
     }
 }
 
+- (void)device:(BLECDevice *)device
+   didReadRSSI:(NSNumber *)RSSI
+         error:(NSError *)error
+{
+    if (error) {
+        DLog(@"error at RSSI reading: %@", error);
+        return;
+    }
+
+    _showRSSI(self, RSSI);
+}
+
 @end
+
+
+//............................................................................
+// Data characteristic extension.
+//............................................................................
 
 @implementation ViewController (Characteristic)
 

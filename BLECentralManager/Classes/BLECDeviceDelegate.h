@@ -18,10 +18,12 @@
 - (nonnull id<BLECCharacteristicDelegate>)deviceForCharacteristic:(nonnull CBCharacteristic *)charasteristic
                                    ofPeripheral:(nonnull CBPeripheral *)peripheral;
 
-- (void)masterDidUpdateState:(nonnull BLECManager *)manager;
-- (void)deviceDiscovered:(nonnull BLECManager *)manager peripheral:(nonnull CBPeripheral *)pheripheral;
-- (void)connectionFailed:(nonnull BLECManager *)manager peripheral:(nonnull CBPeripheral *)pheripheral;
-- (void)deviceConnected:(nonnull BLECManager *)manager peripheral:(nonnull CBPeripheral *)pheripheral;
-- (void)deviceDisconnected:(nonnull BLECManager *)manager device:(nonnull BLECDevice *)device;
+- (void)centralDidUpdateState:(nonnull BLECManager *)manager;
+- (void)central:(nonnull BLECManager *)manager didDiscoverPeripheral:(nonnull CBPeripheral *)peripheral RSSI:(nonnull NSNumber *)RSSI;
+- (void)central:(nonnull BLECManager *)manager didFailToConnectPeripheral:(nonnull CBPeripheral *)peripheral error:(nullable NSError *)error;
+- (void)central:(nonnull BLECManager *)central didConnectPeripheral:(nonnull CBPeripheral *)peripheral;
+- (void)central:(nonnull BLECManager *)central didDisconnectDevice:(nonnull BLECDevice *)device error:(nullable NSError *)error;
+- (void)central:(nonnull BLECManager *)central didCheckCharacteristicsDevice:(nonnull BLECDevice *)device;
+- (void)device:(nonnull BLECDevice *)device didReadRSSI:(nonnull NSNumber *)RSSI error:(nullable NSError *)error;
 
 @end
