@@ -9,14 +9,16 @@
 #import <BLECentralManager/BLECentralManager.h>
 #import "ViewController.h"
 #import "DataCharacteristic.h"
+#import "InfoCharacteristic.h"
 
 
 @interface ViewController (Device) <BLECDeviceDelegate>
-
 @end
 
-@interface ViewController (Characteristic) <DataCharacteristicDelegate>
+@interface ViewController (DataCharacteristic) <DataCharacteristicDelegate>
+@end
 
+@interface ViewController (InfoCharacteristic) <InfoCharacteristicDelegate>
 @end
 
 
@@ -34,8 +36,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    DataCharacteristic *handler = [[DataCharacteristic alloc] init];
-    handler.delegate = self;
+
+    DataCharacteristic *dataChar = [[DataCharacteristic alloc] init];
+    dataChar.delegate = self;
+
+    NSArray<InfoCharacteristic *> *infoChars = @[
+                                                 [[InfoCharacteristic alloc] initWithName:@"Company"],
+                                                 [[InfoCharacteristic alloc] initWithName:@"Firmware"],
+                                                 [[InfoCharacteristic alloc] initWithName:@"HwRev"],
+                                                 [[InfoCharacteristic alloc] initWithName:@"SwRev"]
+                                                 ];
+    [infoChars makeObjectsPerformSelector:@selector(setDelegate:) withObject:self];
+
     BLECConfig *config = [BLECConfig
                           masterConfigWithType:BLECentralTypeOnePheriperal
                           services:@[
@@ -46,9 +58,36 @@
                                                         [BLECCharacteristicConfig
                                                          characteristicConfigWithType:BLECCharacteristicTypeRequired
                                                          UUID:@"89E63F02-9932-4DF1-91C7-A574C880EFBF"
-                                                         delegate:handler]
-                                                        ]]
+                                                         delegate:dataChar]
+                                                        ]],
+                                     [BLECServiceConfig
+                                      serviceConfigWithType:BLECServiceTypeOptional
+                                      UUID:@"180a"
+                                      characteristics:@[
+                                                        // company
+                                                        [BLECCharacteristicConfig
+                                                         characteristicConfigWithType:BLECCharacteristicTypeOptional
+                                                         UUID:@"2a29"
+                                                         delegate:infoChars[0]],
 
+                                                        // board
+                                                        [BLECCharacteristicConfig
+                                                         characteristicConfigWithType:BLECCharacteristicTypeOptional
+                                                         UUID:@"2a26"
+                                                         delegate:infoChars[1]],
+
+                                                        // HwRev
+                                                        [BLECCharacteristicConfig
+                                                         characteristicConfigWithType:BLECCharacteristicTypeRequired
+                                                         UUID:@"2a27"
+                                                         delegate:infoChars[2]],
+
+                                                        // HwRev
+                                                        [BLECCharacteristicConfig
+                                                         characteristicConfigWithType:BLECCharacteristicTypeRequired
+                                                         UUID:@"2a28"
+                                                         delegate:infoChars[3]]
+                                                        ]]
                                      ]];
     _manager = [[BLECManager alloc] initWithConfig:config queue:nil];
     _manager.delegate = self;
@@ -182,7 +221,7 @@ didDisconnectDevice:(BLECDevice *)device
 // Data characteristic extension.
 //............................................................................
 
-@implementation ViewController (Characteristic)
+@implementation ViewController (DataCharacteristic)
 
 - (void)found
 {
@@ -192,6 +231,20 @@ didDisconnectDevice:(BLECDevice *)device
 - (void)dataRead:(NSUInteger)dataSize
 {
     _dataSize += dataSize;
+}
+
+@end
+
+
+//............................................................................
+// Info characteristic extension.
+//............................................................................
+
+@implementation ViewController (InfoCharacteristic)
+
+- (void)infoCharacteristicName:(NSString *)name value:(NSString *)value
+{
+    _appendNSStringLog(self, [NSString stringWithFormat:@"%@: %@", name, value]);
 }
 
 @end
