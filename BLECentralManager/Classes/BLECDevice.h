@@ -10,6 +10,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "BLECCharacteristicDelegate.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(uint32_t, BLECPeripheralState) {
     BLECPeripheralStateNone       = 0,
@@ -19,8 +20,8 @@ typedef NS_OPTIONS(uint32_t, BLECPeripheralState) {
 
 @interface BLECDeviceData : NSObject
 
-@property (nonatomic, nonnull, strong) CBCharacteristic *characteristic;
-@property (nonatomic, nonnull, strong) id<BLECCharacteristicDelegate> delegate;
+@property (nonatomic, strong) CBCharacteristic *characteristic;
+@property (nonatomic, strong) id<BLECCharacteristicDelegate> delegate;
 @property (nonatomic, assign) NSUInteger serviceIndex;
 @property (nonatomic, assign) NSUInteger characteristicIndex;
 
@@ -30,13 +31,15 @@ typedef NS_OPTIONS(uint32_t, BLECPeripheralState) {
 
 @property (nonatomic, nullable, strong) CBPeripheral *peripheral;
 @property (nonatomic, assign) BLECPeripheralState state;
-@property (nonatomic, nonnull, strong) NSUUID *UUID;
-@property (nonatomic, nonnull, strong) NSMutableDictionary<CBUUID *, BLECDeviceData *> *characteristics;
+@property (nonatomic, strong) NSUUID *UUID;
+@property (nonatomic, strong) NSMutableDictionary<CBUUID *, BLECDeviceData *> *characteristics;
 
-- (nonnull instancetype)initWithUUID:(nonnull NSUUID *)uuid;
-- (nonnull instancetype)initWithPeripheral:(nonnull CBPeripheral *)peripheral;
+- (nonnull instancetype)initWithUUID:(NSUUID *)uuid;
+- (nonnull instancetype)initWithPeripheral:(CBPeripheral *)peripheral;
 - (nullable CBCharacteristic *)characteristicAt:(NSUInteger)charIndex
                                     inServiceAt:(NSUInteger)serviceIndex;
 - (void)readRSSI;
 
 @end
+
+NS_ASSUME_NONNULL_END
