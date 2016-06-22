@@ -219,6 +219,9 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
     }
 }
 
+
+#pragma mark Peripheral methods
+
 - (void)peripheral:(CBPeripheral *)peripheral
 didDiscoverCharacteristicsForService:(CBService *)service
              error:(NSError *)error
@@ -301,25 +304,73 @@ didDiscoverCharacteristicsForService:(CBService *)service
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral
-didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
-             error:(NSError *)error
-{
-    BLECDevice * __weak device = [self findDeviceByPeripheral:peripheral];
-    BLECDeviceData *data = device.characteristics[characteristic.UUID];
-    id<BLECCharacteristicDelegate> delegate = data.delegate;
-    NSAssert(delegate != nil, @"");
-    if ([delegate respondsToSelector:@selector(device:didUpdateValueForCharacteristic:error:)]) {
-        [delegate device:device didUpdateValueForCharacteristic:characteristic error:error];
-    }
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral
        didReadRSSI:(NSNumber *)RSSI
              error:(NSError *)error
 {
     BLECDevice * __weak dev = [self findDeviceByPeripheral:peripheral];
     if ([_delegate respondsToSelector:@selector(device:didReadRSSI:error:)]) {
         [_delegate device:dev didReadRSSI:RSSI error:error];
+    }
+}
+
+- (void)peripheralDidUpdateName:(CBPeripheral *)peripheral
+{
+    DLog(@"peripheral: %@ changed it's name to: %@",
+         peripheral, peripheral.name);
+    BLECDevice * __weak dev = [self findDeviceByPeripheral:peripheral];
+    if ([_delegate respondsToSelector:@selector(deviceDidUpdateName:)]) {
+        [_delegate deviceDidUpdateName:dev];
+    }
+}
+
+
+#pragma mark Characteristic methods
+
+- (void)peripheral:(CBPeripheral *)peripheral
+didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
+             error:(NSError *)error
+{
+    BLECDevice * __weak device = [self findDeviceByPeripheral:peripheral];
+    BLECDeviceData *data = device.characteristics[characteristic.UUID];
+    id<BLECCharacteristicDelegate> delegate = data.delegate;
+    NSAssert(delegate, @"No delegate for characteristic: %@", characteristic);
+    if ([delegate respondsToSelector:@selector(device:didUpdateValueForCharacteristic:error:)]) {
+        [delegate device:device didUpdateValueForCharacteristic:characteristic error:error];
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral
+didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
+             error:(NSError *)error
+{
+    DLog(@"Characteristic: %@ is written with error: %@.", characteristic, error);
+    BLECDevice * __weak device = [self findDeviceByPeripheral:peripheral];
+
+#ifdef DEBUG
+    NSUUID *UUID = peripheral.identifier;
+    NSAssert([device.UUID isEqual:UUID], @"should be equal.");
+#endif
+
+    BLECDeviceData *data = device.characteristics[characteristic.UUID];
+    id<BLECCharacteristicDelegate> delegate = data.delegate;
+    NSAssert(delegate, @"No delegate for characteristic: %@", characteristic);
+    if ([delegate respondsToSelector:@selector(device:didWriteValueForCharacteristic:error:)]) {
+        [delegate device:device didWriteValueForCharacteristic:characteristic error:error];
+    }
+}
+
+
+- (void)peripheral:(CBPeripheral *)peripheral
+didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
+             error:(NSError *)error
+{
+    DLog(@"updated notification's state: %@", characteristic);
+    BLECDevice * __weak device = [self findDeviceByPeripheral:peripheral];
+    BLECDeviceData *data = device.characteristics[characteristic.UUID];
+    id<BLECCharacteristicDelegate> delegate = data.delegate;
+    NSAssert(delegate, @"No delegate for characteristic: %@", characteristic);
+    if ([delegate respondsToSelector:@selector(device:didUpdateNotificationStateForCharacteristic:error:)]) {
+        [delegate device:device didUpdateNotificationStateForCharacteristic:characteristic error:error];
     }
 }
 

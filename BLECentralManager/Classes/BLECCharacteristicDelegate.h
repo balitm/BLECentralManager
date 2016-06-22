@@ -8,16 +8,19 @@
 
 #import <CoreBluetooth/CoreBluetooth.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class BLECDevice;
 
 @protocol BLECCharacteristicDelegate <NSObject>
 @required
-- (void)device:(nonnull BLECDevice*)device
-didFindCharacteristic:(nonnull CBCharacteristic *)characteristic;
+- (void)device:(BLECDevice *)device didFindCharacteristic:(CBCharacteristic *)characteristic;
 
 @optional
-- (void)device:(nonnull BLECDevice*)device
-didUpdateValueForCharacteristic:(nonnull CBCharacteristic *)characteristic
-         error:(nullable NSError *)error;
+- (void)device:(BLECDevice *)device didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error;
+- (void)device:(BLECDevice *)device didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error;
+- (void)device:(BLECDevice *)device didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error;
 
 @end
+
+NS_ASSUME_NONNULL_END
