@@ -1,11 +1,18 @@
 use_frameworks!
+workspace '../BLECentralManager'
 
 target 'BLECentralManager_Example' do
+  platform :ios, '9.0'
+  project 'BLECentralManager'
   pod 'BLECentralManager', :path => '../'
 
   target 'BLECentralManager_Tests' do
     inherit! :search_paths
 
-    
   end
+end
+
+target 'Peripheral_Example' do
+  platform :osx, '10.11'
+  project 'Peripheral_Example'
 end
