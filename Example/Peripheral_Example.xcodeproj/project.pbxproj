@@ -7,20 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29314BF01D1BEDF50084D691 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29314BEF1D1BEDF50084D691 /* Peripheral.swift */; };
 		298358BD1D1BE5D1000F1EE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298358BC1D1BE5D1000F1EE7 /* AppDelegate.swift */; };
 		298358BF1D1BE5D1000F1EE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298358BE1D1BE5D1000F1EE7 /* ViewController.swift */; };
 		298358C11D1BE5D1000F1EE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298358C01D1BE5D1000F1EE7 /* Assets.xcassets */; };
 		298358C41D1BE5D1000F1EE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 298358C21D1BE5D1000F1EE7 /* Main.storyboard */; };
+		29FF7D111D1D7E1A007A057F /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FF7D101D1D7E1A007A057F /* Log.swift */; };
 		4D3DA0591256CEA9E635E5D4 /* Pods_Peripheral_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4260746C34CD5D1C0274D1 /* Pods_Peripheral_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29314BEF1D1BEDF50084D691 /* Peripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
 		298358B91D1BE5D1000F1EE7 /* Peripheral_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Peripheral_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		298358BC1D1BE5D1000F1EE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		298358BE1D1BE5D1000F1EE7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		298358C01D1BE5D1000F1EE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		298358C31D1BE5D1000F1EE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		298358C51D1BE5D1000F1EE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29FF7D101D1D7E1A007A057F /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		2E4260746C34CD5D1C0274D1 /* Pods_Peripheral_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peripheral_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64741D9C5FC47F5BB201005A /* Pods-Peripheral_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripheral_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Peripheral_Example/Pods-Peripheral_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D0EB0C4C6C97A4FFFD05A6BA /* Pods-Peripheral_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Peripheral_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Peripheral_Example/Pods-Peripheral_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				298358C01D1BE5D1000F1EE7 /* Assets.xcassets */,
 				298358C21D1BE5D1000F1EE7 /* Main.storyboard */,
 				298358C51D1BE5D1000F1EE7 /* Info.plist */,
+				29314BEF1D1BEDF50084D691 /* Peripheral.swift */,
+				29FF7D101D1D7E1A007A057F /* Log.swift */,
 			);
 			path = Peripheral_Example;
 			sourceTree = "<group>";
@@ -209,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				298358BF1D1BE5D1000F1EE7 /* ViewController.swift in Sources */,
+				29314BF01D1BEDF50084D691 /* Peripheral.swift in Sources */,
+				29FF7D111D1D7E1A007A057F /* Log.swift in Sources */,
 				298358BD1D1BE5D1000F1EE7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +275,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
