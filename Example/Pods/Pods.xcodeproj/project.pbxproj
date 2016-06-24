@@ -22,7 +22,6 @@
 		98CF3A607F8822D65CF224906D9C066B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C89EDC2EC27D60F4934F3C043A7D91 /* Foundation.framework */; };
 		9E3D44157E56BCFAA3D4D5BDA80CE86D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE25DD04263CA735DBC0065D686C708D /* Cocoa.framework */; };
 		9F1BCF6FD1AF5AAF7961DEB11F8FE72B /* Pods-BLECentralManager_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AB01A5CC81DC40AC2ACDF5CE979FD5 /* Pods-BLECentralManager_Example-dummy.m */; };
-		A023839881AE8A649A975C9517C7189F /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F9EB3F51D0525AE7A632E3A766B1EAE9 /* Log.m */; };
 		AF245F090E6554521D65740E968CF8C1 /* BLECDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = D00C0D8C0E009CC426ACB2DA6021ED68 /* BLECDevice.m */; };
 		C4CC94E9748C8951BA620425E7DFC0A7 /* BLECManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D414866C6BFC234141342A18F5ABF6C7 /* BLECManager.m */; };
 		D1009E9355B8854B5F42D8919B29093F /* Pods-Peripheral_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A312EC57F92F21B1E2A8AA05C440A890 /* Pods-Peripheral_Example-dummy.m */; };
@@ -93,7 +92,6 @@
 		DE25DD04263CA735DBC0065D686C708D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		EBE15173CF9367D3359166378FC60E75 /* Pods-Peripheral_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Peripheral_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		EE7EB3D8BDF2FBC57F1E839995A08E4B /* Pods-BLECentralManager_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BLECentralManager_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F9EB3F51D0525AE7A632E3A766B1EAE9 /* Log.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
 		FC7EF4521C12545F691F65B9A815C696 /* Pods_Peripheral_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Peripheral_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -264,7 +262,6 @@
 				82C769A7E677805AC2C6D5D7FDD45D7F /* BLECManager.h */,
 				D414866C6BFC234141342A18F5ABF6C7 /* BLECManager.m */,
 				C269EE5978B95062A496CF5517AF9F71 /* Log.h */,
-				F9EB3F51D0525AE7A632E3A766B1EAE9 /* Log.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -478,7 +475,6 @@
 				AF245F090E6554521D65740E968CF8C1 /* BLECDevice.m in Sources */,
 				257B7B816BC2E24CBCB4556DD86FBB3F /* BLECentralManager-dummy.m in Sources */,
 				C4CC94E9748C8951BA620425E7DFC0A7 /* BLECManager.m in Sources */,
-				A023839881AE8A649A975C9517C7189F /* Log.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
