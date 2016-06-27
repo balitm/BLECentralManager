@@ -344,6 +344,18 @@ didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
     if ([delegate respondsToSelector:@selector(device:didUpdateValueForCharacteristic:error:)]) {
         [delegate device:device didUpdateValueForCharacteristic:characteristic error:error];
     }
+
+    //---- check if readonly ----
+    if (characteristic.properties == CBCharacteristicPropertyRead) {
+        BOOL release = YES;
+        if ([delegate respondsToSelector:@selector(device:releaseReadonlyCharacteristic:)]) {
+            release = [delegate device:device releaseReadonlyCharacteristic:characteristic];
+        }
+        if (release) {
+            // Release <BLECDeviceData *data>.
+            device.characteristics[characteristic.UUID] = nil;
+        }
+    }
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral

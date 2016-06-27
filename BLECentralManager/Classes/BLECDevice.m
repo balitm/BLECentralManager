@@ -8,12 +8,8 @@
 
 #import "BLECDevice.h"
 
+
 @implementation BLECDeviceData
-
-@end
-
-
-@interface BLECDevice ()
 
 @end
 

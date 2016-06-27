@@ -43,4 +43,9 @@ didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
     [_delegate infoCharacteristicName:_name value:value];
 }
 
+- (BOOL)device:(BLECDevice *)device releaseReadonlyCharacteristic:(CBCharacteristic *)characteristic
+{
+    return YES;
+}
+
 @end
