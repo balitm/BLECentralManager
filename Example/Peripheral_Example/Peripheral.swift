@@ -11,8 +11,8 @@ import CoreBluetooth
 
 class Peripheral: NSObject {
 
-    private let _kDataServiceUUID = "965F6F06-2198-4F4F-A333-4C5E0F238EB7"
-    private let _kDataCharacteristic = "89E63F02-9932-4DF1-91C7-A574C880EFBF"
+    private let _kDataServiceUUID = CBUUID(string: "965F6F06-2198-4F4F-A333-4C5E0F238EB7")
+    private let _kDataCharacteristicUUID = CBUUID(string: "89E63F02-9932-4DF1-91C7-A574C880EFBF")
 
     private weak var _delegate: PeripheralDelegate!
     private var _sampleData: NSData?
@@ -44,12 +44,12 @@ class Peripheral: NSObject {
         // Create a BTLE Peripheral Service and set it to be the primary. If it
         // is not set to the primary, it will not be found when the app is in the
         // background.
-        _dataService = CBMutableService(type: CBUUID(string: _kDataServiceUUID),
+        _dataService = CBMutableService(type: _kDataServiceUUID,
                                         primary: true)
 
         // Set up the characteristic in the service. This characteristic is only
         // readable through subscription (CBCharacteristicsPropertyNotify)
-        _dataCharacteristic = CBMutableCharacteristic(type: CBUUID(string: _kDataCharacteristic),
+        _dataCharacteristic = CBMutableCharacteristic(type: _kDataCharacteristicUUID,
                                                       properties: .Notify,
                                                       value: nil,
                                                       permissions: .Readable)
@@ -78,7 +78,7 @@ class Peripheral: NSObject {
             _manager.stopAdvertising()
         }
 
-        let advertisment = [CBAdvertisementDataServiceUUIDsKey : _kDataServiceUUID]
+        let advertisment = [CBAdvertisementDataServiceUUIDsKey : [_kDataServiceUUID]]
         _manager.startAdvertising(advertisment)
     }
 
@@ -90,13 +90,15 @@ class Peripheral: NSObject {
         while _repeatCount > 0 {
             let res = _manager.updateValue(_sampleData!,
                                            forCharacteristic: _dataCharacteristic!,
-                                           onSubscribedCentrals: _subscribers)
+                                           onSubscribedCentrals: nil)
+//            DLog("Sending \(_sampleData?.bytes) data, rc: \(_repeatCount), max: \(_subscribers.count > 0 ? _subscribers[0].maximumUpdateValueLength : 0)")
             if (!res) {
-                DLog("Failed to send data, buffering data for retry once ready.")
+//                DLog("Failed to send data, buffering data for retry once ready.")
                 // _pendingData = _sampleData;
                 break
+            } else {
+                _repeatCount -= 1
             }
-            _repeatCount -= 1
         }
     }
 
@@ -111,7 +113,8 @@ class Peripheral: NSObject {
         }
 
         _repeatCount = repeatCount
-        DLog("repeat count set to \(repeatCount)")
+        _sampleData = data
+//        DLog("repeat count set to \(repeatCount)")
         _notifySubscribers()
     }
 }
@@ -152,29 +155,34 @@ extension Peripheral: CBPeripheralManagerDelegate {
         }
 
         // As soon as the service is added, we should start advertising.
-        startAdvertising()
-        DLog("Peripheral started advertising.")
+        if service == _dataService {
+            startAdvertising()
+            DLog("Peripheral advertising...")
+        }
     }
 
     func peripheralManager(peripheral: CBPeripheralManager,
                            central: CBCentral,
                            didSubscribeToCharacteristic characteristic: CBCharacteristic) {
-        _delegate.central(central.identifier.UUIDString,
-                          didSubscribeToCharacteristic: characteristic.UUID.UUIDString)
         assert(!_subscribers.contains(central))
         _subscribers.append(central)
+        _manager.setDesiredConnectionLatency(.Low, forCentral: central)
+        DLog("Appended - subscribers: \(_subscribers)")
+        _delegate.central(central.identifier.UUIDString,
+                          didSubscribeToCharacteristic: characteristic.UUID.UUIDString)
     }
 
     func peripheralManager(peripheral: CBPeripheralManager,
                            central: CBCentral,
                            didUnsubscribeFromCharacteristic characteristic: CBCharacteristic) {
-        _delegate.central(central.identifier.UUIDString,
-                          didUnsubscribeFromCharacteristic: characteristic.UUID.UUIDString)
         if let index = _subscribers.indexOf(central) {
             _subscribers.removeAtIndex(index)
+            DLog("Removed - subscribers: \(_subscribers)")
         } else {
             assert(false)
         }
+        _delegate.central(central.identifier.UUIDString,
+                          didUnsubscribeFromCharacteristic: characteristic.UUID.UUIDString)
     }
 
     func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager,
@@ -188,7 +196,7 @@ extension Peripheral: CBPeripheralManagerDelegate {
     }
 
     func peripheralManagerIsReadyToUpdateSubscribers(peripheral: CBPeripheralManager) {
-        DLog("current repeat count is \(_repeatCount)")
+//        DLog("current repeat count is \(_repeatCount)")
         _notifySubscribers()
     }
 }

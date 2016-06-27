@@ -20,13 +20,13 @@ class ViewController: NSViewController {
 
     private var _peripheral: Peripheral!
     private let _sampleData = "01234567890123456789".dataUsingEncoding(NSASCIIStringEncoding)!
-    private let _kRepeatCount: UInt = 20
-    private var _timer: NSTimer!
+    private let _kRepeatCount: UInt = 640
+    private var _timer: NSTimer?
+
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         _peripheral = Peripheral(delegate: self)
-        _timer = NSTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
     }
 
     override func viewDidLoad() {
@@ -54,18 +54,21 @@ extension ViewController: PeripheralDelegate {
 
     func central(central: String, didSubscribeToCharacteristic characteristic: String) {
         logMessage("subscribed central: \(central) for \(characteristic)")
-        if !_timer.valid {
+        if _timer == nil {
             DLog("start timer.")
-            NSRunLoop.currentRunLoop().addTimer(_timer, forMode: NSDefaultRunLoopMode)
-            _timer.fire()
+            _timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+            _timer!.fire()
         }
     }
 
     func central(central: String, didUnsubscribeFromCharacteristic characteristic: String) {
         logMessage("unsubscribed central: \(central) for \(characteristic)")
         if _peripheral.subscribersCount == 0 {
-            DLog("start timer.")
-            _timer.invalidate()
+            if let timer = _timer {
+                DLog("stop timer.")
+                timer.invalidate()
+                _timer = nil
+            }
         }
     }
 }

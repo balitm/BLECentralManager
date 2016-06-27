@@ -64,7 +64,7 @@
                                       serviceConfigWithType:BLECServiceTypeOptional
                                       UUID:@"180a"
                                       characteristics:@[
-                                                        // company
+                                                        // Manufacturer Name String characteristic.
                                                         [BLECCharacteristicConfig
                                                          characteristicConfigWithType:BLECCharacteristicTypeOptional
                                                          UUID:@"2a29"
