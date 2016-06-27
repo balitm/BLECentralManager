@@ -11,8 +11,3 @@ target 'BLECentralManager_Example' do
 
   end
 end
-
-target 'Peripheral_Example' do
-  platform :osx, '10.11'
-  project 'Peripheral_Example'
-end
