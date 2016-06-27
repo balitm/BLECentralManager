@@ -230,7 +230,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
     NSUInteger serviceIndex;
     BLECServiceConfig *sc = [_config findServiceConfigFor:service.UUID
                                                     index:&serviceIndex];
-    NSUInteger charCount = sc.charecteristicCount;
+    NSUInteger charCount = service.characteristics.count;
     NSMutableArray<CBCharacteristic *> *characteristics = [[NSMutableArray alloc] initWithCapacity:charCount];
     NSMutableArray *delegates = [[NSMutableArray alloc] initWithCapacity:charCount];
     NSUInteger index = 0;
@@ -238,6 +238,12 @@ didDiscoverCharacteristicsForService:(CBService *)service
     id<BLECCharacteristicDelegate> charDelegate;
 
     if (sc) {
+        if (charCount < sc.requiredCharcteristicUUIDs.count) {
+            DLog(@"Too few characteristic in service: %@", service);
+            [_manager cancelPeripheralConnection:peripheral];
+            return;
+        }
+
         //---- fill the characteristic array ----
         for (NSUInteger i = 0; i < charCount; ++i) {
             [delegates addObject:[NSNull null]];
@@ -253,6 +259,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
         } else {
             BLECCharacteristicConfig *cc = [sc findCharacteristicConfigFor:aChar.UUID
                                                                      index:&index];
+            DLog(@"####### Char found: %@, config: %@", aChar, cc);
             if (cc) {
                 if (cc.type & BLECCharacteristicTypeRequired) {
                     req++;

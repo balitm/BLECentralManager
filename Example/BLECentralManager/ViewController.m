@@ -66,7 +66,7 @@
                                       characteristics:@[
                                                         // Manufacturer Name String characteristic.
                                                         [BLECCharacteristicConfig
-                                                         characteristicConfigWithType:BLECCharacteristicTypeOptional
+                                                         characteristicConfigWithType:BLECCharacteristicTypeRequired
                                                          UUID:@"2a29"
                                                          delegate:infoChars[0]],
 
@@ -78,13 +78,13 @@
 
                                                         // HwRev
                                                         [BLECCharacteristicConfig
-                                                         characteristicConfigWithType:BLECCharacteristicTypeRequired
+                                                         characteristicConfigWithType:BLECCharacteristicTypeOptional
                                                          UUID:@"2a27"
                                                          delegate:infoChars[2]],
 
                                                         // HwRev
                                                         [BLECCharacteristicConfig
-                                                         characteristicConfigWithType:BLECCharacteristicTypeRequired
+                                                         characteristicConfigWithType:BLECCharacteristicTypeOptional
                                                          UUID:@"2a28"
                                                          delegate:infoChars[3]]
                                                         ]]
@@ -196,6 +196,7 @@ didDisconnectDevice:(BLECDevice *)device
 {
     DLog(@"Disconnected");
     _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier]);
+    _rssiLabel.text = @"0";
     if (_timer) {
         [_timer invalidate];
         _timer = nil;
