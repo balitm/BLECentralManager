@@ -58,16 +58,16 @@
 		29DDBB731D1827C80075A65D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2A3BBC2F755CD31499E3CE21 /* Pods-BLECentralManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_Tests/Pods-BLECentralManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		46A9C274E8E7B558F0C99717 /* Pods-BLECentralManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_Example/Pods-BLECentralManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* BLECentralManager_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECentralManager_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* BLECentralManager_iOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECentralManager_iOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F595195388D20070C39A /* BLECentralManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLECentralManager-Info.plist"; sourceTree = "<group>"; };
+		6003F595195388D20070C39A /* BLECentralManager_iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLECentralManager_iOS-Info.plist"; sourceTree = "<group>"; };
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6003F59B195388D20070C39A /* BLECentralManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLECentralManager-Prefix.pch"; sourceTree = "<group>"; };
+		6003F59B195388D20070C39A /* BLECentralManager_iOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLECentralManager_iOS-Prefix.pch"; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* BLECentralManager_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLECentralManager_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* BLECentralManager_iOS_Example.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLECentralManager_iOS_Example.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* BLECentralManager_Example.app */,
-				6003F5AE195388D20070C39A /* BLECentralManager_Tests.xctest */,
+				6003F58A195388D20070C39A /* BLECentralManager_iOS_Example.app */,
+				6003F5AE195388D20070C39A /* BLECentralManager_iOS_Example.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,10 +170,10 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F595195388D20070C39A /* BLECentralManager-Info.plist */,
+				6003F595195388D20070C39A /* BLECentralManager_iOS-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
-				6003F59B195388D20070C39A /* BLECentralManager-Prefix.pch */,
+				6003F59B195388D20070C39A /* BLECentralManager_iOS-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -221,9 +221,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* BLECentralManager_Example */ = {
+		6003F589195388D20070C39A /* BLECentralManager_iOS_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "BLECentralManager_Example" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "BLECentralManager_iOS_Example" */;
 			buildPhases = (
 				3AACE252F57B3347A1D01818 /* 📦 Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
@@ -236,14 +236,14 @@
 			);
 			dependencies = (
 			);
-			name = BLECentralManager_Example;
+			name = BLECentralManager_iOS_Example;
 			productName = BLECentralManager;
-			productReference = 6003F58A195388D20070C39A /* BLECentralManager_Example.app */;
+			productReference = 6003F58A195388D20070C39A /* BLECentralManager_iOS_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6003F5AD195388D20070C39A /* BLECentralManager_Tests */ = {
+		6003F5AD195388D20070C39A /* BLECentralManager_iOS_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "BLECentralManager_Tests" */;
+			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "BLECentralManager_iOS_Tests" */;
 			buildPhases = (
 				8A7A26B061FCC91FD26E66B1 /* 📦 Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
@@ -257,9 +257,9 @@
 			dependencies = (
 				6003F5B4195388D20070C39A /* PBXTargetDependency */,
 			);
-			name = BLECentralManager_Tests;
+			name = BLECentralManager_iOS_Tests;
 			productName = BLECentralManagerTests;
-			productReference = 6003F5AE195388D20070C39A /* BLECentralManager_Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* BLECentralManager_iOS_Example.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -277,7 +277,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "BLECentralManager" */;
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "BLECentralManager_iOS" */;
 			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -290,8 +290,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* BLECentralManager_Example */,
-				6003F5AD195388D20070C39A /* BLECentralManager_Tests */,
+				6003F589195388D20070C39A /* BLECentralManager_iOS_Example */,
+				6003F5AD195388D20070C39A /* BLECentralManager_iOS_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -437,7 +437,7 @@
 /* Begin PBXTargetDependency section */
 		6003F5B4195388D20070C39A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* BLECentralManager_Example */;
+			target = 6003F589195388D20070C39A /* BLECentralManager_iOS_Example */;
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -541,12 +541,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BLECentralManager/BLECentralManager-Prefix.pch";
-				INFOPLIST_FILE = "BLECentralManager/BLECentralManager-Info.plist";
+				GCC_PREFIX_HEADER = "BLECentralManager/BLECentralManager_iOS-Prefix.pch";
+				INFOPLIST_FILE = "BLECentralManager/BLECentralManager_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BLECentralManager_iOS_Example;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -557,12 +557,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BLECentralManager/BLECentralManager-Prefix.pch";
-				INFOPLIST_FILE = "BLECentralManager/BLECentralManager-Info.plist";
+				GCC_PREFIX_HEADER = "BLECentralManager/BLECentralManager_iOS-Prefix.pch";
+				INFOPLIST_FILE = "BLECentralManager/BLECentralManager_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BLECentralManager_iOS_Example;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -581,8 +581,8 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_Example.app/BLECentralManager_Example";
+				PRODUCT_NAME = BLECentralManager_iOS_Example;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_iOS_Example.app/BLECentralManager_iOS_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -601,8 +601,8 @@
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_Example.app/BLECentralManager_Example";
+				PRODUCT_NAME = BLECentralManager_iOS_Example;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_iOS_Example.app/BLECentralManager_iOS_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -610,7 +610,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6003F585195388D10070C39A /* Build configuration list for PBXProject "BLECentralManager" */ = {
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "BLECentralManager_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,
@@ -619,7 +619,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "BLECentralManager_Example" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "BLECentralManager_iOS_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
@@ -628,7 +628,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "BLECentralManager_Tests" */ = {
+		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "BLECentralManager_iOS_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,

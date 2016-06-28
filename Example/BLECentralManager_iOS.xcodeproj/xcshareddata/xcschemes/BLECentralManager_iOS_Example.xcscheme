@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "BLECentralManager_Example.app"
-               BlueprintName = "BLECentralManager_Example"
-               ReferencedContainer = "container:BLECentralManager.xcodeproj">
+               BuildableName = "BLECentralManager_iOS_Example.app"
+               BlueprintName = "BLECentralManager_iOS_Example"
+               ReferencedContainer = "container:BLECentralManager_iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F5AD195388D20070C39A"
-               BuildableName = "BLECentralManager_Tests.xctest"
-               BlueprintName = "BLECentralManager_Tests"
-               ReferencedContainer = "container:BLECentralManager.xcodeproj">
+               BuildableName = "BLECentralManager_iOS_Example.xctest"
+               BlueprintName = "BLECentralManager_iOS_Tests"
+               ReferencedContainer = "container:BLECentralManager_iOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "BLECentralManager_Example.app"
-            BlueprintName = "BLECentralManager_Example"
-            ReferencedContainer = "container:BLECentralManager.xcodeproj">
+            BuildableName = "BLECentralManager_iOS_Example.app"
+            BlueprintName = "BLECentralManager_iOS_Example"
+            ReferencedContainer = "container:BLECentralManager_iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "BLECentralManager_Example.app"
-            BlueprintName = "BLECentralManager_Example"
-            ReferencedContainer = "container:BLECentralManager.xcodeproj">
+            BuildableName = "BLECentralManager_iOS_Example.app"
+            BlueprintName = "BLECentralManager_iOS_Example"
+            ReferencedContainer = "container:BLECentralManager_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "BLECentralManager_Example.app"
-            BlueprintName = "BLECentralManager_Example"
-            ReferencedContainer = "container:BLECentralManager.xcodeproj">
+            BuildableName = "BLECentralManager_iOS_Example.app"
+            BlueprintName = "BLECentralManager_iOS_Example"
+            ReferencedContainer = "container:BLECentralManager_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
