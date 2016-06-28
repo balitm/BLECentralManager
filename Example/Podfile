@@ -11,3 +11,12 @@ target 'BLECentralManager_iOS_Example' do
 
   end
 end
+
+target :'BLECentralManager_Mac_Example' do
+  platform :osx, '10.11'
+  project 'BLECentralManager_Mac'
+  pod 'BLECentralManager', :path => '../'
+  target 'BLECentralManager_Mac_Tests' do
+    inherit! :search_paths
+  end
+end

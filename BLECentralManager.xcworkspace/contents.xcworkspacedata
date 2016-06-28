@@ -13,4 +13,7 @@
    <FileRef
       location = "group:Example/BLECentralManager_iOS.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Example/BLECentralManager_Mac.xcodeproj">
+   </FileRef>
 </Workspace>

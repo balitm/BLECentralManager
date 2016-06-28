@@ -84,8 +84,8 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/BLECentralManager-iOS/BLECentralManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/BLECentralManager-OSX/BLECentralManager.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/BLECentralManager-iOS/BLECentralManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/BLECentralManager-OSX/BLECentralManager.framework"
 fi
