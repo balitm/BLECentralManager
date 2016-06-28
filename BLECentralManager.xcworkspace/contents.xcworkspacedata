@@ -10,4 +10,7 @@
    <FileRef
       location = "group:Example/Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Example/BLECentralManager_iOS.xcodeproj">
+   </FileRef>
 </Workspace>
