@@ -1,5 +1,7 @@
 PODS:
-  - BLECentralManager (0.1.0)
+  - BLECentralManager (0.1.0):
+    - BLECentralManager/ObjC (= 0.1.0)
+  - BLECentralManager/ObjC (0.1.0)
 
 DEPENDENCIES:
   - BLECentralManager (from `../`)
@@ -9,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BLECentralManager: 9a4cf05e2712e975148c61cb773ddf3ba4c0e352
+  BLECentralManager: 579ff52c755af5a0dccdf594865853c612470e68
 
-PODFILE CHECKSUM: 01c2f5510e6f965bf30ee50f6ac300f75b59bf73
+PODFILE CHECKSUM: 0ee8d5066c05fdb0a01986fdb41562509a5159f8
 
 COCOAPODS: 1.0.0

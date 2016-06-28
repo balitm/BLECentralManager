@@ -29,14 +29,20 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+  s.osx.deployment_target = '10.11'
 
-  s.source_files = 'BLECentralManager/Classes/**/*'
+  s.default_subspecs = 'ObjC'
+ 
+  s.subspec 'ObjC' do |ss|
+    ss.source_files = 'BLECentralManager/Classes/ObjC/*'
+    ss.public_header_files = 'BLECentralManager/Classes/ObjC/BLEC*.h', 'Pods/Target Support Files/BLECentralManager/BLECentralManager.h'
+  end
+
   
   # s.resource_bundles = {
   #   'BLECentralManager' => ['BLECentralManager/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
