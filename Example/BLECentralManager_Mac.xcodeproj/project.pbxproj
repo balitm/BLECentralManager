@@ -11,12 +11,13 @@
 		29637DF41D22D86D00A5572C /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29637DF31D22D86D00A5572C /* BLECentralManager.framework */; };
 		2967A8241D242D4E0045AD4D /* DataCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967A81F1D242D4E0045AD4D /* DataCharacteristic.m */; };
 		2967A8251D242D4E0045AD4D /* InfoCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967A8221D242D4E0045AD4D /* InfoCharacteristic.m */; };
+		2967A8271D242E580045AD4D /* BLECConfigTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2967A8261D242E580045AD4D /* BLECConfigTest.m */; };
+		2967A8291D2430590045AD4D /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2967A8281D2430590045AD4D /* BLECentralManager.framework */; };
 		297BF3EA1D22D5BA0065512B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 297BF3E91D22D5BA0065512B /* AppDelegate.m */; };
 		297BF3ED1D22D5BA0065512B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 297BF3EC1D22D5BA0065512B /* main.m */; };
 		297BF3F01D22D5BA0065512B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297BF3EF1D22D5BA0065512B /* ViewController.m */; };
 		297BF3F21D22D5BA0065512B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 297BF3F11D22D5BA0065512B /* Assets.xcassets */; };
 		297BF3F51D22D5BA0065512B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 297BF3F31D22D5BA0065512B /* Main.storyboard */; };
-		297BF4001D22D5BA0065512B /* BLECentralManager_MacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 297BF3FF1D22D5BA0065512B /* BLECentralManager_MacTests.m */; };
 		612B8BCA9075F8B88B0E9B27 /* Pods_BLECentralManager_Mac_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86E718A09941215D984302C /* Pods_BLECentralManager_Mac_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 		2967A8211D242D4E0045AD4D /* InfoCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoCharacteristic.h; path = ../BLECentralManager_iOS/InfoCharacteristic.h; sourceTree = "<group>"; };
 		2967A8221D242D4E0045AD4D /* InfoCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfoCharacteristic.m; path = ../BLECentralManager_iOS/InfoCharacteristic.m; sourceTree = "<group>"; };
 		2967A8231D242D4E0045AD4D /* InfoCharacteristicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfoCharacteristicDelegate.h; path = ../BLECentralManager_iOS/InfoCharacteristicDelegate.h; sourceTree = "<group>"; };
+		2967A8261D242E580045AD4D /* BLECConfigTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLECConfigTest.m; sourceTree = "<group>"; };
+		2967A8281D2430590045AD4D /* BLECentralManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BLECentralManager.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BLECentralManager-clnlvjpslhyfdscivpbwsbmhqtqx/Build/Products/Debug/BLECentralManager-OSX/BLECentralManager.framework"; sourceTree = "<group>"; };
 		297BF3E51D22D5BA0065512B /* BLECentralManager_Mac_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECentralManager_Mac_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		297BF3E81D22D5BA0065512B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		297BF3E91D22D5BA0065512B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,7 +52,6 @@
 		297BF3F41D22D5BA0065512B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		297BF3F61D22D5BA0065512B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		297BF3FB1D22D5BA0065512B /* BLECentralManager_Mac_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLECentralManager_Mac_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		297BF3FF1D22D5BA0065512B /* BLECentralManager_MacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLECentralManager_MacTests.m; sourceTree = "<group>"; };
 		297BF4011D22D5BA0065512B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BCB2A279201B6B31AA6C649 /* Pods-BLECentralManager_Mac_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_Mac_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_Mac_Example/Pods-BLECentralManager_Mac_Example.release.xcconfig"; sourceTree = "<group>"; };
 		93DD39B59431134287D47BE9 /* Pods_BLECentralManager_Mac_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLECentralManager_Mac_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2967A8291D2430590045AD4D /* BLECentralManager.framework in Frameworks */,
 				612B8BCA9075F8B88B0E9B27 /* Pods_BLECentralManager_Mac_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,11 +136,10 @@
 		297BF3FE1D22D5BA0065512B /* BLECentralManager_Mac_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				297BF3FF1D22D5BA0065512B /* BLECentralManager_MacTests.m */,
+				2967A8261D242E580045AD4D /* BLECConfigTest.m */,
 				297BF4011D22D5BA0065512B /* Info.plist */,
 			);
-			name = BLECentralManager_Mac_Tests;
-			path = BLECentralManager_MacTests;
+			path = BLECentralManager_Mac_Tests;
 			sourceTree = "<group>";
 		};
 		B785CDFE4FFA33D34E71E288 /* Pods */ = {
@@ -154,6 +156,7 @@
 		DF647B1695C8B17240F7F5E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2967A8281D2430590045AD4D /* BLECentralManager.framework */,
 				29637DF31D22D86D00A5572C /* BLECentralManager.framework */,
 				93DD39B59431134287D47BE9 /* Pods_BLECentralManager_Mac_Example.framework */,
 				C86E718A09941215D984302C /* Pods_BLECentralManager_Mac_Tests.framework */,
@@ -201,7 +204,7 @@
 				297BF3FD1D22D5BA0065512B /* PBXTargetDependency */,
 			);
 			name = BLECentralManager_Mac_Tests;
-			productName = BLECentralManager_MacTests;
+			productName = BLECentralManager_Mac_Tests;
 			productReference = 297BF3FB1D22D5BA0065512B /* BLECentralManager_Mac_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -371,7 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297BF4001D22D5BA0065512B /* BLECentralManager_MacTests.m in Sources */,
+				2967A8271D242E580045AD4D /* BLECConfigTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,11 +522,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BLECentralManager_MacTests/Info.plist;
+				INFOPLIST_FILE = BLECentralManager_Mac_Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-MacTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_Mac.app/Contents/MacOS/BLECentralManager_Mac";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_Mac_Example.app/Contents/MacOS/BLECentralManager_Mac_Example";
 			};
 			name = Debug;
 		};
@@ -533,11 +536,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = BLECentralManager_MacTests/Info.plist;
+				INFOPLIST_FILE = BLECentralManager_Mac_Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-MacTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_Mac.app/Contents/MacOS/BLECentralManager_Mac";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_Mac_Example.app/Contents/MacOS/BLECentralManager_Mac_Example";
 			};
 			name = Release;
 		};

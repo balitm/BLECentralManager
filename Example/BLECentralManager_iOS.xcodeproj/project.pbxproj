@@ -17,7 +17,6 @@
 		29DDBB771D182ABF0075A65D /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DDBB561D1816230075A65D /* BLECentralManager.framework */; };
 		492607046BCFE0F2AF149930 /* Pods_BLECentralManager_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EC3B791FEDF51E6C61E3FB /* Pods_BLECentralManager_iOS_Example.framework */; };
 		4C2AC9A6E76844567E0319E4 /* Pods_BLECentralManager_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B633ED1B7FC98E6E5AFCC722 /* Pods_BLECentralManager_iOS_Tests.framework */; };
-		5EF712E1398D92322114DAA6 /* Pods_BLECentralManager_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10170DFF9DD014A9BE888D01 /* Pods_BLECentralManager_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -110,7 +109,6 @@
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
 				29DDBB571D1816230075A65D /* BLECentralManager.framework in Frameworks */,
-				5EF712E1398D92322114DAA6 /* Pods_BLECentralManager_Tests.framework in Frameworks */,
 				4C2AC9A6E76844567E0319E4 /* Pods_BLECentralManager_iOS_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,7 +121,7 @@
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for BLECentralManager */,
-				6003F5B5195388D20070C39A /* Tests */,
+				6003F5B5195388D20070C39A /* BLECentralManager_iOS_Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				806720A5A83C9A626EBA08DD /* Pods */,
@@ -190,13 +188,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6003F5B5195388D20070C39A /* Tests */ = {
+		6003F5B5195388D20070C39A /* BLECentralManager_iOS_Tests */ = {
 			isa = PBXGroup;
 			children = (
 				29DDBB531D180B790075A65D /* BLECConfigTest.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
-			path = Tests;
+			path = BLECentralManager_iOS_Tests;
 			sourceTree = "<group>";
 		};
 		6003F5B6195388D20070C39A /* Supporting Files */ = {
@@ -593,9 +591,9 @@
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "BLECentralManager_iOS_Tests/Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				INFOPLIST_FILE = "BLECentralManager_iOS_Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = BLECentralManager_iOS_Example;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_iOS_Example.app/BLECentralManager_iOS_Example";
@@ -614,8 +612,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
+				GCC_PREFIX_HEADER = "BLECentralManager_iOS_Tests/Tests-Prefix.pch";
+				INFOPLIST_FILE = "BLECentralManager_iOS_Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = BLECentralManager_iOS_Example;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_iOS_Example.app/BLECentralManager_iOS_Example";
