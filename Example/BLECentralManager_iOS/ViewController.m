@@ -204,7 +204,6 @@ didDisconnectDevice:(BLECDevice *)device
     DLog(@"Disconnected");
     NSString *message = [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier.UUIDString];
     dispatch_async(dispatch_get_main_queue(), ^{
-        DLog(@"Disconnected");
         _appendNSStringLog(self, message);
         _rssiLabel.text = @"0";
         if (_timer) {
