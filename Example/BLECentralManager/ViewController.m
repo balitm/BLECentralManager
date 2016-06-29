@@ -89,7 +89,8 @@
                                                          delegate:infoChars[3]]
                                                         ]]
                                      ]];
-    _manager = [[BLECManager alloc] initWithConfig:config queue:nil];
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    _manager = [[BLECManager alloc] initWithConfig:config queue:queue];
     _manager.delegate = self;
     _timer = nil;
     _dataSize = 0;
@@ -162,27 +163,33 @@ static void _showRSSI(ViewController *self, NSNumber *RSSI)
 
 - (void)centralDidUpdateState:(BLECManager *)manager
 {
-    _appendLog(self, _stateName(manager.state));
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _appendLog(self, _stateName(manager.state));
+    });
 }
 
 - (void)central:(BLECManager *)manager
 didDiscoverPeripheral:(CBPeripheral *)peripheral
            RSSI:(NSNumber *)RSSI
 {
-    char str[256];
-    snprintf(str, sizeof(str), "Discovered: %s", [[peripheral.identifier UUIDString] UTF8String]);
-    _appendLog(self, str);
-    _showRSSI(self, RSSI);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        char str[256];
+        snprintf(str, sizeof(str), "Discovered: %s", [[peripheral.identifier UUIDString] UTF8String]);
+        _appendLog(self, str);
+        _showRSSI(self, RSSI);
+    });
 }
 
 - (void)central:(BLECManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@", peripheral.identifier.UUIDString]);
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                              target:self
-                                            selector:@selector(update)
-                                            userInfo:nil
-                                             repeats:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@", peripheral.identifier.UUIDString]);
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                  target:self
+                                                selector:@selector(update)
+                                                userInfo:nil
+                                                 repeats:YES];
+    });
 }
 
 - (void)central:(BLECManager *)central didCheckCharacteristicsDevice:(nonnull BLECDevice *)device
@@ -195,24 +202,30 @@ didDisconnectDevice:(BLECDevice *)device
           error:(NSError *)error
 {
     DLog(@"Disconnected");
-    _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier.UUIDString]);
-    _rssiLabel.text = @"0";
-    if (_timer) {
-        [_timer invalidate];
-        _timer = nil;
-    }
+    NSString *message = [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier.UUIDString];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        DLog(@"Disconnected");
+        _appendNSStringLog(self, message);
+        _rssiLabel.text = @"0";
+        if (_timer) {
+            [_timer invalidate];
+            _timer = nil;
+        }
+    });
 }
 
 - (void)device:(BLECDevice *)device
    didReadRSSI:(NSNumber *)RSSI
          error:(NSError *)error
 {
-    if (error) {
-        DLog(@"error at RSSI reading: %@", error);
-        return;
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (error) {
+            DLog(@"error at RSSI reading: %@", error);
+            return;
+        }
 
-    _showRSSI(self, RSSI);
+        _showRSSI(self, RSSI);
+    });
 }
 
 @end
@@ -226,7 +239,9 @@ didDisconnectDevice:(BLECDevice *)device
 
 - (void)found
 {
-    _appendNSStringLog(self, [NSString stringWithFormat:@"Characteristic found!"]);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _appendNSStringLog(self, [NSString stringWithFormat:@"Characteristic found!"]);
+    });
 }
 
 - (void)dataRead:(NSUInteger)dataSize
@@ -245,7 +260,9 @@ didDisconnectDevice:(BLECDevice *)device
 
 - (void)infoCharacteristicName:(NSString *)name value:(NSString *)value
 {
-    _appendNSStringLog(self, [NSString stringWithFormat:@"%@: %@", name, value]);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _appendNSStringLog(self, [NSString stringWithFormat:@"%@: %@", name, value]);
+    });
 }
 
 @end
