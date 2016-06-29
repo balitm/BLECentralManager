@@ -196,7 +196,7 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
 
 - (void)central:(BLECManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@", peripheral.identifier]);
+    _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@", peripheral.identifier.UUIDString]);
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                               target:self
                                             selector:@selector(update)
@@ -214,7 +214,7 @@ didDisconnectDevice:(BLECDevice *)device
           error:(NSError *)error
 {
     DLog(@"Disconnected");
-    _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier]);
+    _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier.UUIDString]);
     _rssiLabel.stringValue = @"0";
     if (_timer) {
         [_timer invalidate];
