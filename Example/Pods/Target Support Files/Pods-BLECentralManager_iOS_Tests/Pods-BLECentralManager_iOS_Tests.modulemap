@@ -1,6 +1,0 @@
-framework module Pods_BLECentralManager_iOS_Tests {
-  umbrella header "Pods-BLECentralManager_iOS_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}

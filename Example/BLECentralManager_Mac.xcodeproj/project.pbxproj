@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1907796764C1C20004D18D28 /* Pods_BLECentralManager_Mac_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD39B59431134287D47BE9 /* Pods_BLECentralManager_Mac_Example.framework */; };
 		29637DF41D22D86D00A5572C /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29637DF31D22D86D00A5572C /* BLECentralManager.framework */; };
 		29637DFB1D22DD0100A5572C /* DataCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 29637DF61D22DD0100A5572C /* DataCharacteristic.m */; };
 		29637DFC1D22DD0100A5572C /* InfoCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 29637DF91D22DD0100A5572C /* InfoCharacteristic.m */; };
@@ -64,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29637DF41D22D86D00A5572C /* BLECentralManager.framework in Frameworks */,
+				1907796764C1C20004D18D28 /* Pods_BLECentralManager_Mac_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
