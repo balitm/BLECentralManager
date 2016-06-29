@@ -310,15 +310,33 @@ didDiscoverCharacteristicsForService:(CBService *)service
     }
 }
 
+
+static void _didReadRSSI(BLECManager * __unsafe_unretained self,
+                         CBPeripheral * __unsafe_unretained peripheral,
+                         NSNumber * __unsafe_unretained RSSI,
+                         NSError * __unsafe_unretained error)
+{
+    BLECDevice * __weak dev = [self findDeviceByPeripheral:peripheral];
+    if ([self->_delegate respondsToSelector:@selector(device:didReadRSSI:error:)]) {
+        [self->_delegate device:dev didReadRSSI:RSSI error:error];
+    }
+}
+
+#if TARGET_OS_IOS
 - (void)peripheral:(CBPeripheral *)peripheral
        didReadRSSI:(NSNumber *)RSSI
              error:(NSError *)error
 {
-    BLECDevice * __weak dev = [self findDeviceByPeripheral:peripheral];
-    if ([_delegate respondsToSelector:@selector(device:didReadRSSI:error:)]) {
-        [_delegate device:dev didReadRSSI:RSSI error:error];
-    }
+    _didReadRSSI(self, peripheral, RSSI, error);
 }
+#elif TARGET_OS_MAC
+- (void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral
+                          error:(NSError *)error
+{
+    //---- implement the depriciated method for OSX compatibility ----
+    _didReadRSSI(self, peripheral, peripheral.RSSI, error);
+}
+#endif
 
 - (void)peripheralDidUpdateName:(CBPeripheral *)peripheral
 {
