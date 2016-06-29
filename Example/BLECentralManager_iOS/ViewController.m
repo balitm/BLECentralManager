@@ -21,6 +21,8 @@
 @interface ViewController (InfoCharacteristic) <InfoCharacteristicDelegate>
 @end
 
+const float kMaxKbps = 1024.0 * 100.0;
+
 
 //----------------------------------------------------------------------------
 // ViewController
@@ -104,7 +106,7 @@
 - (void)update
 {
     //---- compute speed ----
-    [_progressView setProgress:(float)_dataSize / (float)(640 * 20)
+    [_progressView setProgress:(float)_dataSize / (kMaxKbps / 8.0)
                       animated: YES];
     _dataSize = 0;
 
@@ -174,7 +176,8 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         char str[256];
-        snprintf(str, sizeof(str), "Discovered: %s", [[peripheral.identifier UUIDString] UTF8String]);
+        snprintf(str, sizeof(str), "Discovered: %s",
+                 [[peripheral.identifier UUIDString] UTF8String]);
         _appendLog(self, str);
         _showRSSI(self, RSSI);
     });
@@ -183,7 +186,8 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
 - (void)central:(BLECManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@", peripheral.identifier.UUIDString]);
+        _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@",
+                                  peripheral.identifier.UUIDString]);
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                   target:self
                                                 selector:@selector(update)
@@ -202,7 +206,8 @@ didDisconnectDevice:(BLECDevice *)device
           error:(NSError *)error
 {
     DLog(@"Disconnected");
-    NSString *message = [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier.UUIDString];
+    NSString *message = [NSString stringWithFormat:@"Disconnected: %@",
+                         device.peripheral.identifier.UUIDString];
     dispatch_async(dispatch_get_main_queue(), ^{
         _appendNSStringLog(self, message);
         _rssiLabel.text = @"0";

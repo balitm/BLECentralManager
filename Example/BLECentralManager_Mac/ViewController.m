@@ -30,6 +30,10 @@
 
 const double kMaxKbps = 1024.0 * 100.0;
 
+
+//----------------------------------------------------------------------------
+// ViewController
+//----------------------------------------------------------------------------
 @implementation ViewController
 {
     BLECManager *_manager;
@@ -189,14 +193,16 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
            RSSI:(NSNumber *)RSSI
 {
     char str[256];
-    snprintf(str, sizeof(str), "Discovered: %s", [[peripheral.identifier UUIDString] UTF8String]);
+    snprintf(str, sizeof(str), "Discovered: %s",
+             [[peripheral.identifier UUIDString] UTF8String]);
     _appendLog(self, str);
     _showRSSI(self, RSSI);
 }
 
 - (void)central:(BLECManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@", peripheral.identifier.UUIDString]);
+    _appendNSStringLog(self, [NSString stringWithFormat:@"Connected: %@",
+                              peripheral.identifier.UUIDString]);
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                               target:self
                                             selector:@selector(update)
@@ -214,7 +220,8 @@ didDisconnectDevice:(BLECDevice *)device
           error:(NSError *)error
 {
     DLog(@"Disconnected");
-    _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@", device.peripheral.identifier.UUIDString]);
+    _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@",
+                              device.peripheral.identifier.UUIDString]);
     _rssiLabel.stringValue = @"0";
     if (_timer) {
         [_timer invalidate];
