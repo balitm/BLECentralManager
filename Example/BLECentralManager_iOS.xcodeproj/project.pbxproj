@@ -557,7 +557,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BLECentralManager_iOS/BLECentralManager_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-iOS-Example";
 				PRODUCT_NAME = BLECentralManager_iOS_Example;
 				WRAPPER_EXTENSION = app;
 			};
@@ -573,7 +573,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/BLECentralManager_iOS/BLECentralManager_iOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-iOS-Example";
 				PRODUCT_NAME = BLECentralManager_iOS_Example;
 				WRAPPER_EXTENSION = app;
 			};

@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Example/BLECentralManager_Mac_Swift.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Example/BLECentralManager_iOS_Swift.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Example/BLECentralManager_Mac.xcodeproj">
    </FileRef>
    <FileRef

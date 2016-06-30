@@ -1,0 +1,360 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		295A145B1D25795A002E2220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295A145A1D25795A002E2220 /* AppDelegate.swift */; };
+		295A145D1D25795A002E2220 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295A145C1D25795A002E2220 /* ViewController.swift */; };
+		295A145F1D25795A002E2220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 295A145E1D25795A002E2220 /* Assets.xcassets */; };
+		295A14621D25795A002E2220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295A14601D25795A002E2220 /* Main.storyboard */; };
+		EA12B509038D84B368EA19C2 /* Pods_BLECentralManager_Mac_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9992340F34708CD3BBA7D0 /* Pods_BLECentralManager_Mac_Swift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		295A14571D25795A002E2220 /* BLECentralManager_Mac_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECentralManager_Mac_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		295A145A1D25795A002E2220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		295A145C1D25795A002E2220 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		295A145E1D25795A002E2220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		295A14611D25795A002E2220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		295A14631D25795A002E2220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D9992340F34708CD3BBA7D0 /* Pods_BLECentralManager_Mac_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLECentralManager_Mac_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E81F2A6CDBFBA9872A3DE9F /* Pods-BLECentralManager_Mac_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_Mac_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_Mac_Swift/Pods-BLECentralManager_Mac_Swift.release.xcconfig"; sourceTree = "<group>"; };
+		E1E50B4DA5EA5AC6CA65DD20 /* Pods-BLECentralManager_Mac_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_Mac_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_Mac_Swift/Pods-BLECentralManager_Mac_Swift.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		295A14541D25795A002E2220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA12B509038D84B368EA19C2 /* Pods_BLECentralManager_Mac_Swift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		295A144E1D25795A002E2220 = {
+			isa = PBXGroup;
+			children = (
+				295A14591D25795A002E2220 /* BLECentralManager_Mac_Swift */,
+				295A14581D25795A002E2220 /* Products */,
+				55469722055A87A69468727E /* Pods */,
+				F1E4F1711BD3B2D79EBB7FE9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		295A14581D25795A002E2220 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				295A14571D25795A002E2220 /* BLECentralManager_Mac_Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		295A14591D25795A002E2220 /* BLECentralManager_Mac_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				295A145A1D25795A002E2220 /* AppDelegate.swift */,
+				295A145C1D25795A002E2220 /* ViewController.swift */,
+				295A145E1D25795A002E2220 /* Assets.xcassets */,
+				295A14601D25795A002E2220 /* Main.storyboard */,
+				295A14631D25795A002E2220 /* Info.plist */,
+			);
+			path = BLECentralManager_Mac_Swift;
+			sourceTree = "<group>";
+		};
+		55469722055A87A69468727E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1E50B4DA5EA5AC6CA65DD20 /* Pods-BLECentralManager_Mac_Swift.debug.xcconfig */,
+				3E81F2A6CDBFBA9872A3DE9F /* Pods-BLECentralManager_Mac_Swift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F1E4F1711BD3B2D79EBB7FE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D9992340F34708CD3BBA7D0 /* Pods_BLECentralManager_Mac_Swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		295A14561D25795A002E2220 /* BLECentralManager_Mac_Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 295A14661D25795A002E2220 /* Build configuration list for PBXNativeTarget "BLECentralManager_Mac_Swift" */;
+			buildPhases = (
+				6A9FCEF3D7F03E0A0274BB6D /* 📦 Check Pods Manifest.lock */,
+				295A14531D25795A002E2220 /* Sources */,
+				295A14541D25795A002E2220 /* Frameworks */,
+				295A14551D25795A002E2220 /* Resources */,
+				012F50CD4916BF2548928D2E /* 📦 Embed Pods Frameworks */,
+				1FF0050321395F27D643D8FD /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLECentralManager_Mac_Swift;
+			productName = BLECentralManager_Mac_Swift;
+			productReference = 295A14571D25795A002E2220 /* BLECentralManager_Mac_Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		295A144F1D25795A002E2220 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "kil-dev";
+				TargetAttributes = {
+					295A14561D25795A002E2220 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 295A14521D25795A002E2220 /* Build configuration list for PBXProject "BLECentralManager_Mac_Swift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 295A144E1D25795A002E2220;
+			productRefGroup = 295A14581D25795A002E2220 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				295A14561D25795A002E2220 /* BLECentralManager_Mac_Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		295A14551D25795A002E2220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295A145F1D25795A002E2220 /* Assets.xcassets in Resources */,
+				295A14621D25795A002E2220 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		012F50CD4916BF2548928D2E /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLECentralManager_Mac_Swift/Pods-BLECentralManager_Mac_Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1FF0050321395F27D643D8FD /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLECentralManager_Mac_Swift/Pods-BLECentralManager_Mac_Swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A9FCEF3D7F03E0A0274BB6D /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		295A14531D25795A002E2220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295A145D1D25795A002E2220 /* ViewController.swift in Sources */,
+				295A145B1D25795A002E2220 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		295A14601D25795A002E2220 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				295A14611D25795A002E2220 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		295A14641D25795A002E2220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		295A14651D25795A002E2220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		295A14671D25795A002E2220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1E50B4DA5EA5AC6CA65DD20 /* Pods-BLECentralManager_Mac_Swift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BLECentralManager_Mac_Swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-Mac-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		295A14681D25795A002E2220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E81F2A6CDBFBA9872A3DE9F /* Pods-BLECentralManager_Mac_Swift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BLECentralManager_Mac_Swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-Mac-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		295A14521D25795A002E2220 /* Build configuration list for PBXProject "BLECentralManager_Mac_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				295A14641D25795A002E2220 /* Debug */,
+				295A14651D25795A002E2220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		295A14661D25795A002E2220 /* Build configuration list for PBXNativeTarget "BLECentralManager_Mac_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				295A14671D25795A002E2220 /* Debug */,
+				295A14681D25795A002E2220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 295A144F1D25795A002E2220 /* Project object */;
+}
