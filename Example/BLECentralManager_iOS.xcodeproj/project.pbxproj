@@ -15,7 +15,7 @@
 		29DDBB751D1827C80075A65D /* DataCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DDBB701D1827C80075A65D /* DataCharacteristic.m */; };
 		29DDBB761D1827C80075A65D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DDBB731D1827C80075A65D /* ViewController.m */; };
 		29DDBB771D182ABF0075A65D /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DDBB561D1816230075A65D /* BLECentralManager.framework */; };
-		492607046BCFE0F2AF149930 /* Pods_BLECentralManager_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EC3B791FEDF51E6C61E3FB /* Pods_BLECentralManager_iOS_Example.framework */; };
+		375A65222E513E0FE9ECFD08 /* Pods_BLECentralManager_iOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EC3B791FEDF51E6C61E3FB /* Pods_BLECentralManager_iOS_Example.framework */; };
 		4C2AC9A6E76844567E0319E4 /* Pods_BLECentralManager_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B633ED1B7FC98E6E5AFCC722 /* Pods_BLECentralManager_iOS_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -27,7 +27,6 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		674C6C9AA8EF6A3A1D25B12C /* Pods_BLECentralManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880F02327F86481DB3F39E2D /* Pods_BLECentralManager_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -96,8 +95,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				674C6C9AA8EF6A3A1D25B12C /* Pods_BLECentralManager_Example.framework in Frameworks */,
-				492607046BCFE0F2AF149930 /* Pods_BLECentralManager_iOS_Example.framework in Frameworks */,
+				375A65222E513E0FE9ECFD08 /* Pods_BLECentralManager_iOS_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

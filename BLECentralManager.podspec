@@ -32,10 +32,16 @@ TODO: Add long description of the pod here.
   s.osx.deployment_target = '10.11'
 
   s.default_subspecs = 'ObjC'
+  s.preserve_path = 'BLECentralManager/BLECentralManager.modulemap'
+  s.module_map = 'BLECentralManager/BLECentralManager.modulemap'
  
   s.subspec 'ObjC' do |ss|
     ss.source_files = 'BLECentralManager/Classes/ObjC/*'
-    ss.public_header_files = 'BLECentralManager/Classes/ObjC/BLEC*.h', 'Pods/Target Support Files/BLECentralManager/BLECentralManager.h'
+    ss.public_header_files = 'BLECentralManager/Classes/ObjC/BLEC*.h'
+  end
+
+  s.subspec 'Swift' do |ss|
+    ss.source_files = 'BLECentralManager/Classes/Swift/*'
   end
 
   
