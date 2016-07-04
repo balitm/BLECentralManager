@@ -48,7 +48,9 @@
 				86C9AD742F16D758F1A5F677 /* Pods */,
 				B3ED6B1FE346F5F7B3A72D2B /* Frameworks */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		295A14911D257A3A002E2220 /* Products */ = {
 			isa = PBXGroup;
