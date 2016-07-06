@@ -86,10 +86,10 @@ typedef NS_ENUM(unsigned, BLECentralType) {
 @property (nonatomic, readonly, assign) BLECentralType type;
 @property (nonatomic, nullable, strong) NSDictionary<NSString *, id> *scanOptions;
 @property (nonatomic, nullable, strong) NSDictionary<NSString *, id> *connectOptions;
-@property (nonatomic, readonly, nonnull, strong) NSArray<BLECServiceConfig *> *services;
+@property (nonatomic, readonly, nullable, strong) NSArray<BLECServiceConfig *> *services;
 
-+ (nonnull instancetype)masterConfigWithType:(BLECentralType)type
-                                    services:(nullable NSArray<BLECServiceConfig *> *)services;
++ (nonnull instancetype)centralConfigWithType:(BLECentralType)type
+                                     services:(nullable NSArray<BLECServiceConfig *> *)services;
 
 - (nonnull instancetype)initWithType:(BLECentralType)type
                             services:(nullable NSArray<BLECServiceConfig *> *)services;

@@ -51,7 +51,7 @@ const float kMaxKbps = 1024.0 * 100.0;
     [infoChars makeObjectsPerformSelector:@selector(setDelegate:) withObject:self];
 
     BLECConfig *config = [BLECConfig
-                          masterConfigWithType:BLECentralTypeOnePheriperal
+                          centralConfigWithType:BLECentralTypeOnePheriperal
                           services:@[
                                      [BLECServiceConfig
                                       serviceConfigWithType:BLECServiceTypeAdvertised | BLECServiceTypeRequired

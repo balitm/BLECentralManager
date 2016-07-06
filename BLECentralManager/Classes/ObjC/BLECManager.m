@@ -200,7 +200,7 @@ didFailToConnectPeripheral:(CBPeripheral *)peripheral
             if (sc.type & BLECServiceTypeRequired) {
                 req++;
             } else if (!(sc.type & BLECServiceTypeOptional)) {
-                DLog(@"|Unexpected service found: %@", service.UUID);
+                DLog(@"Unexpected service found: %@", service.UUID);
                 [_manager cancelPeripheralConnection:peripheral];
                 return;
             }
@@ -231,7 +231,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
     BLECServiceConfig *sc = [_config findServiceConfigFor:service.UUID
                                                     index:&serviceIndex];
     NSUInteger charCount = service.characteristics.count;
-    NSMutableArray<CBCharacteristic *> *characteristics = [[NSMutableArray alloc] initWithCapacity:charCount];
+    NSMutableArray *characteristics = [[NSMutableArray alloc] initWithCapacity:charCount];
     NSMutableArray *delegates = [[NSMutableArray alloc] initWithCapacity:charCount];
     NSUInteger index = 0;
     NSUInteger req = 0;
@@ -280,6 +280,7 @@ didDiscoverCharacteristicsForService:(CBService *)service
             } else {
                 DLog(@"Unexpected characteristic found: %@", aChar.UUID);
                 [_manager cancelPeripheralConnection:peripheral];
+                return;
             }
         }
     }
@@ -429,12 +430,12 @@ didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
     if (reqServices == nil) {
         reqServices = [NSArray array];
     }
-    NSArray *pers = [_manager retrieveConnectedPeripheralsWithServices:reqServices];
+    NSArray *peers = [_manager retrieveConnectedPeripheralsWithServices:reqServices];
 
-    DLog(@"already connetcted peripherals: %@", pers);
-    if ([pers count] == 0) return;
+    DLog(@"already connetcted peripherals: %@", peers);
+    if ([peers count] == 0) return;
 
-    for (CBPeripheral *peripheral in pers) {
+    for (CBPeripheral *peripheral in peers) {
         [self connect:peripheral];
     }
 }

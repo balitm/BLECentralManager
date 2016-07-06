@@ -118,8 +118,8 @@ static NSArray<CBUUID *> * __nonnull _selectCharUUIDs(BLECServiceConfig *self, B
 //----------------------------------------------------------------------------
 @implementation BLECConfig
 
-+ (instancetype)masterConfigWithType:(BLECentralType)type
-                            services:(nullable NSArray<BLECServiceConfig *> *)services
++ (instancetype)centralConfigWithType:(BLECentralType)type
+                             services:(nullable NSArray<BLECServiceConfig *> *)services
 {
     return [[BLECConfig alloc] initWithType:type services:services];
 }

@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)central:(BLECManager *)central didDisconnectDevice:(BLECDevice *)device error:(nullable NSError *)error;
 - (void)central:(BLECManager *)central didCheckCharacteristicsDevice:(BLECDevice *)device;
 
-- (void)device:(BLECDevice *)device didReadRSSI:(nonnull NSNumber *)RSSI error:(nullable NSError *)error;
+- (void)device:(BLECDevice *)device didReadRSSI:(NSNumber *)RSSI error:(nullable NSError *)error;
 - (void)deviceDidUpdateName:(BLECDevice *)device;
 @end
 
