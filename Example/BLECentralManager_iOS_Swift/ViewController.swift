@@ -92,6 +92,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //---- logView workaround at resize/rotatation ----
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        logView.scrollEnabled = false
+        logView.scrollEnabled = true
+    }
+
     @objc private func _update() {
         //---- compute progress ----
         self.progressView.setProgress(Float(_dataSize) / (ViewController._kMaxKbps / 8.0), animated: true)
