@@ -32,3 +32,15 @@ target :'BLECentralManager_Mac_Swift' do
   project 'BLECentralManager_Mac_Swift'
   pod 'BLECentralManager/Swift', :path => '../'
 end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name.start_with?('BLECentralManager-Swift')
+            target.build_configurations.each do |config|
+                if config.name == 'Debug'
+                    config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -D DEBUG'
+                end
+            end
+        end
+    end
+end
