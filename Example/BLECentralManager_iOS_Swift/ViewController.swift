@@ -78,7 +78,8 @@ class ViewController: UIViewController {
                 ])
             ])
 
-        _manager = BLECManager(config: config, queue: nil)
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+        _manager = BLECManager(config: config, queue: queue)
         _manager.delegate = self;
     }
 
@@ -141,21 +142,28 @@ extension ViewController: BLECDeviceDelegate {
     }
 
     func centralDidUpdateState(manager: BLECManager) {
-        _appendLog(_stateName(_manager.state))
+        dispatch_async(dispatch_get_main_queue(), {
+            self._appendLog(self._stateName(self._manager.state))
+        })
     }
 
     func central(manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int) {
-        _appendLog("Discovered: \(peripheral.identifier.UUIDString)")
-        _showRSSI(RSSI)
+        dispatch_async(dispatch_get_main_queue(), {
+            self._appendLog("Discovered: \(peripheral.identifier.UUIDString)")
+            self._showRSSI(RSSI)
+        })
     }
 
     func central(central: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {
-        _appendLog("Connected \(peripheral.identifier.UUIDString)")
-        _timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-                                                        target: self,
-                                                        selector: #selector(_update),
-                                                        userInfo: nil,
-                                                        repeats: true)
+        dispatch_async(dispatch_get_main_queue(), {
+            self._appendLog("Connected \(peripheral.identifier.UUIDString)")
+            self._timer = NSTimer.scheduledTimerWithTimeInterval(
+                1.0,
+                target: self,
+                selector: #selector(self._update),
+                userInfo: nil,
+                repeats: true)
+        })
     }
 
     func central(central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {
@@ -164,13 +172,16 @@ extension ViewController: BLECDeviceDelegate {
 
     func central(central: BLECManager, didDisconnectDevice device: BLECDevice, error: NSError?) {
         DLog("Disconnected");
-        let uuid = device.peripheral?.identifier.UUIDString ?? ""
-        _appendLog("Disconnected: \(uuid)")
-        _showRSSI(0)
-        if let timer = _timer {
-            timer.invalidate()
-            _timer = nil
-        }
+        let uuid = device.UUID.UUIDString
+
+        dispatch_async(dispatch_get_main_queue(), {
+            self._appendLog("Disconnected: \(uuid)")
+            self._showRSSI(0)
+            if let timer = self._timer {
+                timer.invalidate()
+                self._timer = nil
+            }
+        })
     }
 
     func device(device: BLECDevice, didReadRSSI RSSI: Int, error: NSError?) {
@@ -179,7 +190,9 @@ extension ViewController: BLECDeviceDelegate {
             return
         }
         
-        _showRSSI(RSSI)
+        dispatch_async(dispatch_get_main_queue(), {
+            self._showRSSI(RSSI)
+        })
     }
 }
 
@@ -191,7 +204,9 @@ extension ViewController: BLECDeviceDelegate {
 extension ViewController: DataCharacteristicDelegate {
     
     func found() {
-        _appendLog("Data characteristic found!")
+        dispatch_async(dispatch_get_main_queue(), {
+            self._appendLog("Data characteristic found!")
+        })
     }
     
     func dataRead(dataSize: Int) {
@@ -207,6 +222,8 @@ extension ViewController: DataCharacteristicDelegate {
 extension ViewController: InfoCharacteristicDelegate {
     
     func infoCharacteristicName(name: String, value: String) {
-        _appendLog("\(name): \(value)")
+        dispatch_async(dispatch_get_main_queue(), {
+            self._appendLog("\(name): \(value)")
+        })
     }
 }
