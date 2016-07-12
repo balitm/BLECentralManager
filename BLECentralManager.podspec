@@ -26,7 +26,7 @@ to define a structure of expected services and characteristics and implement cha
                        DESC
 
   s.homepage         = 'https://github.com/balitm/BLECentralManager'
-  s.license          = { :type => 'BSD', :file => 'LICENSE' }
+  s.license          = { :type => 'BSD', :file => 'LICENSE.md' }
   s.author           = { 'Balázs Kilvády' => 'bkilvady@gmail.com' }
   s.source           = { :git => 'https://github.com/balitm/BLECentralManager.git', :tag => s.version.to_s }
 
