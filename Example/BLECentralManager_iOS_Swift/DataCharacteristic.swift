@@ -15,9 +15,9 @@ class DataCharacteristic: BLECCharacteristicDelegate {
     weak var delegate: DataCharacteristicDelegate?
 
     func device(device: BLECDevice, didFindCharacteristic characteristic: CBCharacteristic) {
-        DLog("device characteristic <\(characteristic.UUID)> found!")
+        DLog("device data characteristic <\(characteristic.UUID)> found!")
         device.peripheral?.setNotifyValue(true, forCharacteristic: characteristic)
-        delegate?.found()
+        delegate?.dataFound()
     }
 
     func device(device: BLECDevice, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {

@@ -32,6 +32,9 @@ class ViewController: NSViewController {
         let dataChar = DataCharacteristic()
         dataChar.delegate = self;
 
+        let controlChar = ControlCharacteristic()
+        controlChar.delegate = self
+
         var infoChars = [
             InfoCharacteristic(name: "Manufacturer"),
             InfoCharacteristic(name: "Firmware"),
@@ -48,7 +51,11 @@ class ViewController: NSViewController {
                     BLECCharacteristicConfig(
                         type: .Required,
                         UUID: "89E63F02-9932-4DF1-91C7-A574C880EFBF",
-                        delegate: dataChar)
+                        delegate: dataChar),
+                    BLECCharacteristicConfig(
+                        type: .Optional,
+                        UUID: "88359D38-DEA0-4FA4-9DD2-0A47E2B794BE",
+                        delegate: controlChar)
                 ]),
             BLECServiceConfig(type: .Optional,
                 UUID: "180a",
@@ -102,7 +109,15 @@ class ViewController: NSViewController {
         _dataSize = 0
 
         //---- read RSSI ----
-        _device?.readRSSI()
+        do {
+            try _device?.readRSSI()
+        } catch BLECDevice.Error.InvalidCharacteristic {
+            print("Characteristic is not maintained by BLECManager.")
+        } catch BLECDevice.Error.NoPeripheral {
+            print("Peripheral is not maintained by BLECManager.")
+        } catch {
+            assert(false)
+        }
     }
 }
 
@@ -203,6 +218,42 @@ extension ViewController: DataCharacteristicDelegate {
     func dataRead(dataSize: Int) {
         _dataSize += dataSize;
     }
+}
+
+
+//............................................................................
+// MARK: - Control characteristic extension.
+//............................................................................
+
+extension ViewController: ControlCharacteristicDelegate {
+
+    func controlUpdated(state: ButtonAction) {
+        guard let characteristic = _device?.characteristicAt(1, inServiceAt: 0) else {
+            return
+        }
+        dispatch_async(dispatch_get_main_queue(), {
+            self._appendLog("Control characteristic updated!")
+        })
+        let data = NSData(bytes: [UInt8(1)], length: 1)
+        do {
+            try _device?.writeValue(data,
+                                    forCharacteristic: characteristic,
+                                    response: { (error) in
+                dispatch_async(dispatch_get_main_queue(), {
+                    self._appendLog("Start data write responded.")
+                })
+            })
+        } catch BLECDevice.Error.AlredyPending {
+            print("Unresponded write is in progress.")
+        } catch BLECDevice.Error.InvalidCharacteristic {
+            print("Characteristic is not maintained by BLECManager.")
+        } catch BLECDevice.Error.NoPeripheral {
+            print("Peripheral is not maintained by BLECManager.")
+        } catch {
+            assert(false, "Unknown error at write for characteristic.")
+        }
+    }
+    
 }
 
 

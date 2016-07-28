@@ -13,6 +13,7 @@ class Peripheral: NSObject {
 
     private let _kDataServiceUUID = CBUUID(string: "965F6F06-2198-4F4F-A333-4C5E0F238EB7")
     private let _kDataCharacteristicUUID = CBUUID(string: "89E63F02-9932-4DF1-91C7-A574C880EFBF")
+    private let _kControlCharacteristicUUID = CBUUID(string: "88359D38-DEA0-4FA4-9DD2-0A47E2B794BE")
 
     private weak var _delegate: PeripheralDelegate!
     private var _sampleData: NSData?
@@ -20,6 +21,7 @@ class Peripheral: NSObject {
 
     private var _manager: CBPeripheralManager!
     private var _dataCharacteristic: CBMutableCharacteristic?
+    private var _controlCharacteristic: CBMutableCharacteristic?
     private var _dataService: CBMutableService?
     private var _serviceRequiresRegistration = false;
 //    private var _pendingData: NSData?
@@ -54,12 +56,19 @@ class Peripheral: NSObject {
                                                       value: nil,
                                                       permissions: .Readable)
 
-        guard let service = _dataService, characteristic = _dataCharacteristic else {
-            return;
+        _controlCharacteristic = CBMutableCharacteristic(type: _kControlCharacteristicUUID,
+                                                         properties: [.Read, .Write],
+                                                         value: nil,
+                                                         permissions: [.Readable, .Writeable])
+
+        guard let service = _dataService,
+            characteristic = _dataCharacteristic,
+            ctrlCharacteristic = _controlCharacteristic else {
+                return;
         }
 
         // Assign the characteristic.
-        service.characteristics = [characteristic]
+        service.characteristics = [characteristic, ctrlCharacteristic]
 
         // Add the service to the peripheral manager.
         _manager.addService(service)
@@ -156,6 +165,7 @@ extension Peripheral: CBPeripheralManagerDelegate {
 
         // As soon as the service is added, we should start advertising.
         if service == _dataService {
+            _controlCharacteristic?.value = NSData(bytes: [UInt8(0)], length: 1)
             startAdvertising()
             DLog("Peripheral advertising...")
         }
@@ -198,5 +208,37 @@ extension Peripheral: CBPeripheralManagerDelegate {
     func peripheralManagerIsReadyToUpdateSubscribers(peripheral: CBPeripheralManager) {
 //        DLog("current repeat count is \(_repeatCount)")
         _notifySubscribers()
+    }
+
+    func peripheralManager(peripheral: CBPeripheralManager,
+                           didReceiveReadRequest request: CBATTRequest) {
+        guard let ctrlCharacteristic = _controlCharacteristic else {
+            peripheral.respondToRequest(request, withResult: .InvalidHandle)
+            return
+        }
+        DLog("value to send: \(ctrlCharacteristic.value)")
+        request.value = ctrlCharacteristic.value
+        peripheral.respondToRequest(request, withResult: .Success)
+    }
+
+    func peripheralManager(peripheral: CBPeripheralManager,
+                           didReceiveWriteRequests requests: [CBATTRequest]) {
+        guard let ctrlCharacteristic = _controlCharacteristic else {
+            peripheral.respondToRequest(requests[0], withResult: .InvalidHandle)
+            return
+        }
+        for req in requests {
+            if req.characteristic != _controlCharacteristic {
+                continue
+            }
+            guard let value = req.value else {
+                continue
+            }
+            assert(req.offset == 0 && value.length == 1)
+            ctrlCharacteristic.value = value
+            let byte: UInt8 = Array(UnsafeBufferPointer(start: UnsafePointer<UInt8>(value.bytes), count: 1))[0]
+            _delegate.sending(byte != 0)
+        }
+        peripheral.respondToRequest(requests[0], withResult: .Success)
     }
 }

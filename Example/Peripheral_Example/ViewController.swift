@@ -12,6 +12,7 @@ protocol PeripheralDelegate: class {
     func logMessage(message: String)
     func central(central: String, didSubscribeToCharacteristic characteristic: String)
     func central(central: String, didUnsubscribeFromCharacteristic characteristic: String)
+    func sending(toggle: Bool)
 }
 
 class ViewController: NSViewController {
@@ -22,6 +23,8 @@ class ViewController: NSViewController {
     private let _sampleData = "01234567890123456789".dataUsingEncoding(NSASCIIStringEncoding)!
     private let _kRepeatCount: UInt = 640
     private var _timer: NSTimer?
+    private var _isSubscribed = false
+    private var _isSending = false
 
 
     required init?(coder: NSCoder) {
@@ -42,6 +45,26 @@ class ViewController: NSViewController {
     func timerFired() {
         _peripheral.sendToSubscribers(_sampleData, repeatCount: _kRepeatCount)
     }
+
+    private func _toggleTimer() {
+        if _isSubscribed && _isSending {
+            if _timer == nil {
+                DLog("start timer.")
+                _timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                                                                target: self,
+                                                                selector: #selector(timerFired),
+                                                                userInfo: nil,
+                                                                repeats: true)
+                _timer?.fire()
+            }
+        } else {
+            if let timer = _timer {
+                DLog("stop timer.")
+                timer.invalidate()
+                _timer = nil
+            }
+        }
+    }
 }
 
 
@@ -54,21 +77,18 @@ extension ViewController: PeripheralDelegate {
 
     func central(central: String, didSubscribeToCharacteristic characteristic: String) {
         logMessage("subscribed central: \(central) for \(characteristic)")
-        if _timer == nil {
-            DLog("start timer.")
-            _timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
-            _timer!.fire()
-        }
+        _isSubscribed = true
     }
 
     func central(central: String, didUnsubscribeFromCharacteristic characteristic: String) {
         logMessage("unsubscribed central: \(central) for \(characteristic)")
-        if _peripheral.subscribersCount == 0 {
-            if let timer = _timer {
-                DLog("stop timer.")
-                timer.invalidate()
-                _timer = nil
-            }
-        }
+        _isSubscribed = false
+        _toggleTimer()
+    }
+
+    func sending(toggle: Bool) {
+        logMessage("sending toggled: " + (toggle ? "true" : "false"))
+        _isSending = toggle
+        _toggleTimer()
     }
 }

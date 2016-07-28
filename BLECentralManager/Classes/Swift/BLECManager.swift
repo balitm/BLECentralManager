@@ -282,7 +282,8 @@ extension BLECManager: CBPeripheralDelegate {
             let data = BLECDeviceData(characteristic: characteristic,
                                       delegate: charDelegate,
                                       serviceIndex: serviceIndex,
-                                      characteristicIndex: idx)
+                                      characteristicIndex: idx,
+                                      writeResponse: nil)
             _devices[devIdx].characteristics[characteristic.UUID] = data
             charDelegate.device(_devices[devIdx], didFindCharacteristic: characteristic)
             idx += 1
@@ -332,7 +333,6 @@ extension BLECManager: CBPeripheralDelegate {
         let delegate = data.delegate
         let device = _devices[devIdx]
 
-//        DLog("##### notifying delegate: \(delegate)")
         delegate.device(device,
                         didUpdateValueForCharacteristic: characteristic,
                         error:error)
@@ -341,7 +341,7 @@ extension BLECManager: CBPeripheralDelegate {
         if characteristic.properties == .Read {
             let release = delegate.device(device, releaseReadonlyCharacteristic: characteristic)
             if release {
-                // Release <BLECDeviceData *data>.
+                // Release <BLECDeviceData data>.
                 _devices[devIdx].characteristics[characteristic.UUID] = nil;
             }
         }
@@ -358,12 +358,20 @@ extension BLECManager: CBPeripheralDelegate {
 
         assert(device.UUID == peripheral.identifier, "should be equal.")
 
-        guard let data = device.characteristics[characteristic.UUID] else {
+        guard var data = device.characteristics[characteristic.UUID] else {
             fatalError("No characteristic data for \(characteristic) in device #\(devIdx):\(peripheral)")
         }
 
-        let delegate = data.delegate;
-        delegate.device(device, didWriteValueForCharacteristic:characteristic, error:error)
+        if let writeResponse = data.writeResponse {
+            writeResponse(error)
+            data.writeResponse = nil
+            device.characteristics[characteristic.UUID] = data
+        } else {
+            let delegate = data.delegate;
+            delegate.device(device,
+                            didWriteValueForCharacteristic: characteristic,
+                            error: error)
+        }
     }
 
     public func peripheral(peripheral: CBPeripheral,

@@ -27,9 +27,17 @@ struct BLECDeviceData {
     var delegate: BLECCharacteristicDelegate
     var serviceIndex: Int
     var characteristicIndex: Int
+    var writeResponse: ((NSError?) -> Void)?
 }
 
-public struct BLECDevice {
+public class BLECDevice {
+
+    public enum Error: ErrorType {
+        case NoPeripheral
+        case InvalidCharacteristic
+        case AlredyPending
+    }
+
     public var peripheral: CBPeripheral?
     var state = BLECPeripheralState.None
     public let UUID: NSUUID
@@ -54,7 +62,33 @@ public struct BLECDevice {
         return nil;
     }
 
-    public func readRSSI() {
-        peripheral?.readRSSI()
+    public func readRSSI() throws {
+        guard let peripheral = self.peripheral else {
+            throw Error.NoPeripheral
+        }
+
+        peripheral.readRSSI()
+    }
+
+    public func writeValue(_ data: NSData,
+                             forCharacteristic characteristic: CBCharacteristic,
+                                               response: ((NSError?) -> Void)?) throws {
+        guard let peripheral = self.peripheral else {
+            throw Error.NoPeripheral
+        }
+
+        if response == nil {
+            peripheral.writeValue(data, forCharacteristic: characteristic, type: .WithoutResponse)
+        } else {
+            guard var charData = self.characteristics[characteristic.UUID] else {
+                throw Error.InvalidCharacteristic
+            }
+            if charData.writeResponse != nil {
+                throw Error.AlredyPending
+            }
+            charData.writeResponse = response!
+            self.characteristics[characteristic.UUID] = charData
+            peripheral.writeValue(data, forCharacteristic: characteristic, type: .WithResponse)
+        }
     }
 }

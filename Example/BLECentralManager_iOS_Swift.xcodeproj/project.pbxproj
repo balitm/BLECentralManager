@@ -13,6 +13,8 @@
 		2931C56F1D33B31400D38B76 /* InfoCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931C56A1D33B31400D38B76 /* InfoCharacteristic.swift */; };
 		2931C5701D33B31400D38B76 /* InfoCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931C56B1D33B31400D38B76 /* InfoCharacteristicDelegate.swift */; };
 		2931C5711D33B31400D38B76 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931C56C1D33B31400D38B76 /* Log.swift */; };
+		293D1B7B1D49117900713158 /* ControlCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D1B7A1D49117900713158 /* ControlCharacteristicDelegate.swift */; };
+		293D4F7B1D47D01B00FA6BA9 /* ControlCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D4F7A1D47D01B00FA6BA9 /* ControlCharacteristic.swift */; };
 		295A14941D257A3A002E2220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295A14931D257A3A002E2220 /* AppDelegate.swift */; };
 		295A14961D257A3A002E2220 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295A14951D257A3A002E2220 /* ViewController.swift */; };
 		295A14991D257A3A002E2220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295A14971D257A3A002E2220 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 		2931C56A1D33B31400D38B76 /* InfoCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCharacteristic.swift; sourceTree = "<group>"; };
 		2931C56B1D33B31400D38B76 /* InfoCharacteristicDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCharacteristicDelegate.swift; sourceTree = "<group>"; };
 		2931C56C1D33B31400D38B76 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		293D1B7A1D49117900713158 /* ControlCharacteristicDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristicDelegate.swift; sourceTree = "<group>"; };
+		293D4F7A1D47D01B00FA6BA9 /* ControlCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristic.swift; sourceTree = "<group>"; };
 		295A14901D257A3A002E2220 /* BLECentralManager_iOS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECentralManager_iOS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295A14931D257A3A002E2220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295A14951D257A3A002E2220 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 				2931C5691D33B31400D38B76 /* DataCharacteristicDelegate.swift */,
 				2931C56A1D33B31400D38B76 /* InfoCharacteristic.swift */,
 				2931C56B1D33B31400D38B76 /* InfoCharacteristicDelegate.swift */,
+				293D4F7A1D47D01B00FA6BA9 /* ControlCharacteristic.swift */,
+				293D1B7A1D49117900713158 /* ControlCharacteristicDelegate.swift */,
 				2931C56C1D33B31400D38B76 /* Log.swift */,
 				295A14931D257A3A002E2220 /* AppDelegate.swift */,
 				295A14951D257A3A002E2220 /* ViewController.swift */,
@@ -227,9 +233,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				293D4F7B1D47D01B00FA6BA9 /* ControlCharacteristic.swift in Sources */,
 				295A14961D257A3A002E2220 /* ViewController.swift in Sources */,
 				2931C5711D33B31400D38B76 /* Log.swift in Sources */,
 				2931C56D1D33B31400D38B76 /* DataCharacteristic.swift in Sources */,
+				293D1B7B1D49117900713158 /* ControlCharacteristicDelegate.swift in Sources */,
 				2931C5701D33B31400D38B76 /* InfoCharacteristicDelegate.swift in Sources */,
 				2931C56E1D33B31400D38B76 /* DataCharacteristicDelegate.swift in Sources */,
 				295A14941D257A3A002E2220 /* AppDelegate.swift in Sources */,

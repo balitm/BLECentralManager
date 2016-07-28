@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		29302E6A1D2A8AE30050FD22 /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29302E691D2A8AE30050FD22 /* BLECentralManager.framework */; };
+		2948A2D81D4A0D29001C2410 /* ControlCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2948A2D61D4A0D29001C2410 /* ControlCharacteristic.swift */; };
+		2948A2D91D4A0D29001C2410 /* ControlCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2948A2D71D4A0D29001C2410 /* ControlCharacteristicDelegate.swift */; };
 		295913831D2FAF85005C5949 /* DataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295913821D2FAF85005C5949 /* DataCharacteristic.swift */; };
 		295913851D2FB01C005C5949 /* DataCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295913841D2FB01C005C5949 /* DataCharacteristicDelegate.swift */; };
 		295913871D2FB298005C5949 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295913861D2FB298005C5949 /* Log.swift */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		29302E691D2A8AE30050FD22 /* BLECentralManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BLECentralManager.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BLECentralManager-bbkwdeaqicttxtchwhyjwvdydsrg/Build/Products/Debug/BLECentralManager-Swift-OSX/BLECentralManager.framework"; sourceTree = "<group>"; };
+		2948A2D61D4A0D29001C2410 /* ControlCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristic.swift; sourceTree = "<group>"; };
+		2948A2D71D4A0D29001C2410 /* ControlCharacteristicDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristicDelegate.swift; sourceTree = "<group>"; };
 		295913821D2FAF85005C5949 /* DataCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCharacteristic.swift; sourceTree = "<group>"; };
 		295913841D2FB01C005C5949 /* DataCharacteristicDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCharacteristicDelegate.swift; sourceTree = "<group>"; };
 		295913861D2FB298005C5949 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		295A14591D25795A002E2220 /* BLECentralManager_Mac_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				2948A2D61D4A0D29001C2410 /* ControlCharacteristic.swift */,
+				2948A2D71D4A0D29001C2410 /* ControlCharacteristicDelegate.swift */,
 				295913861D2FB298005C5949 /* Log.swift */,
 				295A145A1D25795A002E2220 /* AppDelegate.swift */,
 				295913821D2FAF85005C5949 /* DataCharacteristic.swift */,
@@ -227,9 +233,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2948A2D81D4A0D29001C2410 /* ControlCharacteristic.swift in Sources */,
 				295A145D1D25795A002E2220 /* ViewController.swift in Sources */,
 				295913831D2FAF85005C5949 /* DataCharacteristic.swift in Sources */,
 				295913891D2FBA7B005C5949 /* InfoCharacteristicDelegate.swift in Sources */,
+				2948A2D91D4A0D29001C2410 /* ControlCharacteristicDelegate.swift in Sources */,
 				295913871D2FB298005C5949 /* Log.swift in Sources */,
 				2959138B1D2FBC53005C5949 /* InfoCharacteristic.swift in Sources */,
 				295913851D2FB01C005C5949 /* DataCharacteristicDelegate.swift in Sources */,
