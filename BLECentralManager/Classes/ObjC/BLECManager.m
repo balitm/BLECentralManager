@@ -384,15 +384,16 @@ didWriteValueForCharacteristic:(CBCharacteristic *)characteristic
     DLog(@"Characteristic: %@ is written with error: %@.", characteristic, error);
     BLECDevice * __weak device = [self findDeviceByPeripheral:peripheral];
 
-#ifdef DEBUG
-    NSUUID *UUID = peripheral.identifier;
-    NSAssert([device.UUID isEqual:UUID], @"should be equal.");
-#endif
+    NSAssert([device.UUID isEqual:peripheral.identifier], @"should be equal.");
 
     BLECDeviceData *data = device.characteristics[characteristic.UUID];
     id<BLECCharacteristicDelegate> delegate = data.delegate;
     NSAssert(delegate, @"No delegate for characteristic: %@", characteristic);
-    if ([delegate respondsToSelector:@selector(device:didWriteValueForCharacteristic:error:)]) {
+
+    if (data.writeResponse != nil) {
+        data.writeResponse(error);
+        data.writeResponse = nil;
+    } else if ([delegate respondsToSelector:@selector(device:didWriteValueForCharacteristic:error:)]) {
         [delegate device:device didWriteValueForCharacteristic:characteristic error:error];
     }
 }

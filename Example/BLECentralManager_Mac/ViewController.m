@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "DataCharacteristic.h"
 #import "InfoCharacteristic.h"
+#import "ControlCharacteristic.h"
+
 
 @interface ViewController ()
 
@@ -26,6 +28,9 @@
 @end
 
 @interface ViewController (InfoCharacteristic) <InfoCharacteristicDelegate>
+@end
+
+@interface ViewController (ControlCharacteristic) <ControlCharacteristicDelegate>
 @end
 
 const double kMaxKbps = 1024.0 * 100.0;
@@ -48,6 +53,9 @@ const double kMaxKbps = 1024.0 * 100.0;
     DataCharacteristic *dataChar = [[DataCharacteristic alloc] init];
     dataChar.delegate = self;
 
+    ControlCharacteristic *controlChar = [[ControlCharacteristic alloc] init];
+    controlChar.delegate = self;
+
     NSArray<InfoCharacteristic *> *infoChars = @[
                                                  [[InfoCharacteristic alloc] initWithName:@"Company"],
                                                  [[InfoCharacteristic alloc] initWithName:@"Firmware"],
@@ -66,7 +74,11 @@ const double kMaxKbps = 1024.0 * 100.0;
                                                         [BLECCharacteristicConfig
                                                          characteristicConfigWithType:BLECCharacteristicTypeRequired
                                                          UUID:@"89E63F02-9932-4DF1-91C7-A574C880EFBF"
-                                                         delegate:dataChar]
+                                                         delegate:dataChar],
+                                                        [BLECCharacteristicConfig
+                                                         characteristicConfigWithType:BLECCharacteristicTypeOptional
+                                                         UUID:@"88359D38-DEA0-4FA4-9DD2-0A47E2B794BE"
+                                                         delegate:controlChar]
                                                         ]],
                                      [BLECServiceConfig
                                       serviceConfigWithType:BLECServiceTypeOptional
@@ -259,6 +271,39 @@ didDisconnectDevice:(BLECDevice *)device
 - (void)dataRead:(NSUInteger)dataSize
 {
     _dataSize += dataSize;
+}
+
+@end
+
+
+//............................................................................
+// Control characteristic extension.
+//............................................................................
+
+@implementation ViewController (ControlCharacteristic)
+
+- (void)controlDidUpdate:(ButtonAction)state
+{
+    CBCharacteristic *characteristic = [_device characteristicAt:1 inServiceAt:0];
+    if (characteristic == nil) {
+        return;
+    }
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _appendNSStringLog(self, [NSString stringWithFormat:@"Control characteristic updated!"]);
+    });
+
+    static uint8_t byte = 1;
+    static dispatch_once_t onceToken;
+    static NSData *data;
+    dispatch_once(&onceToken, ^{
+        data = [NSData dataWithBytesNoCopy:&byte length:1 freeWhenDone:NO];
+    });
+    [_device writeValue:data forCharacteristic:characteristic WithResponse:^(NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _appendNSStringLog(self, @"Start data write responded.");
+        });
+    }];
 }
 
 @end

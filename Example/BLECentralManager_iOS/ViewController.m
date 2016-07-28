@@ -10,7 +10,14 @@
 #import "ViewController.h"
 #import "DataCharacteristic.h"
 #import "InfoCharacteristic.h"
+#import "ControlCharacteristic.h"
 
+
+@interface ViewController ()
+
+@property (nonatomic, assign) ButtonAction buttonState;
+
+@end
 
 @interface ViewController (Device) <BLECDeviceDelegate>
 @end
@@ -21,7 +28,21 @@
 @interface ViewController (InfoCharacteristic) <InfoCharacteristicDelegate>
 @end
 
-const float kMaxKbps = 1024.0 * 100.0;
+@interface ViewController (ControlCharacteristic) <ControlCharacteristicDelegate>
+@end
+
+const float kMaxKbps = 1024.0f * 100.0f;
+
+static void _appendLog(ViewController *self, const char *str)
+{
+    self.logView.text = [self.logView.text stringByAppendingFormat:@"%s\n", str];
+}
+
+static void _appendNSStringLog(ViewController *self, NSString *str)
+{
+    self.logView.text = [self.logView.text stringByAppendingFormat:@"%@\n", str];
+}
+
 
 
 //----------------------------------------------------------------------------
@@ -33,7 +54,39 @@ const float kMaxKbps = 1024.0 * 100.0;
     NSTimer *_timer;
     NSUInteger _dataSize;
     BLECDevice * __weak _device;
+    ButtonAction _buttonState;
 }
+
+@dynamic buttonState;
+
+- (ButtonAction)buttonState
+{
+    return _buttonState;
+}
+
+- (void)setButtonState:(ButtonAction)buttonState
+{
+    _buttonState = buttonState;
+    switch (buttonState) {
+        case ButtonActionStop:
+            [_startButton setTitle:@"Stop" forState:UIControlStateNormal];
+            _progressView.progress = (float)0.0;
+            break;
+        case ButtonActionStart:
+            [_startButton setTitle:@"Start" forState:UIControlStateNormal];
+            break;
+    }
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        _buttonState = ButtonActionStart;
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad
 {
@@ -41,6 +94,9 @@ const float kMaxKbps = 1024.0 * 100.0;
 
     DataCharacteristic *dataChar = [[DataCharacteristic alloc] init];
     dataChar.delegate = self;
+
+    ControlCharacteristic *controlChar = [[ControlCharacteristic alloc] init];
+    controlChar.delegate = self;
 
     NSArray<InfoCharacteristic *> *infoChars = @[
                                                  [[InfoCharacteristic alloc] initWithName:@"Company"],
@@ -60,7 +116,11 @@ const float kMaxKbps = 1024.0 * 100.0;
                                                         [BLECCharacteristicConfig
                                                          characteristicConfigWithType:BLECCharacteristicTypeRequired
                                                          UUID:@"89E63F02-9932-4DF1-91C7-A574C880EFBF"
-                                                         delegate:dataChar]
+                                                         delegate:dataChar],
+                                                        [BLECCharacteristicConfig
+                                                         characteristicConfigWithType:BLECCharacteristicTypeOptional
+                                                         UUID:@"88359D38-DEA0-4FA4-9DD2-0A47E2B794BE"
+                                                         delegate:controlChar]
                                                         ]],
                                      [BLECServiceConfig
                                       serviceConfigWithType:BLECServiceTypeOptional
@@ -103,11 +163,41 @@ const float kMaxKbps = 1024.0 * 100.0;
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)actionStart:(UIButton *)sender
+{
+    CBCharacteristic *characteristic = [_device characteristicAt:1 inServiceAt:0];
+    if (characteristic == nil) {
+        return;
+    }
+
+    static uint8_t array[1];
+
+    switch (_buttonState) {
+        case ButtonActionStart:
+            array[0] = (uint8_t)1;
+            self.buttonState = ButtonActionStop;
+            break;
+        case ButtonActionStop:
+            array[0] = (uint8_t)0;
+            self.buttonState = ButtonActionStart;
+            break;
+    }
+    NSData *data = [NSData dataWithBytesNoCopy:array length:1 freeWhenDone:NO];
+    [_device writeValue:data forCharacteristic:characteristic WithResponse:^(NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _appendNSStringLog(self, [NSString stringWithFormat:@"%s data write responded.",
+                                      array[0] == 1 ? "Start" : "Stop"]);
+        });
+    }];
+}
+
 - (void)update
 {
-    //---- compute speed ----
-    [_progressView setProgress:(float)_dataSize / (kMaxKbps / 8.0)
-                      animated: YES];
+    //---- compute speed & progress ----
+    float bitSize = (float)_dataSize * 8.0;
+    [self.progressView setProgress:bitSize / kMaxKbps animated: YES];
+    NSString *numString = [NSString stringWithFormat:@"%0.2f", bitSize / 1024.0f];
+    self.speedLabel.text = numString;
     _dataSize = 0;
 
     //---- read RSSI ----
@@ -146,16 +236,6 @@ static const char *_stateName(BLECentralState state)
             return "BLECStateSearching";
     }
     assert(NO);
-}
-
-static void _appendLog(ViewController *self, const char *str)
-{
-    self.logView.text = [self.logView.text stringByAppendingFormat:@"%s\n", str];
-}
-
-static void _appendNSStringLog(ViewController *self, NSString *str)
-{
-    self.logView.text = [self.logView.text stringByAppendingFormat:@"%@\n", str];
 }
 
 static void _showRSSI(ViewController *self, NSNumber *RSSI)
@@ -251,6 +331,24 @@ didDisconnectDevice:(BLECDevice *)device
 - (void)dataRead:(NSUInteger)dataSize
 {
     _dataSize += dataSize;
+}
+
+@end
+
+
+//............................................................................
+// Control characteristic extension.
+//............................................................................
+
+@implementation ViewController (ControlCharacteristic)
+
+- (void)controlDidUpdate:(ButtonAction)state
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _appendNSStringLog(self, [NSString stringWithFormat:@"Control characteristic updated!"]);
+        self.startButton.enabled = YES;
+        self.buttonState = state;
+    });
 }
 
 @end

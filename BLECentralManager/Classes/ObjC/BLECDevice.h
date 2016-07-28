@@ -24,6 +24,7 @@ typedef NS_OPTIONS(uint32_t, BLECPeripheralState) {
 @property (nonatomic, strong) id<BLECCharacteristicDelegate> delegate;
 @property (nonatomic, assign) NSUInteger serviceIndex;
 @property (nonatomic, assign) NSUInteger characteristicIndex;
+@property (nonatomic, copy, nullable) void (^writeResponse)(NSError * __nullable error);
 
 @end
 
@@ -39,6 +40,9 @@ typedef NS_OPTIONS(uint32_t, BLECPeripheralState) {
 - (nullable CBCharacteristic *)characteristicAt:(NSUInteger)charIndex
                                     inServiceAt:(NSUInteger)serviceIndex;
 - (void)readRSSI;
+- (void)writeValue:(NSData *)value
+ forCharacteristic:(CBCharacteristic *)characteristic
+      WithResponse:(void (^ __nullable)(NSError * __nullable error))response;
 
 @end
 

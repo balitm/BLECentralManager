@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		290A19801D199D09008A5459 /* InfoCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 290A197F1D199D09008A5459 /* InfoCharacteristic.m */; };
 		290ED1DA1D185B1800E3C077 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 290ED1D91D185B1800E3C077 /* LaunchScreen.storyboard */; };
+		293B9EC51D4F52CE008E850B /* ControlCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B9EC41D4F52CE008E850B /* ControlCharacteristic.m */; };
 		29DDBB551D180C9C0075A65D /* BLECConfigTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DDBB531D180B790075A65D /* BLECConfigTest.m */; };
 		29DDBB571D1816230075A65D /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DDBB561D1816230075A65D /* BLECentralManager.framework */; };
 		29DDBB741D1827C80075A65D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DDBB6E1D1827C80075A65D /* AppDelegate.m */; };
@@ -45,6 +46,9 @@
 		290A197F1D199D09008A5459 /* InfoCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCharacteristic.m; sourceTree = "<group>"; };
 		290A19811D19B7DB008A5459 /* InfoCharacteristicDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoCharacteristicDelegate.h; sourceTree = "<group>"; };
 		290ED1D91D185B1800E3C077 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		293B9EC31D4F52CE008E850B /* ControlCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlCharacteristic.h; sourceTree = "<group>"; };
+		293B9EC41D4F52CE008E850B /* ControlCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlCharacteristic.m; sourceTree = "<group>"; };
+		29BAD0101D4BB309003D25DB /* ControlCharacteristicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlCharacteristicDelegate.h; sourceTree = "<group>"; };
 		29DDBB531D180B790075A65D /* BLECConfigTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLECConfigTest.m; sourceTree = "<group>"; };
 		29DDBB561D1816230075A65D /* BLECentralManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BLECentralManager.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BLECentralManager-clnlvjpslhyfdscivpbwsbmhqtqx/Build/Products/Debug-iphonesimulator/BLECentralManager/BLECentralManager.framework"; sourceTree = "<group>"; };
 		29DDBB6D1D1827C80075A65D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,6 +162,9 @@
 				290A197E1D199D09008A5459 /* InfoCharacteristic.h */,
 				290A197F1D199D09008A5459 /* InfoCharacteristic.m */,
 				290A19811D19B7DB008A5459 /* InfoCharacteristicDelegate.h */,
+				293B9EC31D4F52CE008E850B /* ControlCharacteristic.h */,
+				293B9EC41D4F52CE008E850B /* ControlCharacteristic.m */,
+				29BAD0101D4BB309003D25DB /* ControlCharacteristicDelegate.h */,
 				29DDBB721D1827C80075A65D /* ViewController.h */,
 				29DDBB731D1827C80075A65D /* ViewController.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -422,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				293B9EC51D4F52CE008E850B /* ControlCharacteristic.m in Sources */,
 				290A19801D199D09008A5459 /* InfoCharacteristic.m in Sources */,
 				29DDBB741D1827C80075A65D /* AppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
