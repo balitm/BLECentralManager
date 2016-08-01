@@ -78,6 +78,7 @@ extension ViewController: PeripheralDelegate {
     func central(central: String, didSubscribeToCharacteristic characteristic: String) {
         logMessage("subscribed central: \(central) for \(characteristic)")
         _isSubscribed = true
+        _toggleTimer()
     }
 
     func central(central: String, didUnsubscribeFromCharacteristic characteristic: String) {
