@@ -227,7 +227,7 @@ extension ViewController: DataCharacteristicDelegate {
 
 extension ViewController: ControlCharacteristicDelegate {
 
-    func controlUpdated(state: ButtonAction) {
+    func controlDidUpdate(state: ButtonAction) {
         guard let characteristic = _device?.characteristicAt(1, inServiceAt: 0) else {
             return
         }

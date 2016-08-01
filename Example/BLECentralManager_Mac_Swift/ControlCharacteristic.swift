@@ -29,6 +29,6 @@ class ControlCharacteristic: BLECCharacteristicDelegate {
         }
 
         let byte: UInt8 = Array(UnsafeBufferPointer(start: UnsafePointer<UInt8>(data.bytes), count: 1))[0]
-        delegate?.controlUpdated(byte == 0 ? .Start : .Stop)
+        delegate?.controlDidUpdate(byte == 0 ? .Start : .Stop)
     }
 }

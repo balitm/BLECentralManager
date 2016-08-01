@@ -14,6 +14,6 @@ enum ButtonAction {
 
 protocol ControlCharacteristicDelegate: class {
 
-    func controlUpdated(state: ButtonAction)
+    func controlDidUpdate(state: ButtonAction)
 
 }

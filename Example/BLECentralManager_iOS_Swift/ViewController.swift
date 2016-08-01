@@ -266,6 +266,7 @@ extension ViewController: BLECDeviceDelegate {
             self._showRSSI(RSSI)
         })
     }
+
 }
 
 
@@ -284,6 +285,7 @@ extension ViewController: DataCharacteristicDelegate {
     func dataRead(dataSize: Int) {
         _dataSize += dataSize;
     }
+
 }
 
 
@@ -293,7 +295,7 @@ extension ViewController: DataCharacteristicDelegate {
 
 extension ViewController: ControlCharacteristicDelegate {
 
-    func controlUpdated(state: ButtonAction) {
+    func controlDidUpdate(state: ButtonAction) {
         dispatch_async(dispatch_get_main_queue(), {
             self._appendLog("Control characteristic updated!")
             self.startButton.enabled = true
@@ -315,4 +317,5 @@ extension ViewController: InfoCharacteristicDelegate {
             self._appendLog("\(name): \(value)")
         })
     }
+
 }
