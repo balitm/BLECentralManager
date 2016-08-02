@@ -9,7 +9,7 @@
 
 To run the example projects, clone the repo, and run `pod install` from the Example directory first. A Peripheral_Example project also added so if you have an iOS device and a Mac then you can test the Swift and ObjC iOS examples. They behave as a central and Peripheral_Example will be the peripheral on the Mac.
 
-Also four examples was added: Mac/[ObjC | Swift], iOS[ObjC | Swift]
+Also four examples was added: Mac[ObjC | Swift], iOS[ObjC | Swift]
 
 ## Requirements
 
@@ -113,6 +113,21 @@ ObjC:
     _manager.delegate = self;
     _timer = nil;
 ```
+
+A characteristic handler class must conform to the `BLECDeviceDelegate` protocol.
+
+To access other characteristics from an implementation of characteristic handler the
+
+Swift:
+```swift
+func characteristicAt(characteristicIndex: Int, inServiceAt serviceIndex: Int) -> CBCharacteristic?
+```
+ObjC:
+```objc
+- (nullable CBCharacteristic *)characteristicAt:(NSUInteger)charIndex
+                                    inServiceAt:(NSUInteger)serviceIndex;
+```
+method of `BLECDevice` class can be used. Characteristic and service indices are the indexes of the config structure describes/defines the characteristic.
 
 ## Installation
 
