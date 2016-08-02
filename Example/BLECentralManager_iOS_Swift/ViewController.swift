@@ -212,6 +212,12 @@ extension ViewController: BLECDeviceDelegate {
         self.rssiLabel.text = String(RSSI)
     }
 
+    private func _zeroViews() {
+        _showRSSI(0)
+        progressView.progress = 0.0
+        speedLabel.text = "0"
+    }
+
     func centralDidUpdateState(manager: BLECManager) {
         dispatch_async(dispatch_get_main_queue(), {
             self._appendLog(self._stateName(self._manager.state))
@@ -247,7 +253,7 @@ extension ViewController: BLECDeviceDelegate {
 
         dispatch_async(dispatch_get_main_queue(), {
             self._appendLog("Disconnected: \(uuid)")
-            self._showRSSI(0)
+            self._zeroViews()
             self._device = nil
             if let timer = self._timer {
                 timer.invalidate()
