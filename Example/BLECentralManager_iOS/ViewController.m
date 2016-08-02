@@ -238,9 +238,16 @@ static const char *_stateName(BLECentralState state)
     assert(NO);
 }
 
-static void _showRSSI(ViewController *self, NSNumber *RSSI)
+static void _showRSSI(ViewController * __unsafe_unretained self, NSNumber *RSSI)
 {
-    self->_rssiLabel.text = [RSSI stringValue];
+    self.rssiLabel.text = [RSSI stringValue];
+}
+
+static void _zeroViews(ViewController * __unsafe_unretained self)
+{
+    _showRSSI(self, @0);
+    self.progressView.progress = 0.0f;
+    self.speedLabel.text = @"0";
 }
 
 - (void)centralDidUpdateState:(BLECManager *)manager
@@ -290,7 +297,7 @@ didDisconnectDevice:(BLECDevice *)device
                          device.peripheral.identifier.UUIDString];
     dispatch_async(dispatch_get_main_queue(), ^{
         _appendNSStringLog(self, message);
-        _rssiLabel.text = @"0";
+        _zeroViews(self);
         if (_timer) {
             [_timer invalidate];
             _timer = nil;

@@ -191,9 +191,16 @@ static void _appendNSStringLog(ViewController *self, NSString *str)
     }
 }
 
-static void _showRSSI(ViewController *self, NSNumber *RSSI)
+static void _showRSSI(ViewController * __unsafe_unretained self, NSNumber *RSSI)
 {
     self->_rssiLabel.stringValue = [RSSI stringValue];
+}
+
+static void _zeroViews(ViewController * __unsafe_unretained self)
+{
+    _showRSSI(self, @0);
+    self.progressView.doubleValue = 0.0;
+    self.speedLabel.intValue = 0;
 }
 
 - (void)centralDidUpdateState:(BLECManager *)manager
@@ -235,7 +242,7 @@ didDisconnectDevice:(BLECDevice *)device
     DLog(@"Disconnected");
     _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@",
                               device.peripheral.identifier.UUIDString]);
-    _rssiLabel.stringValue = @"0";
+    _zeroViews(self);
     if (_timer) {
         [_timer invalidate];
         _timer = nil;
