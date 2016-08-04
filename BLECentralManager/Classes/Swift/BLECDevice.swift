@@ -70,9 +70,9 @@ public class BLECDevice {
         peripheral.readRSSI()
     }
 
-    public func writeValue(_ data: NSData,
-                             forCharacteristic characteristic: CBCharacteristic,
-                                               response: ((NSError?) -> Void)?) throws {
+    public func writeValue(data: NSData,
+                           forCharacteristic characteristic: CBCharacteristic,
+                           response: ((NSError?) -> Void)?) throws {
         guard let peripheral = self.peripheral else {
             throw Error.NoPeripheral
         }

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'BLECentralManager'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of BLECentralManager.'
+  s.summary          = 'A Bluetooth 4 central framework.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-BLECentralManager framework simplifies Bluetooth 4.0 (Low Energy) usage for central devices. The user of the framework have
+BLECentralManager framework simplifies Bluetooth 4 (Low Energy) usage for central devices. The user of the framework have
 to define a structure of expected services and characteristics and implement characteristic handler/delegate classes. The framework handles
 - Searching and filtering peripherals.
 - Connect to peripherals.
