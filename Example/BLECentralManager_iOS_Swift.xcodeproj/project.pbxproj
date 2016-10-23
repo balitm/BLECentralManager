@@ -20,6 +20,7 @@
 		295A14991D257A3A002E2220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295A14971D257A3A002E2220 /* Main.storyboard */; };
 		295A149B1D257A3A002E2220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 295A149A1D257A3A002E2220 /* Assets.xcassets */; };
 		295A149E1D257A3A002E2220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295A149C1D257A3A002E2220 /* LaunchScreen.storyboard */; };
+		2964A5981DC21ADF005A08BE /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2964A5971DC21ADF005A08BE /* BLECentralManager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		295A149A1D257A3A002E2220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		295A149D1D257A3A002E2220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		295A149F1D257A3A002E2220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2964A5971DC21ADF005A08BE /* BLECentralManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BLECentralManager.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BLECentralManager-bbkwdeaqicttxtchwhyjwvdydsrg/Build/Products/Debug-iphonesimulator/BLECentralManager-Swift-iOS/BLECentralManager.framework"; sourceTree = "<group>"; };
+		29C5E9C51DBCF38E00499A57 /* BLECentralManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BLECentralManagerSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/BLECentralManager-bbkwdeaqicttxtchwhyjwvdydsrg/Build/Products/Debug-iphonesimulator/BLECentralManager-Swift-iOS/BLECentralManagerSwift.framework"; sourceTree = "<group>"; };
 		7BAA8A4DC29F2D4D234A39FC /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_iOS_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift.release.xcconfig"; sourceTree = "<group>"; };
 		92F44638EFC5C06531622358 /* Pods_BLECentralManager_iOS_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLECentralManager_iOS_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1A8E719C7C702B099D2F9A /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_iOS_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2964A5981DC21ADF005A08BE /* BLECentralManager.framework in Frameworks */,
 				09A0416189EFE611C0085C84 /* Pods_BLECentralManager_iOS_Swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +110,8 @@
 		B3ED6B1FE346F5F7B3A72D2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2964A5971DC21ADF005A08BE /* BLECentralManager.framework */,
+				29C5E9C51DBCF38E00499A57 /* BLECentralManagerSwift.framework */,
 				92F44638EFC5C06531622358 /* Pods_BLECentralManager_iOS_Swift.framework */,
 			);
 			name = Frameworks;
@@ -118,12 +124,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 295A14A21D257A3A002E2220 /* Build configuration list for PBXNativeTarget "BLECentralManager_iOS_Swift" */;
 			buildPhases = (
-				4E1F2A2B533A20F3C2B05DBD /* 📦 Check Pods Manifest.lock */,
+				4E1F2A2B533A20F3C2B05DBD /* [CP] Check Pods Manifest.lock */,
 				295A148C1D257A3A002E2220 /* Sources */,
 				295A148D1D257A3A002E2220 /* Frameworks */,
 				295A148E1D257A3A002E2220 /* Resources */,
-				FF8FB6ABC1F4E2845F4D0345 /* 📦 Embed Pods Frameworks */,
-				8283B0EDF16BB0BDABCF7493 /* 📦 Copy Pods Resources */,
+				FF8FB6ABC1F4E2845F4D0345 /* [CP] Embed Pods Frameworks */,
+				8283B0EDF16BB0BDABCF7493 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -141,11 +147,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "kil-dev";
 				TargetAttributes = {
 					295A148F1D257A3A002E2220 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = DNXAD46BWZ;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -181,29 +189,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E1F2A2B533A20F3C2B05DBD /* 📦 Check Pods Manifest.lock */ = {
+		4E1F2A2B533A20F3C2B05DBD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8283B0EDF16BB0BDABCF7493 /* 📦 Copy Pods Resources */ = {
+		8283B0EDF16BB0BDABCF7493 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,14 +219,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FF8FB6ABC1F4E2845F4D0345 /* 📦 Embed Pods Frameworks */ = {
+		FF8FB6ABC1F4E2845F4D0345 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,8 +289,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -327,8 +337,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -347,6 +359,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -357,11 +370,13 @@
 			baseConfigurationReference = CE1A8E719C7C702B099D2F9A /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DNXAD46BWZ;
 				INFOPLIST_FILE = BLECentralManager_iOS_Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -370,10 +385,12 @@
 			baseConfigurationReference = 7BAA8A4DC29F2D4D234A39FC /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DNXAD46BWZ;
 				INFOPLIST_FILE = BLECentralManager_iOS_Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-iOS-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -11,30 +11,30 @@ import CoreBluetooth
 
 public protocol BLECDeviceDelegate: class {
 
-    func deviceForCharacteristic(charasteristic: CBCharacteristic, ofPeripheral peripheral: CBPeripheral) -> BLECCharacteristicDelegate?
+    func deviceForCharacteristic(_ charasteristic: CBCharacteristic, ofPeripheral peripheral: CBPeripheral) -> BLECCharacteristicDelegate?
 
-    func centralDidUpdateState(manager: BLECManager)
-    func central(manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int)
-    func central(manager: BLECManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?)
-    func central(central: BLECManager, didConnectPeripheral peripheral: CBPeripheral)
-    func central(central: BLECManager, didDisconnectDevice device: BLECDevice, error: NSError?)
-    func central(central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice)
+    func centralDidUpdateState(_ manager: BLECManager)
+    func central(_ manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int)
+    func central(_ manager: BLECManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: Error?)
+    func central(_ central: BLECManager, didConnectPeripheral peripheral: CBPeripheral)
+    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?)
+    func central(_ central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice)
 
-    func device(device: BLECDevice, didReadRSSI RSSI: Int, error: NSError?)
-    func deviceDidUpdateName(device: BLECDevice)
+    func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: Error?)
+    func deviceDidUpdateName(_ device: BLECDevice)
 
 }
 
 public extension BLECDeviceDelegate {
-    func deviceForCharacteristic(charasteristic: CBCharacteristic, ofPeripheral peripheral: CBPeripheral) -> BLECCharacteristicDelegate? { return nil }
+    func deviceForCharacteristic(_ charasteristic: CBCharacteristic, ofPeripheral peripheral: CBPeripheral) -> BLECCharacteristicDelegate? { return nil }
 
-    func centralDidUpdateState(manager: BLECManager) {}
-    func central(manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int) {}
-    func central(manager: BLECManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {}
-    func central(central: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {}
-    func central(central: BLECManager, didDisconnectDevice device: BLECDevice, error: NSError?) {}
-    func central(central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {}
+    func centralDidUpdateState(_ manager: BLECManager) {}
+    func central(_ manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int) {}
+    func central(_ manager: BLECManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: Error?) {}
+    func central(_ central: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {}
+    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?) {}
+    func central(_ central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {}
 
-    func device(device: BLECDevice, didReadRSSI RSSI: Int, error: NSError?) {}
-    func deviceDidUpdateName(device: BLECDevice) {}
+    func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: Error?) {}
+    func deviceDidUpdateName(_ device: BLECDevice) {}
 }

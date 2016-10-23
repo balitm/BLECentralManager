@@ -10,7 +10,7 @@ import Foundation
 import CoreBluetooth
 
 
-struct BLECPeripheralState: OptionSetType {
+struct BLECPeripheralState: OptionSet {
     let rawValue: UInt
 
     static let None       = BLECPeripheralState(rawValue: 0)
@@ -27,23 +27,23 @@ struct BLECDeviceData {
     var delegate: BLECCharacteristicDelegate
     var serviceIndex: Int
     var characteristicIndex: Int
-    var writeResponse: ((NSError?) -> Void)?
+    var writeResponse: ((Error?) -> Void)?
 }
 
-public class BLECDevice {
+open class BLECDevice {
 
-    public enum Error: ErrorType {
-        case NoPeripheral
-        case InvalidCharacteristic
-        case AlredyPending
+    public enum DeviceError: Error {
+        case noPeripheral
+        case invalidCharacteristic
+        case alredyPending
     }
 
-    public var peripheral: CBPeripheral?
+    open var peripheral: CBPeripheral?
     var state = BLECPeripheralState.None
-    public let UUID: NSUUID
+    open let UUID: Foundation.UUID
     var characteristics = [CBUUID: BLECDeviceData]()
 
-    init(UUID uuid: NSUUID) {
+    init(UUID uuid: Foundation.UUID) {
         UUID = uuid;
         peripheral = nil;
     }
@@ -53,7 +53,7 @@ public class BLECDevice {
         self.peripheral = peripheral
     }
 
-    public func characteristicAt(characteristicIndex: Int, inServiceAt serviceIndex: Int) -> CBCharacteristic? {
+    open func characteristicAt(_ characteristicIndex: Int, inServiceAt serviceIndex: Int) -> CBCharacteristic? {
         for (_, data) in characteristics {
             if data.serviceIndex == serviceIndex && data.characteristicIndex == characteristicIndex {
                 return data.characteristic;
@@ -62,33 +62,33 @@ public class BLECDevice {
         return nil;
     }
 
-    public func readRSSI() throws {
+    open func readRSSI() throws {
         guard let peripheral = self.peripheral else {
-            throw Error.NoPeripheral
+            throw DeviceError.noPeripheral
         }
 
         peripheral.readRSSI()
     }
 
-    public func writeValue(data: NSData,
+    open func writeValue(_ data: Data,
                            forCharacteristic characteristic: CBCharacteristic,
-                           response: ((NSError?) -> Void)?) throws {
+                           response: ((Error?) -> Void)?) throws {
         guard let peripheral = self.peripheral else {
-            throw Error.NoPeripheral
+            throw DeviceError.noPeripheral
         }
 
         if response == nil {
-            peripheral.writeValue(data, forCharacteristic: characteristic, type: .WithoutResponse)
+            peripheral.writeValue(data, for: characteristic, type: .withoutResponse)
         } else {
-            guard var charData = self.characteristics[characteristic.UUID] else {
-                throw Error.InvalidCharacteristic
+            guard var charData = self.characteristics[characteristic.uuid] else {
+                throw DeviceError.invalidCharacteristic
             }
             if charData.writeResponse != nil {
-                throw Error.AlredyPending
+                throw DeviceError.alredyPending
             }
             charData.writeResponse = response!
-            self.characteristics[characteristic.UUID] = charData
-            peripheral.writeValue(data, forCharacteristic: characteristic, type: .WithResponse)
+            self.characteristics[characteristic.uuid] = charData
+            peripheral.writeValue(data, for: characteristic, type: .withResponse)
         }
     }
 }

@@ -11,34 +11,33 @@ import CoreBluetooth
 
 
 public enum BLECentralState {
-    case Init
+    case initial
+    case unknown
+    case unsupported
+    case unauthorized
+    case poweredOff
+    case poweredOn
+    case resetting
 
-    case Unknown
-    case Unsupported
-    case Unauthorized
-    case PoweredOff
-    case PoweredOn
-    case Resetting
-
-    case Searching
+    case searching
 };
 
 
-@objc public class BLECManager: NSObject {
+@objc open class BLECManager: NSObject {
 
-    enum Error: ErrorType {
-        case NotConnected
+    enum ManagerError: Error {
+        case notConnected
     }
 
-    private let _config: BLECConfig
-    private var _manager: CBCentralManager!
-    private var _devices = [BLECDevice]()
+    fileprivate let _config: BLECConfig
+    fileprivate var _manager: CBCentralManager!
+    fileprivate var _devices = [BLECDevice]()
 
-    public var state = BLECentralState.Init
-    public weak var delegate: BLECDeviceDelegate?
+    open var state = BLECentralState.initial
+    open weak var delegate: BLECDeviceDelegate?
 
 
-    public init?(config: BLECConfig, queue: dispatch_queue_t?) {
+    public init?(config: BLECConfig, queue: DispatchQueue?) {
         _config = config
         super.init()
         _manager = CBCentralManager(delegate: self, queue: queue)
@@ -50,32 +49,32 @@ public enum BLECentralState {
 
 extension BLECManager: CBCentralManagerDelegate {
 
-    public func centralManagerDidUpdateState(central: CBCentralManager) {
+    public func centralManagerDidUpdateState(_ central: CBCentralManager) {
     DLog("centralManagerDidUpdateState")
         switch central.state {
-        case .Unsupported:
-            state = .Unsupported
-        case .Unauthorized:
-            state = .Unauthorized
-        case .PoweredOff:
-            state = .PoweredOff
-        case .PoweredOn:
-            state = .PoweredOn
+        case .unsupported:
+            state = .unsupported
+        case .unauthorized:
+            state = .unauthorized
+        case .poweredOff:
+            state = .poweredOff
+        case .poweredOn:
+            state = .poweredOn
             _search()
-        case .Resetting:
-            state = .Resetting
+        case .resetting:
+            state = .resetting
             DLog("resetting called, pairing refused?")
-        case .Unknown:
-            state = .Unknown;
+        case .unknown:
+            state = .unknown;
         }
         DLog("Central manager state: \(state)")
         delegate?.centralDidUpdateState(self)
     }
 
-    public func centralManager(central: CBCentralManager,
-                               didDiscoverPeripheral peripheral: CBPeripheral,
-                               advertisementData: [String : AnyObject],
-                               RSSI: NSNumber) {
+    public func centralManager(_ central: CBCentralManager,
+                               didDiscover peripheral: CBPeripheral,
+                               advertisementData: [String : Any],
+                               rssi RSSI: NSNumber) {
         DLog("didDiscoverPeripheral with advertisementData items: \(advertisementData.count)")
         #if DEBUG
             var i = 0
@@ -86,7 +85,7 @@ extension BLECManager: CBCentralManagerDelegate {
         #endif  // DEBUG
 
         let isConn = advertisementData[CBAdvertisementDataIsConnectable];
-        if isConn == nil || isConn!.boolValue == false {
+        if isConn == nil || (isConn! as AnyObject).boolValue == false {
             DLog("isConn: \(isConn), not try to connect.")
             return;
         }
@@ -99,19 +98,19 @@ extension BLECManager: CBCentralManagerDelegate {
             }
 
             for uuid in advertUUIDs {
-                guard let _ = services.indexOf(uuid) else {
+                guard let _ = services.index(of: uuid) else {
                     DLog("No advert service found: \(uuid)")
                     return
                 }
             }
         }
 
-        delegate?.central(self, didDiscoverPeripheral: peripheral, RSSI: RSSI.integerValue)
+        delegate?.central(self, didDiscoverPeripheral: peripheral, RSSI: RSSI.intValue)
         _connect(peripheral)
     }
 
-    public func centralManager(central: CBCentralManager,
-                               didConnectPeripheral peripheral: CBPeripheral) {
+    public func centralManager(_ central: CBCentralManager,
+                               didConnect peripheral: CBPeripheral) {
         DLog("didConnectPeripheral")
         delegate?.central(self, didConnectPeripheral:peripheral)
 
@@ -124,15 +123,15 @@ extension BLECManager: CBCentralManagerDelegate {
         }
     }
 
-    public func centralManager(central: CBCentralManager,
+    public func centralManager(_ central: CBCentralManager,
                                didDisconnectPeripheral peripheral: CBPeripheral,
-                               error: NSError?) {
+                               error: Error?) {
         //---- set device's state ----
         guard let index = _findDeviceByPeripheral(peripheral) else {
             DLog("device not found for \(peripheral)")
             return
         }
-        assert(_devices[index].UUID == peripheral.identifier, "should be equal.");
+        assert(_devices[index].UUID as UUID == peripheral.identifier, "should be equal.");
 
         _devices[index].characteristics.removeAll()
         delegate?.central(self, didDisconnectDevice: _devices[index], error: error)
@@ -147,9 +146,9 @@ extension BLECManager: CBCentralManagerDelegate {
         }
     }
 
-    public func centralManager(central: CBCentralManager,
-                               didFailToConnectPeripheral peripheral: CBPeripheral,
-                               error: NSError?) {
+    public func centralManager(_ central: CBCentralManager,
+                               didFailToConnect peripheral: CBPeripheral,
+                               error: Error?) {
         DLog("Fail to connect to peripheral: \(peripheral) with error=\(error)")
         delegate?.central(self, didFailToConnectPeripheral: peripheral, error: error)
     }
@@ -160,31 +159,31 @@ extension BLECManager: CBCentralManagerDelegate {
 
 extension BLECManager: CBPeripheralDelegate {
 
-    public func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+    public func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let error = error {
-            DLog("service discover error: \(error.description)")
+            DLog("service discover error: \((error as NSError).description)")
             return
         }
 
         var req = 0
         if let services = peripheral.services {
             for service in services {
-                DLog("Found Service with UUID: \(service.UUID)")
+                DLog("Found Service with UUID: \(service.uuid)")
 
                 //---- find service in cofig ----
-                let (sc, _) = _config.findServiceConfigFor(service.UUID)
+                let (sc, _) = _config.findServiceConfigFor(service.uuid)
                 if let sc = sc {
-                    if sc.type.contains(BLECServiceType.Required) {
+                    if sc.type.contains(.required) {
                         req += 1
-                    } else if !sc.type.contains(.Optional) {
-                        DLog("Unexpected service found: \(service.UUID)")
+                    } else if !sc.type.contains(.optional) {
+                        DLog("Unexpected service found: \(service.uuid)")
                         _manager.cancelPeripheralConnection(peripheral)
                         return
                     }
                     let chars = sc.charcteristicUUIDs
-                    peripheral.discoverCharacteristics(chars, forService: service)
+                    peripheral.discoverCharacteristics(chars, for: service)
                 } else {
-                    peripheral.discoverCharacteristics(nil, forService:service)
+                    peripheral.discoverCharacteristics(nil, for:service)
                 }
             }
         }
@@ -202,10 +201,10 @@ extension BLECManager: CBPeripheralDelegate {
 
     // MARK: Peripheral methods
     
-    public func peripheral(peripheral: CBPeripheral,
-                           didDiscoverCharacteristicsForService service: CBService,
-                           error: NSError?) {
-        DLog("didDiscoverCharacteristicForService: \(service.UUID)")
+    public func peripheral(_ peripheral: CBPeripheral,
+                           didDiscoverCharacteristicsFor service: CBService,
+                           error: Error?) {
+        DLog("didDiscoverCharacteristicForService: \(service.uuid)")
 
         let _quitFunc = { () in
             self._manager.cancelPeripheralConnection(peripheral)
@@ -221,9 +220,9 @@ extension BLECManager: CBPeripheralDelegate {
             return
         }
 
-        let (sc, serviceIndex) = _config.findServiceConfigFor(service.UUID)
-        var characteristics = [CBCharacteristic?](count: charCount, repeatedValue: nil)
-        var delegates = [BLECCharacteristicDelegate?](count: charCount, repeatedValue: nil)
+        let (sc, serviceIndex) = _config.findServiceConfigFor(service.uuid)
+        var characteristics = [CBCharacteristic?](repeating: nil, count: charCount)
+        var delegates = [BLECCharacteristicDelegate?](repeating: nil, count: charCount)
         var req = 0;
 
         if let scTemp = sc {
@@ -242,12 +241,12 @@ extension BLECManager: CBPeripheralDelegate {
                 delegates[idx] = charDelegate
                 idx += 1
             } else {
-                let (cc, index) = sc!.findCharacteristicConfigFor(aChar.UUID)
+                let (cc, index) = sc!.findCharacteristicConfigFor(aChar.uuid)
                 if let cc = cc {
-                    if cc.type.contains(.Required) {
+                    if cc.type.contains(.required) {
                         req += 1
-                    } else if !cc.type.contains(.Optional) {
-                        DLog("Unexpected characteristic found: \(aChar.UUID)")
+                    } else if !cc.type.contains(.optional) {
+                        DLog("Unexpected characteristic found: \(aChar.uuid)")
                         _quitFunc()
                         return
                     }
@@ -258,7 +257,7 @@ extension BLECManager: CBPeripheralDelegate {
                     }
                     delegates[index] = charDelegate
                 } else {
-                    DLog("Unexpected characteristic found: \(aChar.UUID)")
+                    DLog("Unexpected characteristic found: \(aChar.uuid)")
                     _quitFunc()
                     return
                 }
@@ -284,34 +283,34 @@ extension BLECManager: CBPeripheralDelegate {
                                       serviceIndex: serviceIndex,
                                       characteristicIndex: idx,
                                       writeResponse: nil)
-            _devices[devIdx].characteristics[characteristic.UUID] = data
+            _devices[devIdx].characteristics[characteristic.uuid] = data
             charDelegate.device(_devices[devIdx], didFindCharacteristic: characteristic)
             idx += 1
         }
         delegate?.central(self, didCheckCharacteristicsDevice: _devices[devIdx])
     }
 
-    private func _didReadRSSI(peripheral: CBPeripheral,
+    fileprivate func _didReadRSSI(_ peripheral: CBPeripheral,
                               RSSI: NSNumber?,
-                              error: NSError?) {
+                              error: Error?) {
         if let devIdx = _findDeviceByPeripheral(peripheral) {
             delegate?.device(_devices[devIdx],
-                             didReadRSSI: RSSI?.integerValue ?? 0,
+                             didReadRSSI: RSSI?.intValue ?? 0,
                              error:error)
         }
     }
 
     #if os(iOS)
-    public func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: NSError?) {
-        _didReadRSSI(peripheral, RSSI: RSSI.integerValue, error: error)
+    public func peripheral(peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
+        _didReadRSSI(peripheral, RSSI: RSSI, error: error)
     }
     #elseif os(OSX)
-    public func peripheralDidUpdateRSSI(peripheral: CBPeripheral, error: NSError?) {
-        _didReadRSSI(peripheral, RSSI: peripheral.RSSI, error: error)
+    public func peripheralDidUpdateRSSI(_ peripheral: CBPeripheral, error: Error?) {
+        _didReadRSSI(peripheral, RSSI: peripheral.rssi, error: error)
     }
     #endif
 
-    public func peripheralDidUpdateName(peripheral: CBPeripheral) {
+    public func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
         DLog("peripheral: \(peripheral) changed it's name to: \(peripheral.name)")
         if let devIdx = _findDeviceByPeripheral(peripheral) {
             delegate?.deviceDidUpdateName(_devices[devIdx])
@@ -321,13 +320,13 @@ extension BLECManager: CBPeripheralDelegate {
 
     // MARK: Characteristic methods
 
-    public func peripheral(peripheral: CBPeripheral,
-                           didUpdateValueForCharacteristic characteristic: CBCharacteristic,
-                           error: NSError?) {
+    public func peripheral(_ peripheral: CBPeripheral,
+                           didUpdateValueFor characteristic: CBCharacteristic,
+                           error: Error?) {
         guard let devIdx = _findDeviceByPeripheral(peripheral) else {
             fatalError("Unknow peripheral: \(peripheral)")
         }
-        guard let data = _devices[devIdx].characteristics[characteristic.UUID] else {
+        guard let data = _devices[devIdx].characteristics[characteristic.uuid] else {
             fatalError("No characteristic for \(peripheral) at \(devIdx)")
         }
         let delegate = data.delegate
@@ -335,37 +334,37 @@ extension BLECManager: CBPeripheralDelegate {
 
         delegate.device(device,
                         didUpdateValueForCharacteristic: characteristic,
-                        error:error)
+                        error: error)
 
         //---- check if readonly ----
-        if characteristic.properties == .Read {
+        if characteristic.properties == .read {
             let release = delegate.device(device, releaseReadonlyCharacteristic: characteristic)
             if release {
                 // Release <BLECDeviceData data>.
-                _devices[devIdx].characteristics[characteristic.UUID] = nil;
+                _devices[devIdx].characteristics[characteristic.uuid] = nil;
             }
         }
     }
 
-    public func peripheral(peripheral: CBPeripheral,
-                           didWriteValueForCharacteristic characteristic: CBCharacteristic,
-                           error: NSError?) {
+    public func peripheral(_ peripheral: CBPeripheral,
+                           didWriteValueFor characteristic: CBCharacteristic,
+                           error: Error?) {
         DLog("Characteristic: \(characteristic) is written with error: \(error)")
         guard let devIdx = _findDeviceByPeripheral(peripheral) else {
             fatalError("No device for peripheral \(peripheral)")
         }
         let device = _devices[devIdx]
 
-        assert(device.UUID == peripheral.identifier, "should be equal.")
+        assert(device.UUID as UUID == peripheral.identifier, "should be equal.")
 
-        guard var data = device.characteristics[characteristic.UUID] else {
+        guard var data = device.characteristics[characteristic.uuid] else {
             fatalError("No characteristic data for \(characteristic) in device #\(devIdx):\(peripheral)")
         }
 
         if let writeResponse = data.writeResponse {
             writeResponse(error)
             data.writeResponse = nil
-            device.characteristics[characteristic.UUID] = data
+            device.characteristics[characteristic.uuid] = data
         } else {
             let delegate = data.delegate;
             delegate.device(device,
@@ -374,15 +373,15 @@ extension BLECManager: CBPeripheralDelegate {
         }
     }
 
-    public func peripheral(peripheral: CBPeripheral,
-                           didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic,
-                           error: NSError?) {
+    public func peripheral(_ peripheral: CBPeripheral,
+                           didUpdateNotificationStateFor characteristic: CBCharacteristic,
+                           error: Error?) {
         DLog("updated notification's state: \(characteristic)")
         guard let devIdx = _findDeviceByPeripheral(peripheral) else {
             fatalError("No device for peripheral \(peripheral)")
         }
         let device = _devices[devIdx]
-        guard let data = device.characteristics[characteristic.UUID] else {
+        guard let data = device.characteristics[characteristic.uuid] else {
             fatalError("No characteristic data for \(characteristic) in device #\(devIdx):\(peripheral)")
         }
         let delegate = data.delegate
@@ -398,20 +397,12 @@ extension BLECManager: CBPeripheralDelegate {
 
 extension BLECManager {
 
-    private func _search() {
-        struct Statics {
-            static var token: dispatch_once_t = 0
-            static var services: [CBUUID]?
-        }
-        dispatch_once(&Statics.token) {
-            Statics.services = self._config.advertServiceUUIDs
-        }
-
-        state = .Searching;
+    fileprivate func _search() {
+        state = .searching;
         DLog(">>>> scan started.");
-        _manager.scanForPeripheralsWithServices(Statics.services, options:_config.scanOptions)
+        _manager.scanForPeripherals(withServices: _config.advertServiceUUIDs, options:_config.scanOptions)
         let reqServices = _config.requiredServiceUUIDs ?? [CBUUID]()
-        let peers = _manager.retrieveConnectedPeripheralsWithServices(reqServices)
+        let peers = _manager.retrieveConnectedPeripherals(withServices: reqServices)
 
         DLog("already connetcted peripherals: %@", peers);
         if peers.count == 0 { return }
@@ -421,8 +412,8 @@ extension BLECManager {
         }
     }
 
-    private func _connect(peripheral: CBPeripheral) {
-        if (peripheral.state == .Connected) {
+    fileprivate func _connect(_ peripheral: CBPeripheral) {
+        if (peripheral.state == .connected) {
             DLog("peripheral is connected already.")
             assert(peripheral.delegate === self,
                    "delegate is: \(peripheral.delegate)")
@@ -441,15 +432,15 @@ extension BLECManager {
 
         DLog("connecting...")
         peripheral.delegate = self
-        _manager.connectPeripheral(peripheral, options: _config.connectOptions)
+        _manager.connect(peripheral, options: _config.connectOptions)
     }
 
-    private func _disconnect(device: BLECDevice) throws {
+    fileprivate func _disconnect(_ device: BLECDevice) throws {
         guard let peripheral = device.peripheral else {
-            throw Error.NotConnected
+            throw ManagerError.notConnected
         }
-        guard peripheral.state == .Connected else {
-            throw Error.NotConnected
+        guard peripheral.state == .connected else {
+            throw ManagerError.notConnected
         }
 
         _manager.cancelPeripheralConnection(peripheral)
@@ -457,11 +448,11 @@ extension BLECManager {
 
 
 
-    private func _findDeviceByUUID(uuid: NSUUID) -> Int? {
-        return _devices.indexOf { uuid == $0.UUID }
+    fileprivate func _findDeviceByUUID(_ uuid: UUID) -> Int? {
+        return _devices.index { uuid == $0.UUID as UUID }
     }
 
-    private func _findOrCreateDeviceByUUID(uuid: NSUUID) -> Int {
+    fileprivate func _findOrCreateDeviceByUUID(_ uuid: UUID) -> Int {
         if let index = _findDeviceByUUID(uuid) {
             return index
         }
@@ -470,11 +461,11 @@ extension BLECManager {
         return _devices.endIndex - 1;
     }
 
-    private func _findDeviceByPeripheral(peripheral: CBPeripheral) -> Int? {
-        return _devices.indexOf { peripheral === $0.peripheral }
+    fileprivate func _findDeviceByPeripheral(_ peripheral: CBPeripheral) -> Int? {
+        return _devices.index { peripheral === $0.peripheral }
     }
 
-    private func _findOrCreateDeviceByPeripheral(peripheral: CBPeripheral) -> Int {
+    fileprivate func _findOrCreateDeviceByPeripheral(_ peripheral: CBPeripheral) -> Int {
         if let index = _findDeviceByPeripheral(peripheral) {
             return index
         }

@@ -9,14 +9,14 @@
 import Foundation
 
 #if DEBUG
-func DLog(s: String, file: String = #file, line: Int = #line) {
+func DLog(_ s: String, file: String = #file, line: Int = #line) {
     print("<\((file as NSString).lastPathComponent):\(line)> \(s)")
 }
 
-func DLog(format: String, file: String = #file, line: Int = #line, _ args: CVarArgType...) {
+func DLog(_ format: String, file: String = #file, line: Int = #line, _ args: CVarArg...) {
     print("<\((#file as NSString).lastPathComponent):\(#line)> \(String(format: format, arguments: args))")
 }
 #else
-func DLog(s: String) {}
-func DLog(format: String, _ args: CVarArgType...) {}
+func DLog(_ s: String) {}
+func DLog(_ format: String, _ args: CVarArg...) {}
 #endif

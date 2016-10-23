@@ -7,13 +7,13 @@
 //
 
 enum ButtonAction {
-    case Start
-    case Stop
+    case start
+    case stop
 }
 
 
 protocol ControlCharacteristicDelegate: class {
 
-    func controlDidUpdate(state: ButtonAction)
+    func controlDidUpdate(_ state: ButtonAction)
 
 }

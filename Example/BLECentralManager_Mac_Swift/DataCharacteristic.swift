@@ -14,17 +14,17 @@ class DataCharacteristic: BLECCharacteristicDelegate {
 
     weak var delegate: DataCharacteristicDelegate?
 
-    func device(device: BLECDevice, didFindCharacteristic characteristic: CBCharacteristic) {
-        DLog("device characteristic <\(characteristic.UUID)> found!")
-        device.peripheral?.setNotifyValue(true, forCharacteristic: characteristic)
+    func device(_ device: BLECDevice, didFindCharacteristic characteristic: CBCharacteristic) {
+        DLog("device characteristic <\(characteristic.uuid)> found!")
+        device.peripheral?.setNotifyValue(true, for: characteristic)
         delegate?.found()
     }
 
-    func device(device: BLECDevice, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
+    func device(_ device: BLECDevice, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: Error?) {
         guard let value = characteristic.value else {
             return
         }
-        delegate?.dataRead(value.length)
+        delegate?.dataRead(value.count)
     }
     
 }

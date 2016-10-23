@@ -11,17 +11,17 @@ import CoreBluetooth
 
 
 public protocol BLECCharacteristicDelegate: class {
-    func device(device: BLECDevice, didFindCharacteristic characteristic: CBCharacteristic)
+    func device(_ device: BLECDevice, didFindCharacteristic characteristic: CBCharacteristic)
 
-    func device(device: BLECDevice, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?)
-    func device(device: BLECDevice, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?)
-    func device(device: BLECDevice, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?)
-    func device(device: BLECDevice, releaseReadonlyCharacteristic characteristic: CBCharacteristic) -> Bool
+    func device(_ device: BLECDevice, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: Error?)
+    func device(_ device: BLECDevice, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: Error?)
+    func device(_ device: BLECDevice, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: Error?)
+    func device(_ device: BLECDevice, releaseReadonlyCharacteristic characteristic: CBCharacteristic) -> Bool
 }
 
 public extension BLECCharacteristicDelegate {
-    func device(device: BLECDevice, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {}
-    func device(device: BLECDevice, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {}
-    func device(device: BLECDevice, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: NSError?) {}
-    func device(device: BLECDevice, releaseReadonlyCharacteristic characteristic: CBCharacteristic) -> Bool { return true }
+    func device(_ device: BLECDevice, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: Error?) {}
+    func device(_ device: BLECDevice, didWriteValueForCharacteristic characteristic: CBCharacteristic, error: Error?) {}
+    func device(_ device: BLECDevice, didUpdateNotificationStateForCharacteristic characteristic: CBCharacteristic, error: Error?) {}
+    func device(_ device: BLECDevice, releaseReadonlyCharacteristic characteristic: CBCharacteristic) -> Bool { return true }
 }

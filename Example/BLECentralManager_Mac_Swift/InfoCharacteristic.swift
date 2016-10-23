@@ -13,22 +13,22 @@ import CoreBluetooth
 class InfoCharacteristic: BLECCharacteristicDelegate {
 
     var delegate: InfoCharacteristicDelegate?
-    private let _name: String
+    fileprivate let _name: String
 
     init(name: String) {
         _name = name
     }
 
-    func device(device: BLECDevice,
+    func device(_ device: BLECDevice,
                 didFindCharacteristic characteristic: CBCharacteristic) {
-        DLog("device info characteristic <\(characteristic.UUID)> found!" )
-        device.peripheral?.readValueForCharacteristic(characteristic)
+        DLog("device info characteristic <\(characteristic.uuid)> found!" )
+        device.peripheral?.readValue(for: characteristic)
     }
 
 
-    func device(device: BLECDevice,
+    func device(_ device: BLECDevice,
                 didUpdateValueForCharacteristic characteristic: CBCharacteristic,
-                error: NSError?) {
+                error: Error?) {
         guard error == nil else {
             DLog("characteristic value read with error: \(error)")
             return
@@ -38,14 +38,14 @@ class InfoCharacteristic: BLECCharacteristicDelegate {
             return
         }
 
-        guard let value = String(data: data, encoding: NSUTF8StringEncoding) else {
+        guard let value = String(data: data, encoding: String.Encoding.utf8) else {
             DLog("Cannot decode a string value?!")
             return
         }
         delegate?.infoCharacteristicName(_name, value: value)
     }
 
-    func device(device: BLECDevice, releaseReadonlyCharacteristic characteristic: CBCharacteristic) -> Bool {
+    func device(_ device: BLECDevice, releaseReadonlyCharacteristic characteristic: CBCharacteristic) -> Bool {
         return true
     }
 }

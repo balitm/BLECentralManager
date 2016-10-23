@@ -10,25 +10,25 @@ import Foundation
 import CoreBluetooth
 
 
-public struct BLECServiceType: OptionSetType {
+public struct BLECServiceType: OptionSet {
     public var rawValue: UInt
 
-    public static let Any = BLECServiceType(rawValue: 0x1)
-    public static let Advertised = BLECServiceType(rawValue: 0x2)
-    public static let Required = BLECServiceType(rawValue: 0x5)
-    public static let Optional = BLECServiceType(rawValue: 0x8)
+    public static let anyType = BLECServiceType(rawValue: 0x1)
+    public static let advertised = BLECServiceType(rawValue: 0x2)
+    public static let required = BLECServiceType(rawValue: 0x5)
+    public static let optional = BLECServiceType(rawValue: 0x8)
 
     public init(rawValue: UInt) {
         self.rawValue = rawValue
     }
 }
 
-public struct BLECCharacteristicType: OptionSetType {
+public struct BLECCharacteristicType: OptionSet {
     public var rawValue: UInt
 
-    public static let Any = BLECCharacteristicType(rawValue: 0x1)
-    public static let Required = BLECCharacteristicType(rawValue: 0x2)
-    public static let Optional = BLECCharacteristicType(rawValue: 0x4)
+    public static let anyType = BLECCharacteristicType(rawValue: 0x1)
+    public static let required = BLECCharacteristicType(rawValue: 0x2)
+    public static let optional = BLECCharacteristicType(rawValue: 0x4)
 
     public init(rawValue: UInt) {
         self.rawValue = rawValue
@@ -36,8 +36,8 @@ public struct BLECCharacteristicType: OptionSetType {
 }
 
 public enum BLECentralType {
-    case OnePheriperal
-    case MultiPheriperal
+    case onePheriperal
+    case multiPheriperal
 }
 
 
@@ -77,7 +77,7 @@ public struct BLECServiceConfig {
         self.characteristics = characteristics
     }
 
-    private func _selectCharUUIDs(type: BLECCharacteristicType) -> [CBUUID]? {
+    private func _selectCharUUIDs(_ type: BLECCharacteristicType) -> [CBUUID]? {
         guard let chars = self.characteristics else {
             return nil;
         }
@@ -85,7 +85,7 @@ public struct BLECServiceConfig {
         var uuids = [CBUUID]()
         uuids.reserveCapacity(chars.count)
         for characteristic in chars {
-            if type == .Any || characteristic.type.contains(type) {
+            if type == .anyType || characteristic.type.contains(type) {
                 uuids.append(characteristic.UUID)
             }
         }
@@ -94,19 +94,19 @@ public struct BLECServiceConfig {
 
 
     var requiredCharcteristicUUIDs: [CBUUID]? {
-        return _selectCharUUIDs(.Required)
+        return _selectCharUUIDs(.required)
     }
 
     var charcteristicUUIDs: [CBUUID]? {
-        return _selectCharUUIDs(.Any)
+        return _selectCharUUIDs(.anyType)
     }
 
-    func findCharacteristicConfigFor(UUID: CBUUID) -> (BLECCharacteristicConfig?, Int) {
+    func findCharacteristicConfigFor(_ UUID: CBUUID) -> (BLECCharacteristicConfig?, Int) {
         guard let chars = characteristics else {
             return (nil, -1)
         }
 
-        for (index, aChar) in chars.enumerate() {
+        for (index, aChar) in chars.enumerated() {
             if UUID.isEqual(aChar.UUID) {
                 return (aChar, index)
             }
@@ -130,7 +130,7 @@ public struct BLECConfig {
         self.services = services
     }
 
-    private func _selectServiceUUIDs(type: BLECServiceType) -> [CBUUID]? {
+    private func _selectServiceUUIDs(_ type: BLECServiceType) -> [CBUUID]? {
         guard let servs = self.services else {
             return nil;
         }
@@ -138,7 +138,7 @@ public struct BLECConfig {
         var uuids = [CBUUID]()
         uuids.reserveCapacity(servs.count)
         for service in servs {
-            if type == .Any || service.type.contains(type) {
+            if type == .anyType || service.type.contains(type) {
                 uuids.append(service.UUID)
             }
         }
@@ -146,23 +146,23 @@ public struct BLECConfig {
     }
 
     var advertServiceUUIDs: [CBUUID]? {
-        return _selectServiceUUIDs(.Advertised)
+        return _selectServiceUUIDs(.advertised)
     }
 
     var requiredServiceUUIDs: [CBUUID]? {
-        return _selectServiceUUIDs(.Required)
+        return _selectServiceUUIDs(.required)
     }
     
     var serviceUUIDs: [CBUUID]? {
-        return _selectServiceUUIDs(.Any)
+        return _selectServiceUUIDs(.anyType)
     }
 
-    func findServiceConfigFor(UUID: CBUUID) -> (BLECServiceConfig?, Int) {
+    func findServiceConfigFor(_ UUID: CBUUID) -> (BLECServiceConfig?, Int) {
         guard let servs = self.services else {
             return (nil, -1)
         }
 
-        for (index, servie) in servs.enumerate() {
+        for (index, servie) in servs.enumerated() {
             if UUID.isEqual(servie.UUID) {
                 return (servie, index)
             }

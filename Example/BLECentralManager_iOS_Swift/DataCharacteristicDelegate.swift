@@ -9,6 +9,6 @@
 protocol DataCharacteristicDelegate: class {
 
   func dataFound()
-  func dataRead(dataSize: Int)
+  func dataRead(_ dataSize: Int)
 
 }

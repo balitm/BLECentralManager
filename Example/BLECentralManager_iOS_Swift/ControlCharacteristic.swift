@@ -14,21 +14,24 @@ class ControlCharacteristic: BLECCharacteristicDelegate {
 
     weak var delegate: ControlCharacteristicDelegate?
 
-    func device(device: BLECDevice,
+    func device(_ device: BLECDevice,
                 didFindCharacteristic characteristic: CBCharacteristic) {
-        DLog("device control characteristic <\(characteristic.UUID)> found!")
-        device.peripheral?.readValueForCharacteristic(characteristic)
+        DLog("device control characteristic <\(characteristic.uuid)> found!")
+        device.peripheral?.readValue(for: characteristic)
     }
 
-    func device(device: BLECDevice,
+    func device(_ device: BLECDevice,
                 didUpdateValueForCharacteristic characteristic: CBCharacteristic,
-                error: NSError?) {
+                error: Error?) {
         guard let data = characteristic.value else {
             DLog("No value!?")
             return
         }
 
-        let byte: UInt8 = Array(UnsafeBufferPointer(start: UnsafePointer<UInt8>(data.bytes), count: 1))[0]
-        delegate?.controlDidUpdate(byte == 0 ? .Start : .Stop)
+        let array = data.withUnsafeBytes {
+            [UInt8](UnsafeBufferPointer(start: $0, count: data.count))
+        }
+        let byte: UInt8 = array[0]
+        delegate?.controlDidUpdate(byte == 0 ? .start : .stop)
     }
 }

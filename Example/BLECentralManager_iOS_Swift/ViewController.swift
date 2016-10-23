@@ -13,20 +13,20 @@ import BLECentralManager
 
 class ViewController: UIViewController {
 
-    private static let _kMaxKbps: Float = 1024.0 * 100.0
+    fileprivate static let _kMaxKbps: Float = 1024.0 * 100.0
 
-    private var _manager: BLECManager!
-    private var _timer: NSTimer?
-    private var _dataSize: Int = 0
-    private weak var _device: BLECDevice?
-    private var _buttonState = ButtonAction.Start {
+    fileprivate var _manager: BLECManager!
+    fileprivate var _timer: Timer?
+    fileprivate var _dataSize: Int = 0
+    fileprivate weak var _device: BLECDevice?
+    fileprivate var _buttonState = ButtonAction.start {
         didSet {
             switch _buttonState {
-            case .Stop:
-                startButton.setTitle("Stop", forState: .Normal)
+            case .stop:
+                startButton.setTitle("Stop", for: UIControlState())
                 progressView.progress = Float(0)
-            case .Start:
-                startButton.setTitle("Start", forState: .Normal)
+            case .start:
+                startButton.setTitle("Start", for: UIControlState())
             }
         }
     }
@@ -53,52 +53,52 @@ class ViewController: UIViewController {
             InfoCharacteristic(name: "HwRev"),
             InfoCharacteristic(name: "SwRev")
         ]
-        for i in 0..<infoChars.endIndex { infoChars[i].delegate = self }
+        for i in infoChars.indices.suffix(from: 0) { infoChars[i].delegate = self }
 
-        let config = BLECConfig(type: .OnePheriperal, services: [
+        let config = BLECConfig(type: .onePheriperal, services: [
             BLECServiceConfig(
-                type: [.Advertised, .Required],
+                type: [.advertised, .required],
                 UUID: "965F6F06-2198-4F4F-A333-4C5E0F238EB7",
                 characteristics: [
                     BLECCharacteristicConfig(
-                        type: .Required,
+                        type: .required,
                         UUID: "89E63F02-9932-4DF1-91C7-A574C880EFBF",
                         delegate: dataChar),
                     BLECCharacteristicConfig(
-                        type: .Optional,
+                        type: .optional,
                         UUID: "88359D38-DEA0-4FA4-9DD2-0A47E2B794BE",
                         delegate: controlChar)
                 ]),
-            BLECServiceConfig(type: .Optional,
+            BLECServiceConfig(type: .optional,
                 UUID: "180a",
                 characteristics: [
                     // Manufacturer Name String characteristic.
                     BLECCharacteristicConfig(
-                        type: .Required,
+                        type: .required,
                         UUID: "2a29",
                         delegate: infoChars[0]),
 
                     // board
                     BLECCharacteristicConfig(
-                        type: .Optional,
+                        type: .optional,
                         UUID: "2a26",
                         delegate: infoChars[1]),
 
                     // HwRev
                     BLECCharacteristicConfig(
-                        type: .Optional,
+                        type: .optional,
                         UUID: "2a27",
                         delegate: infoChars[2]),
 
                     // SwRev
                     BLECCharacteristicConfig(
-                        type: .Optional,
+                        type: .optional,
                         UUID: "2a28",
                         delegate: infoChars[3])
                 ])
             ])
 
-        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
+        let queue = DispatchQueue.global(qos: DispatchQoS.QoSClass.utility)
         _manager = BLECManager(config: config, queue: queue)
         _manager.delegate = self;
     }
@@ -113,12 +113,12 @@ class ViewController: UIViewController {
     }
 
     //---- logView workaround at resize/rotatation ----
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        logView.scrollEnabled = false
-        logView.scrollEnabled = true
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        logView.isScrollEnabled = false
+        logView.isScrollEnabled = true
     }
 
-    @IBAction func actionStart(sender: UIButton) {
+    @IBAction func actionStart(_ sender: UIButton) {
         guard let characteristic = _device?.characteristicAt(1, inServiceAt: 0) else {
             return
         }
@@ -126,32 +126,32 @@ class ViewController: UIViewController {
         var array: [UInt8] = [0]
 
         switch _buttonState {
-        case .Start:
+        case .start:
             array[0] = UInt8(1)
-            _buttonState = .Stop
-        case .Stop:
+            _buttonState = .stop
+        case .stop:
             array[0] = UInt8(0)
-            _buttonState = .Start
+            _buttonState = .start
         }
-        let data = NSData(bytes: array, length: 1)
+        let data = Data(bytes: UnsafePointer<UInt8>(array), count: 1)
         do {
             try _device?.writeValue(data, forCharacteristic: characteristic, response: { (error) in
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self._appendLog("\(array[0] == 1 ? "Start" : "Stop") data write responded.")
                 })
             })
-        } catch BLECDevice.Error.AlredyPending {
+        } catch BLECDevice.DeviceError.alredyPending {
             print("Unresponded write is in progress.")
-        } catch BLECDevice.Error.InvalidCharacteristic {
+        } catch BLECDevice.DeviceError.invalidCharacteristic {
             print("Characteristic is not maintained by BLECManager.")
-        } catch BLECDevice.Error.NoPeripheral {
+        } catch BLECDevice.DeviceError.noPeripheral {
             print("Peripheral is not maintained by BLECManager.")
         } catch {
             assert(false, "Unknown error at write for characteristic.")
         }
     }
 
-    @objc private func _update() {
+    @objc fileprivate func _update() {
         //---- compute speed & progress ----
         let bitSize = Float(_dataSize) * 8.0
         self.progressView.setProgress(bitSize / ViewController._kMaxKbps, animated: true)
@@ -162,9 +162,9 @@ class ViewController: UIViewController {
         //---- read RSSI ----
         do {
             try _device?.readRSSI()
-        } catch BLECDevice.Error.InvalidCharacteristic {
+        } catch BLECDevice.DeviceError.invalidCharacteristic {
             print("Characteristic is not maintained by BLECManager.")
-        } catch BLECDevice.Error.NoPeripheral {
+        } catch BLECDevice.DeviceError.noPeripheral {
             print("Peripheral is not maintained by BLECManager.")
         } catch {
             assert(false)
@@ -180,62 +180,62 @@ class ViewController: UIViewController {
 
 extension ViewController: BLECDeviceDelegate {
 
-    private func _stateName(state: BLECentralState) -> String {
+    fileprivate func _stateName(_ state: BLECentralState) -> String {
         switch (state) {
-        case .Init:
+        case .initial:
             return "BLECStateInit"
-        case .Unknown:
+        case .unknown:
             return "BLECStateUnknown"
-        case .Unsupported:
+        case .unsupported:
             return "BLECStateUnsupported"
-        case .Unauthorized:
+        case .unauthorized:
             return "BLECStateUnauthorized"
-        case .PoweredOff:
+        case .poweredOff:
             return "BLECStatePoweredOff"
-        case .PoweredOn:
+        case .poweredOn:
             return "BLECStatePoweredOn"
-        case .Resetting:
+        case .resetting:
             return "BLECStateResetting"
 
-        case .Searching:
+        case .searching:
             return "BLECStateSearching"
         }
     }
 
-    private func _appendLog(str: String) {
+    fileprivate func _appendLog(_ str: String) {
         if let text = self.logView.text {
             self.logView.text = text + str + "\n"
         }
     }
 
-    private func _showRSSI(RSSI: Int) {
+    fileprivate func _showRSSI(_ RSSI: Int) {
         self.rssiLabel.text = String(RSSI)
     }
 
-    private func _zeroViews() {
+    fileprivate func _zeroViews() {
         _showRSSI(0)
         progressView.progress = 0.0
         speedLabel.text = "0"
     }
 
-    func centralDidUpdateState(manager: BLECManager) {
-        dispatch_async(dispatch_get_main_queue(), {
+    func centralDidUpdateState(_ manager: BLECManager) {
+        DispatchQueue.main.async(execute: {
             self._appendLog(self._stateName(self._manager.state))
         })
     }
 
-    func central(manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int) {
-        dispatch_async(dispatch_get_main_queue(), {
-            self._appendLog("Discovered: \(peripheral.identifier.UUIDString)")
+    func central(_ manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int) {
+        DispatchQueue.main.async(execute: {
+            self._appendLog("Discovered: \(peripheral.identifier.uuidString)")
             self._showRSSI(RSSI)
         })
     }
 
-    func central(central: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {
-        dispatch_async(dispatch_get_main_queue(), {
-            self._appendLog("Connected \(peripheral.identifier.UUIDString)")
-            self._timer = NSTimer.scheduledTimerWithTimeInterval(
-                1.0,
+    func central(_ central: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {
+        DispatchQueue.main.async(execute: {
+            self._appendLog("Connected \(peripheral.identifier.uuidString)")
+            self._timer = Timer.scheduledTimer(
+                timeInterval: 1.0,
                 target: self,
                 selector: #selector(self._update),
                 userInfo: nil,
@@ -243,15 +243,15 @@ extension ViewController: BLECDeviceDelegate {
         })
     }
 
-    func central(central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {
+    func central(_ central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {
         _device = device
     }
 
-    func central(central: BLECManager, didDisconnectDevice device: BLECDevice, error: NSError?) {
+    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: NSError?) {
         DLog("Disconnected");
-        let uuid = device.UUID.UUIDString
+        let uuid = device.UUID.uuidString
 
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self._appendLog("Disconnected: \(uuid)")
             self._zeroViews()
             self._device = nil
@@ -262,13 +262,13 @@ extension ViewController: BLECDeviceDelegate {
         })
     }
 
-    func device(device: BLECDevice, didReadRSSI RSSI: Int, error: NSError?) {
+    func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: NSError?) {
         if let error = error {
             DLog("error at RSSI reading: \(error)")
             return
         }
         
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self._showRSSI(RSSI)
         })
     }
@@ -283,12 +283,12 @@ extension ViewController: BLECDeviceDelegate {
 extension ViewController: DataCharacteristicDelegate {
     
     func dataFound() {
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             self._appendLog("Data characteristic found!")
         })
     }
     
-    func dataRead(dataSize: Int) {
+    func dataRead(_ dataSize: Int) {
         _dataSize += dataSize;
     }
 
@@ -301,10 +301,10 @@ extension ViewController: DataCharacteristicDelegate {
 
 extension ViewController: ControlCharacteristicDelegate {
 
-    func controlDidUpdate(state: ButtonAction) {
-        dispatch_async(dispatch_get_main_queue(), {
+    func controlDidUpdate(_ state: ButtonAction) {
+        DispatchQueue.main.async(execute: {
             self._appendLog("Control characteristic updated!")
-            self.startButton.enabled = true
+            self.startButton.isEnabled = true
             self._buttonState = state
         })
     }
@@ -318,8 +318,8 @@ extension ViewController: ControlCharacteristicDelegate {
 
 extension ViewController: InfoCharacteristicDelegate {
     
-    func infoCharacteristicName(name: String, value: String) {
-        dispatch_async(dispatch_get_main_queue(), {
+    func infoCharacteristicName(_ name: String, value: String) {
+        DispatchQueue.main.async(execute: {
             self._appendLog("\(name): \(value)")
         })
     }

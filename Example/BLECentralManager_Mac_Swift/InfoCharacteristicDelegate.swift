@@ -8,6 +8,6 @@
 
 protocol InfoCharacteristicDelegate {
 
-    func infoCharacteristicName(name: String, value: String)
+    func infoCharacteristicName(_ name: String, value: String)
 
 }
