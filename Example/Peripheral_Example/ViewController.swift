@@ -9,22 +9,22 @@
 import Cocoa
 
 protocol PeripheralDelegate: class {
-    func logMessage(message: String)
-    func central(central: String, didSubscribeToCharacteristic characteristic: String)
-    func central(central: String, didUnsubscribeFromCharacteristic characteristic: String)
-    func sending(toggle: Bool)
+    func logMessage(_ message: String)
+    func central(_ central: String, didSubscribeToCharacteristic characteristic: String)
+    func central(_ central: String, didUnsubscribeFromCharacteristic characteristic: String)
+    func sending(_ toggle: Bool)
 }
 
 class ViewController: NSViewController {
 
     @IBOutlet var logView: NSTextView!
 
-    private var _peripheral: Peripheral!
-    private let _sampleData = "01234567890123456789".dataUsingEncoding(NSASCIIStringEncoding)!
-    private let _kRepeatCount: UInt = 640
-    private var _timer: NSTimer?
-    private var _isSubscribed = false
-    private var _isSending = false
+    fileprivate var _peripheral: Peripheral!
+    fileprivate let _sampleData = "01234567890123456789".data(using: String.Encoding.ascii)!
+    fileprivate let _kRepeatCount: UInt = 640
+    fileprivate var _timer: Timer?
+    fileprivate var _isSubscribed = false
+    fileprivate var _isSending = false
 
 
     required init?(coder: NSCoder) {
@@ -36,21 +36,15 @@ class ViewController: NSViewController {
         super.viewDidLoad()
     }
 
-    override var representedObject: AnyObject? {
-        didSet {
-            // Update the view, if already loaded.
-        }
-    }
-
     func timerFired() {
         _peripheral.sendToSubscribers(_sampleData, repeatCount: _kRepeatCount)
     }
 
-    private func _toggleTimer() {
+    fileprivate func _toggleTimer() {
         if _isSubscribed && _isSending {
             if _timer == nil {
                 DLog("start timer.")
-                _timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                _timer = Timer.scheduledTimer(timeInterval: 1.0,
                                                                 target: self,
                                                                 selector: #selector(timerFired),
                                                                 userInfo: nil,
@@ -70,24 +64,24 @@ class ViewController: NSViewController {
 
 extension ViewController: PeripheralDelegate {
 
-    func logMessage(message: String) {
+    func logMessage(_ message: String) {
         let msg = message + "\n"
-        logView.textStorage?.appendAttributedString(NSAttributedString(string: msg))
+        logView.textStorage?.append(NSAttributedString(string: msg))
     }
 
-    func central(central: String, didSubscribeToCharacteristic characteristic: String) {
+    func central(_ central: String, didSubscribeToCharacteristic characteristic: String) {
         logMessage("subscribed central: \(central) for \(characteristic)")
         _isSubscribed = true
         _toggleTimer()
     }
 
-    func central(central: String, didUnsubscribeFromCharacteristic characteristic: String) {
+    func central(_ central: String, didUnsubscribeFromCharacteristic characteristic: String) {
         logMessage("unsubscribed central: \(central) for \(characteristic)")
         _isSubscribed = false
         _toggleTimer()
     }
 
-    func sending(toggle: Bool) {
+    func sending(_ toggle: Bool) {
         logMessage("sending toggled: " + (toggle ? "true" : "false"))
         _isSending = toggle
         _toggleTimer()

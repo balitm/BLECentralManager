@@ -11,21 +11,21 @@ import CoreBluetooth
 
 class Peripheral: NSObject {
 
-    private let _kDataServiceUUID = CBUUID(string: "965F6F06-2198-4F4F-A333-4C5E0F238EB7")
-    private let _kDataCharacteristicUUID = CBUUID(string: "89E63F02-9932-4DF1-91C7-A574C880EFBF")
-    private let _kControlCharacteristicUUID = CBUUID(string: "88359D38-DEA0-4FA4-9DD2-0A47E2B794BE")
+    fileprivate let _kDataServiceUUID = CBUUID(string: "965F6F06-2198-4F4F-A333-4C5E0F238EB7")
+    fileprivate let _kDataCharacteristicUUID = CBUUID(string: "89E63F02-9932-4DF1-91C7-A574C880EFBF")
+    fileprivate let _kControlCharacteristicUUID = CBUUID(string: "88359D38-DEA0-4FA4-9DD2-0A47E2B794BE")
 
-    private weak var _delegate: PeripheralDelegate!
-    private var _sampleData: NSData?
-    private var _repeatCount: UInt = 0
+    fileprivate weak var _delegate: PeripheralDelegate!
+    fileprivate var _sampleData: Data?
+    fileprivate var _repeatCount: UInt = 0
 
-    private var _manager: CBPeripheralManager!
-    private var _dataCharacteristic: CBMutableCharacteristic?
-    private var _controlCharacteristic: CBMutableCharacteristic?
-    private var _dataService: CBMutableService?
-    private var _serviceRequiresRegistration = false;
+    fileprivate var _manager: CBPeripheralManager!
+    fileprivate var _dataCharacteristic: CBMutableCharacteristic?
+    fileprivate var _controlCharacteristic: CBMutableCharacteristic?
+    fileprivate var _dataService: CBMutableService?
+    fileprivate var _serviceRequiresRegistration = false
 //    private var _pendingData: NSData?
-    private var _subscribers = [CBCentral]();
+    fileprivate var _subscribers = [CBCentral]()
     var subscribersCount: Int {
         get {
             return _subscribers.count
@@ -39,7 +39,7 @@ class Peripheral: NSObject {
         _manager = CBPeripheralManager(delegate: self, queue: nil, options: [CBPeripheralManagerOptionShowPowerAlertKey: true])
     }
 
-    private func _enableDataService() {
+    fileprivate func _enableDataService() {
         // If the service is already registered, we need to re-register it again.
         _disableDataService()
 
@@ -52,31 +52,31 @@ class Peripheral: NSObject {
         // Set up the characteristic in the service. This characteristic is only
         // readable through subscription (CBCharacteristicsPropertyNotify)
         _dataCharacteristic = CBMutableCharacteristic(type: _kDataCharacteristicUUID,
-                                                      properties: .Notify,
+                                                      properties: .notify,
                                                       value: nil,
-                                                      permissions: .Readable)
+                                                      permissions: .readable)
 
         _controlCharacteristic = CBMutableCharacteristic(type: _kControlCharacteristicUUID,
-                                                         properties: [.Read, .Write],
+                                                         properties: [.read, .write],
                                                          value: nil,
-                                                         permissions: [.Readable, .Writeable])
+                                                         permissions: [.readable, .writeable])
 
         guard let service = _dataService,
-            characteristic = _dataCharacteristic,
-            ctrlCharacteristic = _controlCharacteristic else {
-                return;
+            let characteristic = _dataCharacteristic,
+            let ctrlCharacteristic = _controlCharacteristic else {
+                return
         }
 
         // Assign the characteristic.
         service.characteristics = [characteristic, ctrlCharacteristic]
 
         // Add the service to the peripheral manager.
-        _manager.addService(service)
+        _manager.add(service)
     }
 
-    private func _disableDataService() {
+    fileprivate func _disableDataService() {
         if let service = _dataService {
-            _manager.removeService(service)
+            _manager.remove(service)
             _dataService = nil
         }
     }
@@ -95,15 +95,15 @@ class Peripheral: NSObject {
         _manager.stopAdvertising()
     }
 
-    private func _notifySubscribers() {
+    fileprivate func _notifySubscribers() {
         while _repeatCount > 0 {
             let res = _manager.updateValue(_sampleData!,
-                                           forCharacteristic: _dataCharacteristic!,
+                                           for: _dataCharacteristic!,
                                            onSubscribedCentrals: nil)
 //            DLog("Sending \(_sampleData?.bytes) data, rc: \(_repeatCount), max: \(_subscribers.count > 0 ? _subscribers[0].maximumUpdateValueLength : 0)")
             if (!res) {
 //                DLog("Failed to send data, buffering data for retry once ready.")
-                // _pendingData = _sampleData;
+                // _pendingData = _sampleData
                 break
             } else {
                 _repeatCount -= 1
@@ -111,10 +111,10 @@ class Peripheral: NSObject {
         }
     }
 
-    func sendToSubscribers(data: NSData, repeatCount: UInt) {
-        guard _manager.state == .PoweredOn else {
+    func sendToSubscribers(_ data: Data, repeatCount: UInt) {
+        guard _manager.state == .poweredOn else {
             _delegate.logMessage("sendToSubscribers: peripheral not ready for sending state: \(_manager.state)")
-            return;
+            return
         }
 
         guard let _ = _dataCharacteristic else {
@@ -131,33 +131,33 @@ class Peripheral: NSObject {
 
 extension Peripheral: CBPeripheralManagerDelegate {
 
-    func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager) {
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         switch peripheral.state {
-        case .PoweredOn:
+        case .poweredOn:
             _delegate.logMessage("Peripheral powered on.")
             DLog("Peripheral powered on.")
             _enableDataService()
-        case .PoweredOff:
+        case .poweredOff:
             _delegate.logMessage("Peripheral powered off.")
             _disableDataService()
-        case .Resetting:
+        case .resetting:
             _delegate.logMessage("Peripheral resetting.")
             _serviceRequiresRegistration = true
-        case .Unauthorized:
+        case .unauthorized:
             _delegate.logMessage("Peripheral unauthorized.")
             _serviceRequiresRegistration = true
-        case .Unknown:
+        case .unknown:
             _delegate.logMessage("Peripheral unknown.")
             _serviceRequiresRegistration = true
-        case .Unsupported:
+        case .unsupported:
             _delegate.logMessage("Peripheral unsupported.")
             _serviceRequiresRegistration = true
         }
     }
 
-    func peripheralManager(peripheral: CBPeripheralManager,
-                           didAddService service: CBService,
-                                         error: NSError?) {
+    func peripheralManager(_ peripheral: CBPeripheralManager,
+                           didAdd service: CBService,
+                                         error: Error?) {
         guard error == nil else {
             _delegate.logMessage("Failed to add a service: : \(error)")
             return
@@ -165,38 +165,38 @@ extension Peripheral: CBPeripheralManagerDelegate {
 
         // As soon as the service is added, we should start advertising.
         if service == _dataService {
-            _controlCharacteristic?.value = NSData(bytes: [UInt8(0)], length: 1)
+            _controlCharacteristic?.value = Data(bytes: UnsafePointer<UInt8>([UInt8(0)]), count: 1)
             startAdvertising()
             DLog("Peripheral advertising...")
         }
     }
 
-    func peripheralManager(peripheral: CBPeripheralManager,
+    func peripheralManager(_ peripheral: CBPeripheralManager,
                            central: CBCentral,
-                           didSubscribeToCharacteristic characteristic: CBCharacteristic) {
+                           didSubscribeTo characteristic: CBCharacteristic) {
         assert(!_subscribers.contains(central))
         _subscribers.append(central)
-        _manager.setDesiredConnectionLatency(.Low, forCentral: central)
+        _manager.setDesiredConnectionLatency(.low, for: central)
         DLog("Appended - subscribers: \(_subscribers)")
-        _delegate.central(central.identifier.UUIDString,
-                          didSubscribeToCharacteristic: characteristic.UUID.UUIDString)
+        _delegate.central(central.identifier.uuidString,
+                          didSubscribeToCharacteristic: characteristic.uuid.uuidString)
     }
 
-    func peripheralManager(peripheral: CBPeripheralManager,
+    func peripheralManager(_ peripheral: CBPeripheralManager,
                            central: CBCentral,
-                           didUnsubscribeFromCharacteristic characteristic: CBCharacteristic) {
-        if let index = _subscribers.indexOf(central) {
-            _subscribers.removeAtIndex(index)
+                           didUnsubscribeFrom characteristic: CBCharacteristic) {
+        if let index = _subscribers.index(of: central) {
+            _subscribers.remove(at: index)
             DLog("Removed - subscribers: \(_subscribers)")
         } else {
             assert(false)
         }
-        _delegate.central(central.identifier.UUIDString,
-                          didUnsubscribeFromCharacteristic: characteristic.UUID.UUIDString)
+        _delegate.central(central.identifier.uuidString,
+                          didUnsubscribeFromCharacteristic: characteristic.uuid.uuidString)
     }
 
-    func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager,
-                                              error: NSError?) {
+    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager,
+                                              error: Error?) {
         guard error == nil else {
             _delegate.logMessage("Failed to start advertising: \(error).")
             return
@@ -205,26 +205,26 @@ extension Peripheral: CBPeripheralManagerDelegate {
         _delegate.logMessage("advertising started.")
     }
 
-    func peripheralManagerIsReadyToUpdateSubscribers(peripheral: CBPeripheralManager) {
+    func peripheralManagerIsReady(toUpdateSubscribers peripheral: CBPeripheralManager) {
 //        DLog("current repeat count is \(_repeatCount)")
         _notifySubscribers()
     }
 
-    func peripheralManager(peripheral: CBPeripheralManager,
-                           didReceiveReadRequest request: CBATTRequest) {
+    func peripheralManager(_ peripheral: CBPeripheralManager,
+                           didReceiveRead request: CBATTRequest) {
         guard let ctrlCharacteristic = _controlCharacteristic else {
-            peripheral.respondToRequest(request, withResult: .InvalidHandle)
+            peripheral.respond(to: request, withResult: .invalidHandle)
             return
         }
         DLog("value to send: \(ctrlCharacteristic.value)")
         request.value = ctrlCharacteristic.value
-        peripheral.respondToRequest(request, withResult: .Success)
+        peripheral.respond(to: request, withResult: .success)
     }
 
-    func peripheralManager(peripheral: CBPeripheralManager,
-                           didReceiveWriteRequests requests: [CBATTRequest]) {
+    func peripheralManager(_ peripheral: CBPeripheralManager,
+                           didReceiveWrite requests: [CBATTRequest]) {
         guard let ctrlCharacteristic = _controlCharacteristic else {
-            peripheral.respondToRequest(requests[0], withResult: .InvalidHandle)
+            peripheral.respond(to: requests[0], withResult: .invalidHandle)
             return
         }
         for req in requests {
@@ -234,11 +234,14 @@ extension Peripheral: CBPeripheralManagerDelegate {
             guard let value = req.value else {
                 continue
             }
-            assert(req.offset == 0 && value.length == 1)
+            assert(req.offset == 0 && value.count == 1)
             ctrlCharacteristic.value = value
-            let byte: UInt8 = Array(UnsafeBufferPointer(start: UnsafePointer<UInt8>(value.bytes), count: 1))[0]
+            let array = value.withUnsafeBytes {
+                [UInt8](UnsafeBufferPointer(start: $0, count: 1))
+            }
+            let byte: UInt8 = array[0]
             _delegate.sending(byte != 0)
         }
-        peripheral.respondToRequest(requests[0], withResult: .Success)
+        peripheral.respond(to: requests[0], withResult: .success)
     }
 }
