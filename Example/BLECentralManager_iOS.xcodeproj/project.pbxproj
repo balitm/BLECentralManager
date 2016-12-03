@@ -286,6 +286,7 @@
 				ORGANIZATIONNAME = "Balázs Kilvády";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
+						LastSwiftMigration = 0810;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
 				};
@@ -596,6 +597,7 @@
 				INFOPLIST_FILE = "BLECentralManager_iOS_Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = BLECentralManager_iOS_Example;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_iOS_Example.app/BLECentralManager_iOS_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -616,6 +618,7 @@
 				INFOPLIST_FILE = "BLECentralManager_iOS_Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = BLECentralManager_iOS_Example;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BLECentralManager_iOS_Example.app/BLECentralManager_iOS_Example";
 				WRAPPER_EXTENSION = xctest;
 			};

@@ -147,12 +147,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "kil-dev";
 				TargetAttributes = {
 					295A148F1D257A3A002E2220 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = DNXAD46BWZ;
+						DevelopmentTeam = S43XPM96PR;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -314,7 +314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -356,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -370,7 +370,7 @@
 			baseConfigurationReference = CE1A8E719C7C702B099D2F9A /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DNXAD46BWZ;
+				DEVELOPMENT_TEAM = S43XPM96PR;
 				INFOPLIST_FILE = BLECentralManager_iOS_Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
@@ -385,7 +385,7 @@
 			baseConfigurationReference = 7BAA8A4DC29F2D4D234A39FC /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DNXAD46BWZ;
+				DEVELOPMENT_TEAM = S43XPM96PR;
 				INFOPLIST_FILE = BLECentralManager_iOS_Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-iOS-Swift";
