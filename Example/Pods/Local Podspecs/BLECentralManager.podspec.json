@@ -1,0 +1,36 @@
+{
+  "name": "BLECentralManager",
+  "version": "0.1.0",
+  "summary": "A short description of BLECentralManager.",
+  "description": "BLECentralManager framework simplifies Bluetooth 4.0 (Low Energy) usage for central devices. The user of the framework have\nto define a structure of expected services and characteristics and implement characteristic handler/delegate classes. The framework handles\n- Searching and filtering peripherals.\n- Connect to peripherals.\n- Ask requested services and requested characteristics of them.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/BLECentralManager",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Balázs Kilvády": "bkilvady@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/BLECentralManager.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.11"
+  },
+  "default_subspecs": "ObjC",
+  "preserve_paths": "BLECentralManager/BLECentralManager.modulemap",
+  "module_map": "BLECentralManager/BLECentralManager.modulemap",
+  "subspecs": [
+    {
+      "name": "ObjC",
+      "source_files": "BLECentralManager/Classes/ObjC/*",
+      "public_header_files": "BLECentralManager/Classes/ObjC/BLEC*.h"
+    },
+    {
+      "name": "Swift",
+      "source_files": "BLECentralManager/Classes/Swift/*"
+    }
+  ]
+}

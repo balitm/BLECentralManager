@@ -1,0 +1,6 @@
+framework module BLECentralManagerSwift {
+  umbrella header "BLECentralManager.h"
+
+  export *
+  module * { export * }
+}
