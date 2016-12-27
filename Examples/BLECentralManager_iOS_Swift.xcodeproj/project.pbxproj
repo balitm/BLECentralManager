@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29145A381DF5AE3E00E7B812 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29145A371DF5AE3E00E7B812 /* UIKit.framework */; };
+		29145A3A1DF5AE4E00E7B812 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29145A391DF5AE4E00E7B812 /* Foundation.framework */; };
+		2931C56D1D33B31400D38B76 /* DataCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931C5681D33B31400D38B76 /* DataCharacteristic.swift */; };
+		2931C56E1D33B31400D38B76 /* DataCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931C5691D33B31400D38B76 /* DataCharacteristicDelegate.swift */; };
+		2931C56F1D33B31400D38B76 /* InfoCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931C56A1D33B31400D38B76 /* InfoCharacteristic.swift */; };
+		2931C5701D33B31400D38B76 /* InfoCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931C56B1D33B31400D38B76 /* InfoCharacteristicDelegate.swift */; };
+		2931C5711D33B31400D38B76 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2931C56C1D33B31400D38B76 /* Log.swift */; };
+		293D1B7B1D49117900713158 /* ControlCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D1B7A1D49117900713158 /* ControlCharacteristicDelegate.swift */; };
+		293D4F7B1D47D01B00FA6BA9 /* ControlCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293D4F7A1D47D01B00FA6BA9 /* ControlCharacteristic.swift */; };
+		295A14941D257A3A002E2220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295A14931D257A3A002E2220 /* AppDelegate.swift */; };
+		295A14961D257A3A002E2220 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295A14951D257A3A002E2220 /* ViewController.swift */; };
+		295A14991D257A3A002E2220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295A14971D257A3A002E2220 /* Main.storyboard */; };
+		295A149B1D257A3A002E2220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 295A149A1D257A3A002E2220 /* Assets.xcassets */; };
+		295A149E1D257A3A002E2220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295A149C1D257A3A002E2220 /* LaunchScreen.storyboard */; };
+		FF84D4A747B63667A0A5375C /* Pods_BLECentralManager_iOS_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7430E1B3BA0F545239BDFA /* Pods_BLECentralManager_iOS_Swift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		29145A371DF5AE3E00E7B812 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		29145A391DF5AE4E00E7B812 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2931C5681D33B31400D38B76 /* DataCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCharacteristic.swift; sourceTree = "<group>"; };
+		2931C5691D33B31400D38B76 /* DataCharacteristicDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCharacteristicDelegate.swift; sourceTree = "<group>"; };
+		2931C56A1D33B31400D38B76 /* InfoCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCharacteristic.swift; sourceTree = "<group>"; };
+		2931C56B1D33B31400D38B76 /* InfoCharacteristicDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCharacteristicDelegate.swift; sourceTree = "<group>"; };
+		2931C56C1D33B31400D38B76 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		293D1B7A1D49117900713158 /* ControlCharacteristicDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristicDelegate.swift; sourceTree = "<group>"; };
+		293D4F7A1D47D01B00FA6BA9 /* ControlCharacteristic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlCharacteristic.swift; sourceTree = "<group>"; };
+		295A14901D257A3A002E2220 /* BLECentralManager_iOS_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECentralManager_iOS_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		295A14931D257A3A002E2220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		295A14951D257A3A002E2220 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		295A14981D257A3A002E2220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		295A149A1D257A3A002E2220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		295A149D1D257A3A002E2220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		295A149F1D257A3A002E2220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A715B5755E3A62B655521C43 /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_iOS_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		CCD2808CC828E46C50DDC0D1 /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECentralManager_iOS_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift.release.xcconfig"; sourceTree = "<group>"; };
+		FB7430E1B3BA0F545239BDFA /* Pods_BLECentralManager_iOS_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLECentralManager_iOS_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		295A148D1D257A3A002E2220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29145A3A1DF5AE4E00E7B812 /* Foundation.framework in Frameworks */,
+				29145A381DF5AE3E00E7B812 /* UIKit.framework in Frameworks */,
+				FF84D4A747B63667A0A5375C /* Pods_BLECentralManager_iOS_Swift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		295A14871D257A3A002E2220 = {
+			isa = PBXGroup;
+			children = (
+				295A14921D257A3A002E2220 /* BLECentralManager_iOS_Swift */,
+				295A14911D257A3A002E2220 /* Products */,
+				B3ED6B1FE346F5F7B3A72D2B /* Frameworks */,
+				DDFF24686555F5473013F61A /* Pods */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+		};
+		295A14911D257A3A002E2220 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				295A14901D257A3A002E2220 /* BLECentralManager_iOS_Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		295A14921D257A3A002E2220 /* BLECentralManager_iOS_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				2931C5681D33B31400D38B76 /* DataCharacteristic.swift */,
+				2931C5691D33B31400D38B76 /* DataCharacteristicDelegate.swift */,
+				2931C56A1D33B31400D38B76 /* InfoCharacteristic.swift */,
+				2931C56B1D33B31400D38B76 /* InfoCharacteristicDelegate.swift */,
+				293D4F7A1D47D01B00FA6BA9 /* ControlCharacteristic.swift */,
+				293D1B7A1D49117900713158 /* ControlCharacteristicDelegate.swift */,
+				2931C56C1D33B31400D38B76 /* Log.swift */,
+				295A14931D257A3A002E2220 /* AppDelegate.swift */,
+				295A14951D257A3A002E2220 /* ViewController.swift */,
+				295A14971D257A3A002E2220 /* Main.storyboard */,
+				295A149A1D257A3A002E2220 /* Assets.xcassets */,
+				295A149C1D257A3A002E2220 /* LaunchScreen.storyboard */,
+				295A149F1D257A3A002E2220 /* Info.plist */,
+			);
+			path = BLECentralManager_iOS_Swift;
+			sourceTree = "<group>";
+		};
+		B3ED6B1FE346F5F7B3A72D2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29145A391DF5AE4E00E7B812 /* Foundation.framework */,
+				29145A371DF5AE3E00E7B812 /* UIKit.framework */,
+				FB7430E1B3BA0F545239BDFA /* Pods_BLECentralManager_iOS_Swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDFF24686555F5473013F61A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A715B5755E3A62B655521C43 /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */,
+				CCD2808CC828E46C50DDC0D1 /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		295A148F1D257A3A002E2220 /* BLECentralManager_iOS_Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 295A14A21D257A3A002E2220 /* Build configuration list for PBXNativeTarget "BLECentralManager_iOS_Swift" */;
+			buildPhases = (
+				4E1F2A2B533A20F3C2B05DBD /* [CP] Check Pods Manifest.lock */,
+				295A148C1D257A3A002E2220 /* Sources */,
+				295A148D1D257A3A002E2220 /* Frameworks */,
+				295A148E1D257A3A002E2220 /* Resources */,
+				FF8FB6ABC1F4E2845F4D0345 /* [CP] Embed Pods Frameworks */,
+				8283B0EDF16BB0BDABCF7493 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLECentralManager_iOS_Swift;
+			productName = BLECentralManager_iOS_Swift;
+			productReference = 295A14901D257A3A002E2220 /* BLECentralManager_iOS_Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		295A14881D257A3A002E2220 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "kil-dev";
+				TargetAttributes = {
+					295A148F1D257A3A002E2220 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = S43XPM96PR;
+						LastSwiftMigration = 0800;
+					};
+				};
+			};
+			buildConfigurationList = 295A148B1D257A3A002E2220 /* Build configuration list for PBXProject "BLECentralManager_iOS_Swift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 295A14871D257A3A002E2220;
+			productRefGroup = 295A14911D257A3A002E2220 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				295A148F1D257A3A002E2220 /* BLECentralManager_iOS_Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		295A148E1D257A3A002E2220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295A149E1D257A3A002E2220 /* LaunchScreen.storyboard in Resources */,
+				295A149B1D257A3A002E2220 /* Assets.xcassets in Resources */,
+				295A14991D257A3A002E2220 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E1F2A2B533A20F3C2B05DBD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8283B0EDF16BB0BDABCF7493 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF8FB6ABC1F4E2845F4D0345 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		295A148C1D257A3A002E2220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				293D4F7B1D47D01B00FA6BA9 /* ControlCharacteristic.swift in Sources */,
+				295A14961D257A3A002E2220 /* ViewController.swift in Sources */,
+				2931C5711D33B31400D38B76 /* Log.swift in Sources */,
+				2931C56D1D33B31400D38B76 /* DataCharacteristic.swift in Sources */,
+				293D1B7B1D49117900713158 /* ControlCharacteristicDelegate.swift in Sources */,
+				2931C5701D33B31400D38B76 /* InfoCharacteristicDelegate.swift in Sources */,
+				2931C56E1D33B31400D38B76 /* DataCharacteristicDelegate.swift in Sources */,
+				295A14941D257A3A002E2220 /* AppDelegate.swift in Sources */,
+				2931C56F1D33B31400D38B76 /* InfoCharacteristic.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		295A14971D257A3A002E2220 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				295A14981D257A3A002E2220 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		295A149C1D257A3A002E2220 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				295A149D1D257A3A002E2220 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		295A14A01D257A3A002E2220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		295A14A11D257A3A002E2220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		295A14A31D257A3A002E2220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A715B5755E3A62B655521C43 /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S43XPM96PR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/BLECentralManager-Swift-iOS",
+				);
+				INFOPLIST_FILE = BLECentralManager_iOS_Swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-iOS-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		295A14A41D257A3A002E2220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCD2808CC828E46C50DDC0D1 /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S43XPM96PR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos/BLECentralManager-Swift-iOS",
+				);
+				INFOPLIST_FILE = BLECentralManager_iOS_Swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hu.kil-dev.BLECentralManager-iOS-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		295A148B1D257A3A002E2220 /* Build configuration list for PBXProject "BLECentralManager_iOS_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				295A14A01D257A3A002E2220 /* Debug */,
+				295A14A11D257A3A002E2220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		295A14A21D257A3A002E2220 /* Build configuration list for PBXNativeTarget "BLECentralManager_iOS_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				295A14A31D257A3A002E2220 /* Debug */,
+				295A14A41D257A3A002E2220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 295A14881D257A3A002E2220 /* Project object */;
+}

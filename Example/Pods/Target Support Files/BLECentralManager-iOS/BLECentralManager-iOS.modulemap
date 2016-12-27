@@ -1,6 +1,0 @@
-framework module BLECentralManager {
-  umbrella header "BLECentralManager.h"
-
-  export *
-  module * { export * }
-}

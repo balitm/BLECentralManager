@@ -4,11 +4,31 @@
 
 osx_image: xcode8.1
 language: objective-c, swift
+
 # cache: cocoapods
 # podfile: Example/Podfile
-# before_install:
-# - gem install cocoapods # Since Travis is not always on latest version
-# - pod install --project-directory=Example
-script:
-- set -o pipefail && xcodebuild test -workspace Example/BLECentralManager.xcworkspace -scheme BLECentralManager-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
+
+before_install:
+- gem install cocoapods # Since Travis is not always on latest version
+- pod install --project-directory=Examples
+
+stages:
+  - build
+  
+cache:
+  key: "$CI_BUILD_TAG"
+  untracked: true
+  paths:
+    - build/
+
+build:
+  stage: build
+  only:
+    - tags
+  script:
+    - export LC_ALL=en_US.UTF-8
+    - set -o pipefail && xcodebuild -workspace BLECentralManager.xcworkspace -scheme BLECentralManager_iOS_Swift -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+	- set -o pipefail && xcodebuild -workspace BLECentralManager.xcworkspace -scheme BLECentralManager_Mac_Swift | xcpretty
+	- set -o pipefail && xcodebuild -workspace BLECentralManager.xcworkspace -scheme BLECentralManager_iOS_ObjC -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+	- set -o pipefail && xcodebuild -workspace BLECentralManager.xcworkspace -scheme BLECentralManager_Mac_ObjC | xcpretty
+	- pod lib lint

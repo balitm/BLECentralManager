@@ -1,0 +1,18 @@
+PODS:
+  - BLECentralManager/ObjC (0.1.3)
+  - BLECentralManager/Swift (0.1.3)
+
+DEPENDENCIES:
+  - BLECentralManager/ObjC (from `../`)
+  - BLECentralManager/Swift (from `../`)
+
+EXTERNAL SOURCES:
+  BLECentralManager:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BLECentralManager: 3d0ec74a367c64f1df0d15ab58c6d9e3064199a4
+
+PODFILE CHECKSUM: 3a448a843f6365df54243a4ec3681c20d22d59a8
+
+COCOAPODS: 1.1.1

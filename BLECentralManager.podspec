@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BLECentralManager'
-  s.version          = '0.1.1'
+  s.version          = '0.1.3'
   s.summary          = 'A Bluetooth 4 central framework.'
 
 # This description is used to generate tags and improve search results.
@@ -33,17 +33,17 @@ to define a structure of expected services and characteristics and implement cha
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.11'
 
-  s.default_subspecs = 'ObjC'
-  s.preserve_path = 'BLECentralManager/BLECentralManager.modulemap'
-  s.module_map = 'BLECentralManager/BLECentralManager.modulemap'
+  s.default_subspecs = 'Swift'
+#  s.preserve_path = 'BLECentralManager/BLECentralManager.modulemap'
+#  s.module_map = 'BLECentralManager/BLECentralManager.modulemap'
  
   s.subspec 'ObjC' do |ss|
-    ss.source_files = 'BLECentralManager/Classes/ObjC/*'
-    ss.public_header_files = 'BLECentralManager/Classes/ObjC/BLEC*.h'
+    ss.source_files = 'Sources/ObjC/*'
+    ss.public_header_files = 'Sources/ObjC/BLEC*.h'
   end
 
   s.subspec 'Swift' do |ss|
-    ss.source_files = 'BLECentralManager/Classes/Swift/*'
+    ss.source_files = 'Sources/Swift/*'
   end
 
 end

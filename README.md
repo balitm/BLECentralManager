@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/BLECentralManager.svg?style=flat)](http://cocoapods.org/pods/BLECentralManager)
 [![Platform](https://img.shields.io/cocoapods/p/BLECentralManager.svg?style=flat)](http://cocoapods.org/pods/BLECentralManager)
 
-## Example
+## Examples
 
 To run the example projects, clone the repo, and run `pod install` from the Example directory first. A Peripheral_Example project also added so if you have an iOS device and a Mac then you can test the Swift and ObjC iOS examples. They behave as a central and Peripheral_Example will be the peripheral on the Mac.
 
@@ -136,7 +136,7 @@ it, simply add the following line to your Podfile:
 
 For ObjC:
 ```ruby
-pod "BLECentralManager"
+pod "BLECentralManager/ObjC"
 ```
 
 For Swift:

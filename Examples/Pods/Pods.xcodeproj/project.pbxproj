@@ -1,0 +1,1617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02CA13C90004CD212D76E495A210AFF0 /* Pods-BLECentralManager_Mac_Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5707D160010AD55EACE49CC100D07AC1 /* Pods-BLECentralManager_Mac_Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		032DA4761FA8DCF1F5FE2ACE0A14176F /* BLECCharacteristicDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A612A06E0CE4E364FA9A7C396677E201 /* BLECCharacteristicDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A14417E80EC79728C7AB3FA99F6F2C1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */; };
+		0C25D30F0DF97F4286D8DCFF05596D3B /* BLECDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9591FA03B4939AB835E1FCA25F2BF /* BLECDevice.swift */; };
+		0FFF60EFB681AFB06E07EC03A159AD98 /* BLECConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E87A25155A4296251DBB48642736B9ED /* BLECConfig.m */; };
+		1AB0AD7692619C75FD68E1477DC3D38C /* Pods-BLECentralManager_Mac_ObjC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A9BFD2409F3AE8BF46B7EEC458573D43 /* Pods-BLECentralManager_Mac_ObjC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EF6DEA17C33E46577CDA7DAC150E6C0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */; };
+		25057348C2A2C4251649D045BA4A6DD4 /* BLECDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2D1BB57457B0327EEF058B4AE60D3D /* BLECDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CF360A443A38543223B7AFB354C543C /* BLECCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D5A2F50C6140781D1BE581E861BCA /* BLECCharacteristicDelegate.swift */; };
+		2D637F6C99D7724B3746223AC600A143 /* BLECManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172EB03D04FB45AEACB6C88EB1D7CE9F /* BLECManager.swift */; };
+		30CF89AEB34E6C81C16CF20D34A5D35C /* BLECentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8710F80581F8272A9C91FD4DE6E32DF9 /* BLECentralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38AA338CD50404345F1392202811FFAA /* BLECentralManager-Swift-OSX-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0175422B045FA9788BE4ABC40C5E393A /* BLECentralManager-Swift-OSX-dummy.m */; };
+		391B682D4A9046B426C211FD5AA64632 /* BLECDeviceDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8F305482EC2E95E2C2FE432890EEEA /* BLECDeviceDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B9594A6C2D13DF6815B1A4725F37E7F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */; };
+		4171AA7F87173BAC6BC5F6AC7162E220 /* Pods-BLECentralManager_iOS_ObjC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9EB47A8B08169E032D03F90A3ED221 /* Pods-BLECentralManager_iOS_ObjC-dummy.m */; };
+		5378215F38C02A2EEE8946004D0AB349 /* BLECDeviceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2990A83B66E86FB4B4DC75EBC5F0F7 /* BLECDeviceDelegate.swift */; };
+		5835E22204FB1A2D0A181ED4271BB550 /* BLECConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE5EA1244AE074501FB97FB3188DB8A /* BLECConfig.swift */; };
+		5B4D3152F07025FF17F09FB4DA16201E /* BLECentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8710F80581F8272A9C91FD4DE6E32DF9 /* BLECentralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E0AC3F02988ED5383263CF614936719 /* BLECDeviceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2990A83B66E86FB4B4DC75EBC5F0F7 /* BLECDeviceDelegate.swift */; };
+		655B324A7F6E7A146A0A6AA65414C8F1 /* BLECConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = FAADD348140CF7873ECE76C2EA8E7523 /* BLECConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69B205784D2F0C73ADD8F7A33DF5CDB9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */; };
+		6B996A9EACEE5D2C10E7EB351DC454E7 /* BLECDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 762793DB52B8781A640C4601A37BDABB /* BLECDevice.m */; };
+		6C895664E6221984FE625FAA3F261F43 /* BLECentralManager-ObjC-OSX-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF11DA2C495841360492E5D18A7708F7 /* BLECentralManager-ObjC-OSX-dummy.m */; };
+		7221E19290A159F12D8EEB5B9CD57BA8 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED2EF9BA6EFD00865A1DD41621CD6C4 /* Log.swift */; };
+		7ADAD8CB3D2E73047DA25CA3C3D62504 /* BLECConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE5EA1244AE074501FB97FB3188DB8A /* BLECConfig.swift */; };
+		7C2A8FA0416FF614B257D08684D72D59 /* BLECDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D9591FA03B4939AB835E1FCA25F2BF /* BLECDevice.swift */; };
+		7CF55C404603FFAD90482FB6512CE76C /* BLECentralManager-ObjC-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EB7F3FB71A6F0D38C18C60F2DE0691 /* BLECentralManager-ObjC-iOS-dummy.m */; };
+		8123F8EDDC1CDA640CDE7C3AB8D712D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */; };
+		8174DD96B50750E7C35AB3F452B7B487 /* BLECCharacteristicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D5A2F50C6140781D1BE581E861BCA /* BLECCharacteristicDelegate.swift */; };
+		8265FAEC644DD375C43B3A1134C51669 /* BLECManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2131CFC7FAF47EE2490761CC68E630E5 /* BLECManager.m */; };
+		8582D5B35D9C4DF87CD975CFFEA72EB6 /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6ABD29D889FAC3FE610536F04B9232 /* Log.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		863C3498B86EB95DB26647F42DB8AA92 /* BLECentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 19BD382EC5A190B795E79AD8A8B190D9 /* BLECentralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8664F1C0F39E2A806A18736DABCC9527 /* Pods-BLECentralManager_iOS_Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A00431531448E67BEE066E53CE45477 /* Pods-BLECentralManager_iOS_Swift-dummy.m */; };
+		88B80EAC9099AF04FC563D98DF681B97 /* BLECentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 19BD382EC5A190B795E79AD8A8B190D9 /* BLECentralManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BFB439A5DF08138DAB81167C0B802E9 /* BLECDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 762793DB52B8781A640C4601A37BDABB /* BLECDevice.m */; };
+		909E06EC7DF0676D750C3FDC7A329942 /* BLECentralManager-ObjC-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 45970994AE7DCFC9E5AC208563CEC9E0 /* BLECentralManager-ObjC-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AEB3396F1EF3410C36BC6D965F60AF1 /* BLECDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2D1BB57457B0327EEF058B4AE60D3D /* BLECDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0E3A14A532EA8BB18CB7014C9854C50 /* BLECentralManager-Swift-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 691C76D8F7FB6362FBE86532BB02E203 /* BLECentralManager-Swift-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B65FF34D2535C0D3553168260F255992 /* BLECConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E87A25155A4296251DBB48642736B9ED /* BLECConfig.m */; };
+		BF3F9A2D2C72D6942B445CC59B67CD4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */; };
+		C3A1AEB4A8646D633DD5482E66CE49C0 /* Pods-BLECentralManager_Mac_ObjC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B664B2BC3F44AF837D5BF0EEDC0B3EC /* Pods-BLECentralManager_Mac_ObjC-dummy.m */; };
+		C7ACAD95CF3A36211D25E2C59FD3A3E2 /* BLECManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7F7845B76452B016D672D3BAA18AAD /* BLECManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC5FBCC4F90BDD7D26AC10967BA3097B /* BLECConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = FAADD348140CF7873ECE76C2EA8E7523 /* BLECConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDBD57B30A372846ADAE2F4DC055E525 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */; };
+		CF09ECAC82F6F22AAD42173CA817D126 /* BLECCharacteristicDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A612A06E0CE4E364FA9A7C396677E201 /* BLECCharacteristicDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5690CED873D97ABB338936C8564E11A /* BLECDeviceDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F8F305482EC2E95E2C2FE432890EEEA /* BLECDeviceDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5D740C8112A2CB16804A5D1E56F8098 /* Pods-BLECentralManager_iOS_ObjC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 19CC09CFBA0B8505A52F3C8175C2441D /* Pods-BLECentralManager_iOS_ObjC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB5A885E29425508AA2C533B3F73D804 /* Pods-BLECentralManager_iOS_Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6ADFF913783AC62819BDC3B8394DD9 /* Pods-BLECentralManager_iOS_Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE78FB4CD0A1442AF6E65D7FD6293E8A /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED2EF9BA6EFD00865A1DD41621CD6C4 /* Log.swift */; };
+		DE9E6B09BCBCF1588BADD4CA2102D225 /* BLECManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172EB03D04FB45AEACB6C88EB1D7CE9F /* BLECManager.swift */; };
+		E3AD3298258B631B4CBB5F8ABA7B4E15 /* Pods-BLECentralManager_Mac_Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D3FBE3572B74EA65AF1F567F09E76 /* Pods-BLECentralManager_Mac_Swift-dummy.m */; };
+		E47C1CDAB66B9BCED59A9140B6F10ABC /* BLECentralManager-ObjC-OSX-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C80769DE2A25BEB4D09DC5C62C7A199F /* BLECentralManager-ObjC-OSX-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E57071CA53CB6F2AD04B3F9BE5B623C5 /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6ABD29D889FAC3FE610536F04B9232 /* Log.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EC07D7BB0CB92F804F4FB34D40DB174C /* BLECManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2131CFC7FAF47EE2490761CC68E630E5 /* BLECManager.m */; };
+		EE7DBC4387F843BC5B2EC31ABBD30ECA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */; };
+		F4F42A42D049F1159660B7A881B3048C /* BLECentralManager-Swift-OSX-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3278DC9680B1671FAA7C517AC976664 /* BLECentralManager-Swift-OSX-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F861297F2332A6EC0715D0F3872EEAC7 /* BLECManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7F7845B76452B016D672D3BAA18AAD /* BLECManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA6D104120AF22588BEF7DDDBA6785E1 /* BLECentralManager-Swift-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3895DD5F339A55509EEB2C05BE5CF3C1 /* BLECentralManager-Swift-iOS-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1ABF3BF08957EAB7A5EA006A2C051F7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EE0901CFB410817A1083C3C1A383E4D;
+			remoteInfo = "BLECentralManager-Swift-iOS";
+		};
+		6C2079A324951BEC7C8C5C9B58A63956 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48F803524272CD62E3A4D28535BC2368;
+			remoteInfo = "BLECentralManager-Swift-OSX";
+		};
+		7D878AFBD5A9EADBD7AA72A9FB966B79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 837EBF83F39215318BCE0E1CAA7366F1;
+			remoteInfo = "BLECentralManager-ObjC-iOS";
+		};
+		7DD6F85808E115FCE45740915F3AC2E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 847DFC765BA383371591B6D60F4424BE;
+			remoteInfo = "BLECentralManager-ObjC-OSX";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0175422B045FA9788BE4ABC40C5E393A /* BLECentralManager-Swift-OSX-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BLECentralManager-Swift-OSX-dummy.m"; path = "../BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX-dummy.m"; sourceTree = "<group>"; };
+		02DC68983BD20FF81C22DC831CF69709 /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_iOS_Swift.release.xcconfig"; sourceTree = "<group>"; };
+		04AAC4F17D375757FEFC213CF241B375 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E9CC8FF30DCADB84A83DE276F20AFB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../BLECentralManager-ObjC-iOS/Info.plist"; sourceTree = "<group>"; };
+		08081B343C1A8D4A35AFEF440799F58A /* BLECentralManager-Swift-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "BLECentralManager-Swift-iOS.modulemap"; path = "../BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS.modulemap"; sourceTree = "<group>"; };
+		080CF36AB3A48FDF5DE8B8E52CE22F58 /* Pods-BLECentralManager_iOS_ObjC-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BLECentralManager_iOS_ObjC-acknowledgements.plist"; sourceTree = "<group>"; };
+		0C6ADFF913783AC62819BDC3B8394DD9 /* Pods-BLECentralManager_iOS_Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BLECentralManager_iOS_Swift-umbrella.h"; sourceTree = "<group>"; };
+		105F1329556F426C5121A8243CA7666F /* Pods_BLECentralManager_iOS_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BLECentralManager_iOS_Swift.framework; path = "Pods-BLECentralManager_iOS_Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1402141085C2941349CFEB3AFA7B0284 /* Pods-BLECentralManager_iOS_Swift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BLECentralManager_iOS_Swift-acknowledgements.plist"; sourceTree = "<group>"; };
+		172EB03D04FB45AEACB6C88EB1D7CE9F /* BLECManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BLECManager.swift; sourceTree = "<group>"; };
+		19BD382EC5A190B795E79AD8A8B190D9 /* BLECentralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECentralManager.h; sourceTree = "<group>"; };
+		19CC09CFBA0B8505A52F3C8175C2441D /* Pods-BLECentralManager_iOS_ObjC-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BLECentralManager_iOS_ObjC-umbrella.h"; sourceTree = "<group>"; };
+		1A00431531448E67BEE066E53CE45477 /* Pods-BLECentralManager_iOS_Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BLECentralManager_iOS_Swift-dummy.m"; sourceTree = "<group>"; };
+		1B2D1BB57457B0327EEF058B4AE60D3D /* BLECDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECDevice.h; sourceTree = "<group>"; };
+		1D5B8D747731F268EAEFC37FA7415A09 /* Pods-BLECentralManager_iOS_Swift-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_iOS_Swift-resources.sh"; sourceTree = "<group>"; };
+		1ED2EF9BA6EFD00865A1DD41621CD6C4 /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		2131CFC7FAF47EE2490761CC68E630E5 /* BLECManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BLECManager.m; sourceTree = "<group>"; };
+		2988E5E2261B0CF9DE4324BC89C43FCB /* Pods_BLECentralManager_iOS_ObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BLECentralManager_iOS_ObjC.framework; path = "Pods-BLECentralManager_iOS_ObjC.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1764F92CEC16B9138F98D723C55711 /* BLECentralManager-Swift-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BLECentralManager-Swift-iOS-prefix.pch"; path = "../BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS-prefix.pch"; sourceTree = "<group>"; };
+		31EB7F3FB71A6F0D38C18C60F2DE0691 /* BLECentralManager-ObjC-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BLECentralManager-ObjC-iOS-dummy.m"; path = "../BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS-dummy.m"; sourceTree = "<group>"; };
+		35D7D3DBCB4AF575D66BFBFAC93AE3B9 /* BLECentralManager-Swift-OSX.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "BLECentralManager-Swift-OSX.modulemap"; path = "../BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX.modulemap"; sourceTree = "<group>"; };
+		3895DD5F339A55509EEB2C05BE5CF3C1 /* BLECentralManager-Swift-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BLECentralManager-Swift-iOS-dummy.m"; path = "../BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS-dummy.m"; sourceTree = "<group>"; };
+		38ECB65A1DAF7EE1C5FDCCD7F889A279 /* Pods-BLECentralManager_iOS_ObjC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BLECentralManager_iOS_ObjC.modulemap"; sourceTree = "<group>"; };
+		39B686EE44FA0785E773A39B955B9CFC /* Pods-BLECentralManager_iOS_ObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_iOS_ObjC.debug.xcconfig"; sourceTree = "<group>"; };
+		3E209ECBE3546CDD217EEC20B2494426 /* Pods-BLECentralManager_iOS_ObjC-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BLECentralManager_iOS_ObjC-acknowledgements.markdown"; sourceTree = "<group>"; };
+		45970994AE7DCFC9E5AC208563CEC9E0 /* BLECentralManager-ObjC-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BLECentralManager-ObjC-iOS-umbrella.h"; path = "../BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS-umbrella.h"; sourceTree = "<group>"; };
+		49E89CD3CC7A451325F582D46DB17646 /* Pods-BLECentralManager_Mac_Swift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BLECentralManager_Mac_Swift-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4C63BAF35B8A19668121E3FEE5EE2F00 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FB08D3DBA5631792A09994CDC57F7AC /* Pods-BLECentralManager_iOS_Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BLECentralManager_iOS_Swift.modulemap"; sourceTree = "<group>"; };
+		4FF42650A111F0F518631DB50FDA00B5 /* Pods-BLECentralManager_iOS_Swift-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_iOS_Swift-frameworks.sh"; sourceTree = "<group>"; };
+		5507310BE2ED05B459F31DDEEA5E11FA /* Pods-BLECentralManager_Mac_Swift-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_Mac_Swift-resources.sh"; sourceTree = "<group>"; };
+		5707D160010AD55EACE49CC100D07AC1 /* Pods-BLECentralManager_Mac_Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BLECentralManager_Mac_Swift-umbrella.h"; sourceTree = "<group>"; };
+		5B1D5A2F50C6140781D1BE581E861BCA /* BLECCharacteristicDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BLECCharacteristicDelegate.swift; sourceTree = "<group>"; };
+		63607396378A12E9134D9C05AC04F8AA /* BLECentralManager-ObjC-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; name = "BLECentralManager-ObjC-iOS.modulemap"; path = "../BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS.modulemap"; sourceTree = "<group>"; };
+		65970CE735E67B97636407DD93DA2087 /* Pods-BLECentralManager_Mac_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_Mac_Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		67F96D8D1BB20CDA74B4A6C7544D7312 /* BLECentralManager-ObjC-OSX.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "BLECentralManager-ObjC-OSX.modulemap"; sourceTree = "<group>"; };
+		6846561FD76F64F9949731543328BBDF /* BLECentralManager-ObjC-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "BLECentralManager-ObjC-iOS.xcconfig"; path = "../BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS.xcconfig"; sourceTree = "<group>"; };
+		691C76D8F7FB6362FBE86532BB02E203 /* BLECentralManager-Swift-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BLECentralManager-Swift-iOS-umbrella.h"; path = "../BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS-umbrella.h"; sourceTree = "<group>"; };
+		6BEF40DDCE94F42DB9EDDF4A0FCC8596 /* BLECentralManager-ObjC-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BLECentralManager-ObjC-iOS-prefix.pch"; path = "../BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS-prefix.pch"; sourceTree = "<group>"; };
+		6F8F305482EC2E95E2C2FE432890EEEA /* BLECDeviceDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECDeviceDelegate.h; sourceTree = "<group>"; };
+		6FA522C13B42F11F51657F6D4B16C618 /* BLECentralManager-ObjC-OSX-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BLECentralManager-ObjC-OSX-prefix.pch"; sourceTree = "<group>"; };
+		73EEA821FF9971FDB2AC8497C4C3C20C /* Pods-BLECentralManager_Mac_Swift-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BLECentralManager_Mac_Swift-acknowledgements.plist"; sourceTree = "<group>"; };
+		762793DB52B8781A640C4601A37BDABB /* BLECDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BLECDevice.m; sourceTree = "<group>"; };
+		785C18125372CD881EF519CBEDB0C916 /* Pods-BLECentralManager_Mac_ObjC-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BLECentralManager_Mac_ObjC-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7B2990A83B66E86FB4B4DC75EBC5F0F7 /* BLECDeviceDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BLECDeviceDelegate.swift; sourceTree = "<group>"; };
+		7B664B2BC3F44AF837D5BF0EEDC0B3EC /* Pods-BLECentralManager_Mac_ObjC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BLECentralManager_Mac_ObjC-dummy.m"; sourceTree = "<group>"; };
+		7FE92E4620BA98EBF9D5BFCD9D1EF82A /* BLECentralManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BLECentralManager.framework; path = "BLECentralManager-ObjC-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D51185EF1C26D341A08C5B9C8C58E3 /* Pods-BLECentralManager_Mac_Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BLECentralManager_Mac_Swift.modulemap"; sourceTree = "<group>"; };
+		822A735A72D362F1A22019E858989DBF /* Pods-BLECentralManager_iOS_Swift-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BLECentralManager_iOS_Swift-acknowledgements.markdown"; sourceTree = "<group>"; };
+		83DA5BE364C1F83E6E5009470DD98FB3 /* Pods-BLECentralManager_Mac_ObjC-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_Mac_ObjC-resources.sh"; sourceTree = "<group>"; };
+		8710F80581F8272A9C91FD4DE6E32DF9 /* BLECentralManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECentralManager.h; sourceTree = "<group>"; };
+		87714588497D05DAD3B7A76FC3685126 /* BLECentralManager-Swift-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "BLECentralManager-Swift-iOS.xcconfig"; path = "../BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS.xcconfig"; sourceTree = "<group>"; };
+		8895C6B970BF0F4681134B6B99C7469E /* BLECentralManager-Swift-OSX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "BLECentralManager-Swift-OSX.xcconfig"; path = "../BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX.xcconfig"; sourceTree = "<group>"; };
+		8A21D320221C0E34810BAFDBF8836CD5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AD5B600F6C51C48C95D31B777773C7A /* Pods-BLECentralManager_iOS_ObjC-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_iOS_ObjC-frameworks.sh"; sourceTree = "<group>"; };
+		8C541BA04FF3A78F9366BEADFC584948 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../BLECentralManager-Swift-iOS/Info.plist"; sourceTree = "<group>"; };
+		8CE5EA1244AE074501FB97FB3188DB8A /* BLECConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BLECConfig.swift; sourceTree = "<group>"; };
+		8F3429B31F6FC086978D7F67A7811182 /* Pods-BLECentralManager_Mac_ObjC.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BLECentralManager_Mac_ObjC.modulemap"; sourceTree = "<group>"; };
+		91029B3D3F40666A67815DAD91EFDE74 /* Pods_BLECentralManager_Mac_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BLECentralManager_Mac_Swift.framework; path = "Pods-BLECentralManager_Mac_Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		985E043CD214DBB9585A8E32ADA06815 /* BLECentralManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BLECentralManager.framework; path = "BLECentralManager-Swift-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C6ABD29D889FAC3FE610536F04B9232 /* Log.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		A612A06E0CE4E364FA9A7C396677E201 /* BLECCharacteristicDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECCharacteristicDelegate.h; sourceTree = "<group>"; };
+		A9BFD2409F3AE8BF46B7EEC458573D43 /* Pods-BLECentralManager_Mac_ObjC-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BLECentralManager_Mac_ObjC-umbrella.h"; sourceTree = "<group>"; };
+		AD09F807AF087D77F6A4B04A7E8CEABB /* Pods-BLECentralManager_Mac_ObjC-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BLECentralManager_Mac_ObjC-acknowledgements.plist"; sourceTree = "<group>"; };
+		B2ED875E5CDE5451EF60783FE5E463C9 /* Pods-BLECentralManager_iOS_ObjC-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_iOS_ObjC-resources.sh"; sourceTree = "<group>"; };
+		B3278DC9680B1671FAA7C517AC976664 /* BLECentralManager-Swift-OSX-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BLECentralManager-Swift-OSX-umbrella.h"; path = "../BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX-umbrella.h"; sourceTree = "<group>"; };
+		B336E20BE33E251332A98A39CFCD789A /* Pods-BLECentralManager_Mac_Swift-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_Mac_Swift-frameworks.sh"; sourceTree = "<group>"; };
+		BA18ACA2CDE7510293AFE26317D6CE08 /* BLECentralManager-Swift-OSX-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BLECentralManager-Swift-OSX-prefix.pch"; path = "../BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX-prefix.pch"; sourceTree = "<group>"; };
+		C1C6C6C55178AEE9ABFC1B2232971C11 /* Pods-BLECentralManager_iOS_ObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_iOS_ObjC.release.xcconfig"; sourceTree = "<group>"; };
+		C2783E47169B9717AA148A4BC90C8A48 /* Pods-BLECentralManager_Mac_ObjC-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BLECentralManager_Mac_ObjC-frameworks.sh"; sourceTree = "<group>"; };
+		C2E62BBB3B80D414495EB8EDF2B442ED /* Pods-BLECentralManager_Mac_ObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_Mac_ObjC.debug.xcconfig"; sourceTree = "<group>"; };
+		C80769DE2A25BEB4D09DC5C62C7A199F /* BLECentralManager-ObjC-OSX-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BLECentralManager-ObjC-OSX-umbrella.h"; sourceTree = "<group>"; };
+		C83B64DB7497F2219B1E4CCD60F45C60 /* Pods-BLECentralManager_Mac_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_Mac_Swift.release.xcconfig"; sourceTree = "<group>"; };
+		CC69E47278DA9CF86BFAD13A71441923 /* BLECentralManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BLECentralManager.framework; path = "BLECentralManager-Swift-OSX.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC6B7E0D7A440DE5089BC8CCABEA7502 /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_iOS_Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		D37096E8DB9D4D7FF99B058C8495CFF1 /* BLECentralManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BLECentralManager.framework; path = "BLECentralManager-ObjC-OSX.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB05C3B8A70CE8872AE3F15E6C6BBD0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../BLECentralManager-Swift-OSX/Info.plist"; sourceTree = "<group>"; };
+		E87A25155A4296251DBB48642736B9ED /* BLECConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BLECConfig.m; sourceTree = "<group>"; };
+		E95A81D1853B66779A806E9438B86060 /* Pods-BLECentralManager_Mac_ObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BLECentralManager_Mac_ObjC.release.xcconfig"; sourceTree = "<group>"; };
+		EA7D3FBE3572B74EA65AF1F567F09E76 /* Pods-BLECentralManager_Mac_Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BLECentralManager_Mac_Swift-dummy.m"; sourceTree = "<group>"; };
+		EABD80E4518316FF8DA2F28A87CB02B4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB9EB47A8B08169E032D03F90A3ED221 /* Pods-BLECentralManager_iOS_ObjC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BLECentralManager_iOS_ObjC-dummy.m"; sourceTree = "<group>"; };
+		EC9614931FFB208841711FF5951B6FB4 /* Pods_BLECentralManager_Mac_ObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BLECentralManager_Mac_ObjC.framework; path = "Pods-BLECentralManager_Mac_ObjC.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF7F7845B76452B016D672D3BAA18AAD /* BLECManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECManager.h; sourceTree = "<group>"; };
+		F55074DED0CBD015D438CD1BC540E0CA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9D9591FA03B4939AB835E1FCA25F2BF /* BLECDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BLECDevice.swift; sourceTree = "<group>"; };
+		FA99963E36011D8F94DDFA5530F08B93 /* BLECentralManager-ObjC-OSX.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "BLECentralManager-ObjC-OSX.xcconfig"; sourceTree = "<group>"; };
+		FAADD348140CF7873ECE76C2EA8E7523 /* BLECConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BLECConfig.h; sourceTree = "<group>"; };
+		FF11DA2C495841360492E5D18A7708F7 /* BLECentralManager-ObjC-OSX-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BLECentralManager-ObjC-OSX-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08DD542CC8EE39D8A19909591C14BD2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B205784D2F0C73ADD8F7A33DF5CDB9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33D9B41EE311FAB9DEC3DE586246A6AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDBD57B30A372846ADAE2F4DC055E525 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6272C62F58B9752D5893A648DCDCBEEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE7DBC4387F843BC5B2EC31ABBD30ECA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		798D0F471B4178B6500271CAB9B478B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B9594A6C2D13DF6815B1A4725F37E7F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D086F56C08DD39E2E8332F8A86106A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF3F9A2D2C72D6942B445CC59B67CD4C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85882E2E020C5F69C5970F69FF3017A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8123F8EDDC1CDA640CDE7C3AB8D712D9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFD7370E76D8985D3B5FD47F7CE37841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A14417E80EC79728C7AB3FA99F6F2C1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC0080046BA8AFC471C40922AFA91643 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF6DEA17C33E46577CDA7DAC150E6C0 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C340D7CD7DB2EF36923ECDA96B6D3BF /* Pods-BLECentralManager_Mac_ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				4C63BAF35B8A19668121E3FEE5EE2F00 /* Info.plist */,
+				8F3429B31F6FC086978D7F67A7811182 /* Pods-BLECentralManager_Mac_ObjC.modulemap */,
+				785C18125372CD881EF519CBEDB0C916 /* Pods-BLECentralManager_Mac_ObjC-acknowledgements.markdown */,
+				AD09F807AF087D77F6A4B04A7E8CEABB /* Pods-BLECentralManager_Mac_ObjC-acknowledgements.plist */,
+				7B664B2BC3F44AF837D5BF0EEDC0B3EC /* Pods-BLECentralManager_Mac_ObjC-dummy.m */,
+				C2783E47169B9717AA148A4BC90C8A48 /* Pods-BLECentralManager_Mac_ObjC-frameworks.sh */,
+				83DA5BE364C1F83E6E5009470DD98FB3 /* Pods-BLECentralManager_Mac_ObjC-resources.sh */,
+				A9BFD2409F3AE8BF46B7EEC458573D43 /* Pods-BLECentralManager_Mac_ObjC-umbrella.h */,
+				C2E62BBB3B80D414495EB8EDF2B442ED /* Pods-BLECentralManager_Mac_ObjC.debug.xcconfig */,
+				E95A81D1853B66779A806E9438B86060 /* Pods-BLECentralManager_Mac_ObjC.release.xcconfig */,
+			);
+			name = "Pods-BLECentralManager_Mac_ObjC";
+			path = "Target Support Files/Pods-BLECentralManager_Mac_ObjC";
+			sourceTree = "<group>";
+		};
+		1CF291BDCC642138103ADB15C1E6602E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				940BA96A22363217F055E963794CABF8 /* Pods-BLECentralManager_iOS_ObjC */,
+				7CA166902DB95C9A9AD4B3846933FFEC /* Pods-BLECentralManager_iOS_Swift */,
+				1C340D7CD7DB2EF36923ECDA96B6D3BF /* Pods-BLECentralManager_Mac_ObjC */,
+				BC228B5F884CFA6738E4FF5D2BD42038 /* Pods-BLECentralManager_Mac_Swift */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		284517DCBB2CA761BD0A9BA511530B57 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7B66D405BBD4523F0A307D1B599EAFD9 /* Swift */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2EDFAB15A7E74F864EB353FCB5A57006 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		3AEF7D761E8EA8419BB4A7000AB770CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95A165433BB896B7C2CAF2425A40BF8D /* iOS */,
+				2EDFAB15A7E74F864EB353FCB5A57006 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		694B08CE3EAB9C017A445719EC604706 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				FE4877C151C82D47F68AFA3AFCFD59CB /* Sources */,
+			);
+			name = ObjC;
+			sourceTree = "<group>";
+		};
+		7B66D405BBD4523F0A307D1B599EAFD9 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				5B1D5A2F50C6140781D1BE581E861BCA /* BLECCharacteristicDelegate.swift */,
+				8CE5EA1244AE074501FB97FB3188DB8A /* BLECConfig.swift */,
+				F9D9591FA03B4939AB835E1FCA25F2BF /* BLECDevice.swift */,
+				7B2990A83B66E86FB4B4DC75EBC5F0F7 /* BLECDeviceDelegate.swift */,
+				8710F80581F8272A9C91FD4DE6E32DF9 /* BLECentralManager.h */,
+				172EB03D04FB45AEACB6C88EB1D7CE9F /* BLECManager.swift */,
+				1ED2EF9BA6EFD00865A1DD41621CD6C4 /* Log.swift */,
+			);
+			name = Swift;
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		7CA166902DB95C9A9AD4B3846933FFEC /* Pods-BLECentralManager_iOS_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				EABD80E4518316FF8DA2F28A87CB02B4 /* Info.plist */,
+				4FB08D3DBA5631792A09994CDC57F7AC /* Pods-BLECentralManager_iOS_Swift.modulemap */,
+				822A735A72D362F1A22019E858989DBF /* Pods-BLECentralManager_iOS_Swift-acknowledgements.markdown */,
+				1402141085C2941349CFEB3AFA7B0284 /* Pods-BLECentralManager_iOS_Swift-acknowledgements.plist */,
+				1A00431531448E67BEE066E53CE45477 /* Pods-BLECentralManager_iOS_Swift-dummy.m */,
+				4FF42650A111F0F518631DB50FDA00B5 /* Pods-BLECentralManager_iOS_Swift-frameworks.sh */,
+				1D5B8D747731F268EAEFC37FA7415A09 /* Pods-BLECentralManager_iOS_Swift-resources.sh */,
+				0C6ADFF913783AC62819BDC3B8394DD9 /* Pods-BLECentralManager_iOS_Swift-umbrella.h */,
+				CC6B7E0D7A440DE5089BC8CCABEA7502 /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */,
+				02DC68983BD20FF81C22DC831CF69709 /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */,
+			);
+			name = "Pods-BLECentralManager_iOS_Swift";
+			path = "Target Support Files/Pods-BLECentralManager_iOS_Swift";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BF251614E70FDF042257A7035CFFDA53 /* Development Pods */,
+				3AEF7D761E8EA8419BB4A7000AB770CB /* Frameworks */,
+				BE57DE7FB949A3A7B588442CF319DDB1 /* Products */,
+				1CF291BDCC642138103ADB15C1E6602E /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		940BA96A22363217F055E963794CABF8 /* Pods-BLECentralManager_iOS_ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				F55074DED0CBD015D438CD1BC540E0CA /* Info.plist */,
+				38ECB65A1DAF7EE1C5FDCCD7F889A279 /* Pods-BLECentralManager_iOS_ObjC.modulemap */,
+				3E209ECBE3546CDD217EEC20B2494426 /* Pods-BLECentralManager_iOS_ObjC-acknowledgements.markdown */,
+				080CF36AB3A48FDF5DE8B8E52CE22F58 /* Pods-BLECentralManager_iOS_ObjC-acknowledgements.plist */,
+				EB9EB47A8B08169E032D03F90A3ED221 /* Pods-BLECentralManager_iOS_ObjC-dummy.m */,
+				8AD5B600F6C51C48C95D31B777773C7A /* Pods-BLECentralManager_iOS_ObjC-frameworks.sh */,
+				B2ED875E5CDE5451EF60783FE5E463C9 /* Pods-BLECentralManager_iOS_ObjC-resources.sh */,
+				19CC09CFBA0B8505A52F3C8175C2441D /* Pods-BLECentralManager_iOS_ObjC-umbrella.h */,
+				39B686EE44FA0785E773A39B955B9CFC /* Pods-BLECentralManager_iOS_ObjC.debug.xcconfig */,
+				C1C6C6C55178AEE9ABFC1B2232971C11 /* Pods-BLECentralManager_iOS_ObjC.release.xcconfig */,
+			);
+			name = "Pods-BLECentralManager_iOS_ObjC";
+			path = "Target Support Files/Pods-BLECentralManager_iOS_ObjC";
+			sourceTree = "<group>";
+		};
+		95A165433BB896B7C2CAF2425A40BF8D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		BC228B5F884CFA6738E4FF5D2BD42038 /* Pods-BLECentralManager_Mac_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				04AAC4F17D375757FEFC213CF241B375 /* Info.plist */,
+				80D51185EF1C26D341A08C5B9C8C58E3 /* Pods-BLECentralManager_Mac_Swift.modulemap */,
+				49E89CD3CC7A451325F582D46DB17646 /* Pods-BLECentralManager_Mac_Swift-acknowledgements.markdown */,
+				73EEA821FF9971FDB2AC8497C4C3C20C /* Pods-BLECentralManager_Mac_Swift-acknowledgements.plist */,
+				EA7D3FBE3572B74EA65AF1F567F09E76 /* Pods-BLECentralManager_Mac_Swift-dummy.m */,
+				B336E20BE33E251332A98A39CFCD789A /* Pods-BLECentralManager_Mac_Swift-frameworks.sh */,
+				5507310BE2ED05B459F31DDEEA5E11FA /* Pods-BLECentralManager_Mac_Swift-resources.sh */,
+				5707D160010AD55EACE49CC100D07AC1 /* Pods-BLECentralManager_Mac_Swift-umbrella.h */,
+				65970CE735E67B97636407DD93DA2087 /* Pods-BLECentralManager_Mac_Swift.debug.xcconfig */,
+				C83B64DB7497F2219B1E4CCD60F45C60 /* Pods-BLECentralManager_Mac_Swift.release.xcconfig */,
+			);
+			name = "Pods-BLECentralManager_Mac_Swift";
+			path = "Target Support Files/Pods-BLECentralManager_Mac_Swift";
+			sourceTree = "<group>";
+		};
+		BE57DE7FB949A3A7B588442CF319DDB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D37096E8DB9D4D7FF99B058C8495CFF1 /* BLECentralManager.framework */,
+				7FE92E4620BA98EBF9D5BFCD9D1EF82A /* BLECentralManager.framework */,
+				985E043CD214DBB9585A8E32ADA06815 /* BLECentralManager.framework */,
+				CC69E47278DA9CF86BFAD13A71441923 /* BLECentralManager.framework */,
+				2988E5E2261B0CF9DE4324BC89C43FCB /* Pods_BLECentralManager_iOS_ObjC.framework */,
+				105F1329556F426C5121A8243CA7666F /* Pods_BLECentralManager_iOS_Swift.framework */,
+				EC9614931FFB208841711FF5951B6FB4 /* Pods_BLECentralManager_Mac_ObjC.framework */,
+				91029B3D3F40666A67815DAD91EFDE74 /* Pods_BLECentralManager_Mac_Swift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF251614E70FDF042257A7035CFFDA53 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9A8CADE4350B99621F4D3BD7F0CFF1D /* BLECentralManager */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		C8807499BEA037E06F24B8A94FA5099E /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				A612A06E0CE4E364FA9A7C396677E201 /* BLECCharacteristicDelegate.h */,
+				FAADD348140CF7873ECE76C2EA8E7523 /* BLECConfig.h */,
+				E87A25155A4296251DBB48642736B9ED /* BLECConfig.m */,
+				1B2D1BB57457B0327EEF058B4AE60D3D /* BLECDevice.h */,
+				762793DB52B8781A640C4601A37BDABB /* BLECDevice.m */,
+				6F8F305482EC2E95E2C2FE432890EEEA /* BLECDeviceDelegate.h */,
+				19BD382EC5A190B795E79AD8A8B190D9 /* BLECentralManager.h */,
+				EF7F7845B76452B016D672D3BAA18AAD /* BLECManager.h */,
+				2131CFC7FAF47EE2490761CC68E630E5 /* BLECManager.m */,
+				9C6ABD29D889FAC3FE610536F04B9232 /* Log.h */,
+			);
+			name = ObjC;
+			path = ObjC;
+			sourceTree = "<group>";
+		};
+		D3849100C6E8C14159CE1C75BD808BAB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				63607396378A12E9134D9C05AC04F8AA /* BLECentralManager-ObjC-iOS.modulemap */,
+				6846561FD76F64F9949731543328BBDF /* BLECentralManager-ObjC-iOS.xcconfig */,
+				31EB7F3FB71A6F0D38C18C60F2DE0691 /* BLECentralManager-ObjC-iOS-dummy.m */,
+				6BEF40DDCE94F42DB9EDDF4A0FCC8596 /* BLECentralManager-ObjC-iOS-prefix.pch */,
+				45970994AE7DCFC9E5AC208563CEC9E0 /* BLECentralManager-ObjC-iOS-umbrella.h */,
+				67F96D8D1BB20CDA74B4A6C7544D7312 /* BLECentralManager-ObjC-OSX.modulemap */,
+				FA99963E36011D8F94DDFA5530F08B93 /* BLECentralManager-ObjC-OSX.xcconfig */,
+				FF11DA2C495841360492E5D18A7708F7 /* BLECentralManager-ObjC-OSX-dummy.m */,
+				6FA522C13B42F11F51657F6D4B16C618 /* BLECentralManager-ObjC-OSX-prefix.pch */,
+				C80769DE2A25BEB4D09DC5C62C7A199F /* BLECentralManager-ObjC-OSX-umbrella.h */,
+				08081B343C1A8D4A35AFEF440799F58A /* BLECentralManager-Swift-iOS.modulemap */,
+				87714588497D05DAD3B7A76FC3685126 /* BLECentralManager-Swift-iOS.xcconfig */,
+				3895DD5F339A55509EEB2C05BE5CF3C1 /* BLECentralManager-Swift-iOS-dummy.m */,
+				2D1764F92CEC16B9138F98D723C55711 /* BLECentralManager-Swift-iOS-prefix.pch */,
+				691C76D8F7FB6362FBE86532BB02E203 /* BLECentralManager-Swift-iOS-umbrella.h */,
+				35D7D3DBCB4AF575D66BFBFAC93AE3B9 /* BLECentralManager-Swift-OSX.modulemap */,
+				8895C6B970BF0F4681134B6B99C7469E /* BLECentralManager-Swift-OSX.xcconfig */,
+				0175422B045FA9788BE4ABC40C5E393A /* BLECentralManager-Swift-OSX-dummy.m */,
+				BA18ACA2CDE7510293AFE26317D6CE08 /* BLECentralManager-Swift-OSX-prefix.pch */,
+				B3278DC9680B1671FAA7C517AC976664 /* BLECentralManager-Swift-OSX-umbrella.h */,
+				04E9CC8FF30DCADB84A83DE276F20AFB /* Info.plist */,
+				8C541BA04FF3A78F9366BEADFC584948 /* Info.plist */,
+				8A21D320221C0E34810BAFDBF8836CD5 /* Info.plist */,
+				DB05C3B8A70CE8872AE3F15E6C6BBD0E /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Examples/Pods/Target Support Files/BLECentralManager-ObjC-OSX";
+			sourceTree = "<group>";
+		};
+		F9A8CADE4350B99621F4D3BD7F0CFF1D /* BLECentralManager */ = {
+			isa = PBXGroup;
+			children = (
+				694B08CE3EAB9C017A445719EC604706 /* ObjC */,
+				D3849100C6E8C14159CE1C75BD808BAB /* Support Files */,
+				FFAEF54CAC230DB726F14597639E42D8 /* Swift */,
+			);
+			name = BLECentralManager;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		FE4877C151C82D47F68AFA3AFCFD59CB /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C8807499BEA037E06F24B8A94FA5099E /* ObjC */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FFAEF54CAC230DB726F14597639E42D8 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				284517DCBB2CA761BD0A9BA511530B57 /* Sources */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		026E9CE7E4DF890126A6A522FBD4E5A0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				032DA4761FA8DCF1F5FE2ACE0A14176F /* BLECCharacteristicDelegate.h in Headers */,
+				655B324A7F6E7A146A0A6AA65414C8F1 /* BLECConfig.h in Headers */,
+				9AEB3396F1EF3410C36BC6D965F60AF1 /* BLECDevice.h in Headers */,
+				391B682D4A9046B426C211FD5AA64632 /* BLECDeviceDelegate.h in Headers */,
+				909E06EC7DF0676D750C3FDC7A329942 /* BLECentralManager-ObjC-iOS-umbrella.h in Headers */,
+				863C3498B86EB95DB26647F42DB8AA92 /* BLECentralManager.h in Headers */,
+				C7ACAD95CF3A36211D25E2C59FD3A3E2 /* BLECManager.h in Headers */,
+				8582D5B35D9C4DF87CD975CFFEA72EB6 /* Log.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F9EBF82902E4F627D80C882AE1C34F6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF09ECAC82F6F22AAD42173CA817D126 /* BLECCharacteristicDelegate.h in Headers */,
+				CC5FBCC4F90BDD7D26AC10967BA3097B /* BLECConfig.h in Headers */,
+				25057348C2A2C4251649D045BA4A6DD4 /* BLECDevice.h in Headers */,
+				D5690CED873D97ABB338936C8564E11A /* BLECDeviceDelegate.h in Headers */,
+				E47C1CDAB66B9BCED59A9140B6F10ABC /* BLECentralManager-ObjC-OSX-umbrella.h in Headers */,
+				88B80EAC9099AF04FC563D98DF681B97 /* BLECentralManager.h in Headers */,
+				F861297F2332A6EC0715D0F3872EEAC7 /* BLECManager.h in Headers */,
+				E57071CA53CB6F2AD04B3F9BE5B623C5 /* Log.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34B7EB2D7443633AE71CD1780967A46F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02CA13C90004CD212D76E495A210AFF0 /* Pods-BLECentralManager_Mac_Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34EDC55AE26C9DD7309CAEAA6FD9A270 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D740C8112A2CB16804A5D1E56F8098 /* Pods-BLECentralManager_iOS_ObjC-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69373050E5F44CE22A9013EC1014A684 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AB0AD7692619C75FD68E1477DC3D38C /* Pods-BLECentralManager_Mac_ObjC-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73E740F5EAEC6BE73AB10E0AA9F062AC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4F42A42D049F1159660B7A881B3048C /* BLECentralManager-Swift-OSX-umbrella.h in Headers */,
+				5B4D3152F07025FF17F09FB4DA16201E /* BLECentralManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8C572C5D03ECA10169FFD791263F0B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5A885E29425508AA2C533B3F73D804 /* Pods-BLECentralManager_iOS_Swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1EC98446451602E82BE6F894BA7006B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0E3A14A532EA8BB18CB7014C9854C50 /* BLECentralManager-Swift-iOS-umbrella.h in Headers */,
+				30CF89AEB34E6C81C16CF20D34A5D35C /* BLECentralManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		08A18C3C5E41B30C584BB2815183DD14 /* Pods-BLECentralManager_iOS_Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05542C143736CF1088D0993F9F1B1A20 /* Build configuration list for PBXNativeTarget "Pods-BLECentralManager_iOS_Swift" */;
+			buildPhases = (
+				7ED2E227487D920B6D1DC282D5528254 /* Sources */,
+				6272C62F58B9752D5893A648DCDCBEEC /* Frameworks */,
+				9C8C572C5D03ECA10169FFD791263F0B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3167F51D0BCB476EE2120AA43D9AA490 /* PBXTargetDependency */,
+			);
+			name = "Pods-BLECentralManager_iOS_Swift";
+			productName = "Pods-BLECentralManager_iOS_Swift";
+			productReference = 105F1329556F426C5121A8243CA7666F /* Pods_BLECentralManager_iOS_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2411E6C8A11972A6091008C9BE8F083D /* Pods-BLECentralManager_Mac_ObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 717893CBB607BC3C7031690C85725488 /* Build configuration list for PBXNativeTarget "Pods-BLECentralManager_Mac_ObjC" */;
+			buildPhases = (
+				6756524082C6D6263F56F955FC96ED39 /* Sources */,
+				BC0080046BA8AFC471C40922AFA91643 /* Frameworks */,
+				69373050E5F44CE22A9013EC1014A684 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E1B6AC2B97295A92012BD0F09438FF1 /* PBXTargetDependency */,
+			);
+			name = "Pods-BLECentralManager_Mac_ObjC";
+			productName = "Pods-BLECentralManager_Mac_ObjC";
+			productReference = EC9614931FFB208841711FF5951B6FB4 /* Pods_BLECentralManager_Mac_ObjC.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3A25B6CE79BC1983A7693EA223F2FDBA /* Pods-BLECentralManager_iOS_ObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BF45F4566DFDD996A66FD0F804971AD /* Build configuration list for PBXNativeTarget "Pods-BLECentralManager_iOS_ObjC" */;
+			buildPhases = (
+				64CE0F2132BF058516A032CFD88790B9 /* Sources */,
+				85882E2E020C5F69C5970F69FF3017A2 /* Frameworks */,
+				34EDC55AE26C9DD7309CAEAA6FD9A270 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67A00043D78A7AA742FAF6E302C29E46 /* PBXTargetDependency */,
+			);
+			name = "Pods-BLECentralManager_iOS_ObjC";
+			productName = "Pods-BLECentralManager_iOS_ObjC";
+			productReference = 2988E5E2261B0CF9DE4324BC89C43FCB /* Pods_BLECentralManager_iOS_ObjC.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		48F803524272CD62E3A4D28535BC2368 /* BLECentralManager-Swift-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AD21807278725CD9629118FC0769DAC /* Build configuration list for PBXNativeTarget "BLECentralManager-Swift-OSX" */;
+			buildPhases = (
+				A9EF3BBC99E222BD95C0746464AC1505 /* Sources */,
+				08DD542CC8EE39D8A19909591C14BD2A /* Frameworks */,
+				73E740F5EAEC6BE73AB10E0AA9F062AC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BLECentralManager-Swift-OSX";
+			productName = "BLECentralManager-Swift-OSX";
+			productReference = CC69E47278DA9CF86BFAD13A71441923 /* BLECentralManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5EE0901CFB410817A1083C3C1A383E4D /* BLECentralManager-Swift-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDCDFA6AEAB148A8E806E3A96B311C33 /* Build configuration list for PBXNativeTarget "BLECentralManager-Swift-iOS" */;
+			buildPhases = (
+				828AEA31C6B777FF240545250181FA02 /* Sources */,
+				33D9B41EE311FAB9DEC3DE586246A6AC /* Frameworks */,
+				B1EC98446451602E82BE6F894BA7006B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BLECentralManager-Swift-iOS";
+			productName = "BLECentralManager-Swift-iOS";
+			productReference = 985E043CD214DBB9585A8E32ADA06815 /* BLECentralManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		837EBF83F39215318BCE0E1CAA7366F1 /* BLECentralManager-ObjC-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF4D714B79CB3884434993E83D034710 /* Build configuration list for PBXNativeTarget "BLECentralManager-ObjC-iOS" */;
+			buildPhases = (
+				382B3D208B34AD12AF31A55A5DBCCFA5 /* Sources */,
+				7D086F56C08DD39E2E8332F8A86106A6 /* Frameworks */,
+				026E9CE7E4DF890126A6A522FBD4E5A0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BLECentralManager-ObjC-iOS";
+			productName = "BLECentralManager-ObjC-iOS";
+			productReference = 7FE92E4620BA98EBF9D5BFCD9D1EF82A /* BLECentralManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		847DFC765BA383371591B6D60F4424BE /* BLECentralManager-ObjC-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E3578040C09487A6E14B87F961C6F9A /* Build configuration list for PBXNativeTarget "BLECentralManager-ObjC-OSX" */;
+			buildPhases = (
+				B2A36FBBD39C85BEE815A8268FCBD65F /* Sources */,
+				798D0F471B4178B6500271CAB9B478B7 /* Frameworks */,
+				2F9EBF82902E4F627D80C882AE1C34F6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BLECentralManager-ObjC-OSX";
+			productName = "BLECentralManager-ObjC-OSX";
+			productReference = D37096E8DB9D4D7FF99B058C8495CFF1 /* BLECentralManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E5089E5BC82A8C1B04AD22A441EA8D7C /* Pods-BLECentralManager_Mac_Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0AB61F2797175B311D1C02822059027 /* Build configuration list for PBXNativeTarget "Pods-BLECentralManager_Mac_Swift" */;
+			buildPhases = (
+				73B105A054EFE7363F83523657EA8F19 /* Sources */,
+				AFD7370E76D8985D3B5FD47F7CE37841 /* Frameworks */,
+				34B7EB2D7443633AE71CD1780967A46F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91460CBC834BD7A71FBB15B6A0A1156D /* PBXTargetDependency */,
+			);
+			name = "Pods-BLECentralManager_Mac_Swift";
+			productName = "Pods-BLECentralManager_Mac_Swift";
+			productReference = 91029B3D3F40666A67815DAD91EFDE74 /* Pods_BLECentralManager_Mac_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = BE57DE7FB949A3A7B588442CF319DDB1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				837EBF83F39215318BCE0E1CAA7366F1 /* BLECentralManager-ObjC-iOS */,
+				847DFC765BA383371591B6D60F4424BE /* BLECentralManager-ObjC-OSX */,
+				5EE0901CFB410817A1083C3C1A383E4D /* BLECentralManager-Swift-iOS */,
+				48F803524272CD62E3A4D28535BC2368 /* BLECentralManager-Swift-OSX */,
+				3A25B6CE79BC1983A7693EA223F2FDBA /* Pods-BLECentralManager_iOS_ObjC */,
+				08A18C3C5E41B30C584BB2815183DD14 /* Pods-BLECentralManager_iOS_Swift */,
+				2411E6C8A11972A6091008C9BE8F083D /* Pods-BLECentralManager_Mac_ObjC */,
+				E5089E5BC82A8C1B04AD22A441EA8D7C /* Pods-BLECentralManager_Mac_Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		382B3D208B34AD12AF31A55A5DBCCFA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B65FF34D2535C0D3553168260F255992 /* BLECConfig.m in Sources */,
+				8BFB439A5DF08138DAB81167C0B802E9 /* BLECDevice.m in Sources */,
+				7CF55C404603FFAD90482FB6512CE76C /* BLECentralManager-ObjC-iOS-dummy.m in Sources */,
+				EC07D7BB0CB92F804F4FB34D40DB174C /* BLECManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64CE0F2132BF058516A032CFD88790B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4171AA7F87173BAC6BC5F6AC7162E220 /* Pods-BLECentralManager_iOS_ObjC-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6756524082C6D6263F56F955FC96ED39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3A1AEB4A8646D633DD5482E66CE49C0 /* Pods-BLECentralManager_Mac_ObjC-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73B105A054EFE7363F83523657EA8F19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3AD3298258B631B4CBB5F8ABA7B4E15 /* Pods-BLECentralManager_Mac_Swift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7ED2E227487D920B6D1DC282D5528254 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8664F1C0F39E2A806A18736DABCC9527 /* Pods-BLECentralManager_iOS_Swift-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		828AEA31C6B777FF240545250181FA02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8174DD96B50750E7C35AB3F452B7B487 /* BLECCharacteristicDelegate.swift in Sources */,
+				7ADAD8CB3D2E73047DA25CA3C3D62504 /* BLECConfig.swift in Sources */,
+				0C25D30F0DF97F4286D8DCFF05596D3B /* BLECDevice.swift in Sources */,
+				5378215F38C02A2EEE8946004D0AB349 /* BLECDeviceDelegate.swift in Sources */,
+				FA6D104120AF22588BEF7DDDBA6785E1 /* BLECentralManager-Swift-iOS-dummy.m in Sources */,
+				2D637F6C99D7724B3746223AC600A143 /* BLECManager.swift in Sources */,
+				7221E19290A159F12D8EEB5B9CD57BA8 /* Log.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9EF3BBC99E222BD95C0746464AC1505 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CF360A443A38543223B7AFB354C543C /* BLECCharacteristicDelegate.swift in Sources */,
+				5835E22204FB1A2D0A181ED4271BB550 /* BLECConfig.swift in Sources */,
+				7C2A8FA0416FF614B257D08684D72D59 /* BLECDevice.swift in Sources */,
+				5E0AC3F02988ED5383263CF614936719 /* BLECDeviceDelegate.swift in Sources */,
+				38AA338CD50404345F1392202811FFAA /* BLECentralManager-Swift-OSX-dummy.m in Sources */,
+				DE9E6B09BCBCF1588BADD4CA2102D225 /* BLECManager.swift in Sources */,
+				DE78FB4CD0A1442AF6E65D7FD6293E8A /* Log.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2A36FBBD39C85BEE815A8268FCBD65F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FFF60EFB681AFB06E07EC03A159AD98 /* BLECConfig.m in Sources */,
+				6B996A9EACEE5D2C10E7EB351DC454E7 /* BLECDevice.m in Sources */,
+				6C895664E6221984FE625FAA3F261F43 /* BLECentralManager-ObjC-OSX-dummy.m in Sources */,
+				8265FAEC644DD375C43B3A1134C51669 /* BLECManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3167F51D0BCB476EE2120AA43D9AA490 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "BLECentralManager-Swift-iOS";
+			target = 5EE0901CFB410817A1083C3C1A383E4D /* BLECentralManager-Swift-iOS */;
+			targetProxy = 1ABF3BF08957EAB7A5EA006A2C051F7A /* PBXContainerItemProxy */;
+		};
+		5E1B6AC2B97295A92012BD0F09438FF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "BLECentralManager-ObjC-OSX";
+			target = 847DFC765BA383371591B6D60F4424BE /* BLECentralManager-ObjC-OSX */;
+			targetProxy = 7DD6F85808E115FCE45740915F3AC2E2 /* PBXContainerItemProxy */;
+		};
+		67A00043D78A7AA742FAF6E302C29E46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "BLECentralManager-ObjC-iOS";
+			target = 837EBF83F39215318BCE0E1CAA7366F1 /* BLECentralManager-ObjC-iOS */;
+			targetProxy = 7D878AFBD5A9EADBD7AA72A9FB966B79 /* PBXContainerItemProxy */;
+		};
+		91460CBC834BD7A71FBB15B6A0A1156D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "BLECentralManager-Swift-OSX";
+			target = 48F803524272CD62E3A4D28535BC2368 /* BLECentralManager-Swift-OSX */;
+			targetProxy = 6C2079A324951BEC7C8C5C9B58A63956 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		10B825BC0DC8344BEEAA37FB7272D7C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1C6C6C55178AEE9ABFC1B2232971C11 /* Pods-BLECentralManager_iOS_ObjC.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BLECentralManager_iOS_ObjC/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLECentralManager_iOS_ObjC/Pods-BLECentralManager_iOS_ObjC.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BLECentralManager_iOS_ObjC;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2339D37F4533F527C544C79C2CF0C95F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA99963E36011D8F94DDFA5530F08B93 /* BLECentralManager-ObjC-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BLECentralManager-ObjC-OSX/BLECentralManager-ObjC-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BLECentralManager-ObjC-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/BLECentralManager-ObjC-OSX/BLECentralManager-ObjC-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BLECentralManager;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2D407558CBC4B0F813EBFE9EA816700C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87714588497D05DAD3B7A76FC3685126 /* BLECentralManager-Swift-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BLECentralManager-Swift-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BLECentralManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4B4768051A9415185BC5AF0992F6D057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E95A81D1853B66779A806E9438B86060 /* Pods-BLECentralManager_Mac_ObjC.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BLECentralManager_Mac_ObjC/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLECentralManager_Mac_ObjC/Pods-BLECentralManager_Mac_ObjC.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BLECentralManager_Mac_ObjC;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5F049580BB8FF1B83196B4D4EEEBF8F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC6B7E0D7A440DE5089BC8CCABEA7502 /* Pods-BLECentralManager_iOS_Swift.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BLECentralManager_iOS_Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BLECentralManager_iOS_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		89A950A3D7361552736E3DBD5B44A644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DC34D0F0C9C2D8994A29D4981C8B2EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39B686EE44FA0785E773A39B955B9CFC /* Pods-BLECentralManager_iOS_ObjC.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BLECentralManager_iOS_ObjC/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLECentralManager_iOS_ObjC/Pods-BLECentralManager_iOS_ObjC.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BLECentralManager_iOS_ObjC;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		92611153B685267ED2823BD1E60069E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA99963E36011D8F94DDFA5530F08B93 /* BLECentralManager-ObjC-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BLECentralManager-ObjC-OSX/BLECentralManager-ObjC-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BLECentralManager-ObjC-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/BLECentralManager-ObjC-OSX/BLECentralManager-ObjC-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BLECentralManager;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9CEFE5EA18C81618B81B8603B1CA750F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8895C6B970BF0F4681134B6B99C7469E /* BLECentralManager-Swift-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BLECentralManager-Swift-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BLECentralManager;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A324736532A1DDCA50EB9404C7CCB6D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C83B64DB7497F2219B1E4CCD60F45C60 /* Pods-BLECentralManager_Mac_Swift.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BLECentralManager_Mac_Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLECentralManager_Mac_Swift/Pods-BLECentralManager_Mac_Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BLECentralManager_Mac_Swift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B7D29FFE29C1D798A274120CC241F269 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65970CE735E67B97636407DD93DA2087 /* Pods-BLECentralManager_Mac_Swift.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BLECentralManager_Mac_Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLECentralManager_Mac_Swift/Pods-BLECentralManager_Mac_Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BLECentralManager_Mac_Swift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BE5CD5E498B61BCC3323D05DBA5A4936 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02DC68983BD20FF81C22DC831CF69709 /* Pods-BLECentralManager_iOS_Swift.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BLECentralManager_iOS_Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLECentralManager_iOS_Swift/Pods-BLECentralManager_iOS_Swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BLECentralManager_iOS_Swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA29CAFD18765F8ECF4673E951DDD17F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6846561FD76F64F9949731543328BBDF /* BLECentralManager-ObjC-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BLECentralManager-ObjC-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BLECentralManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CC689C38F1E82E1CDF3AD157E3CED194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87714588497D05DAD3B7A76FC3685126 /* BLECentralManager-Swift-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BLECentralManager-Swift-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BLECentralManager-Swift-iOS/BLECentralManager-Swift-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BLECentralManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DE1F24C5EFD45C271798A6E55CB63E92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E31310A7313868B89196D9C6D45D4F64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2E62BBB3B80D414495EB8EDF2B442ED /* Pods-BLECentralManager_Mac_ObjC.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BLECentralManager_Mac_ObjC/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/Pods-BLECentralManager_Mac_ObjC/Pods-BLECentralManager_Mac_ObjC.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BLECentralManager_Mac_ObjC;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EEA4279BD2D265589DD208EE4E31F150 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8895C6B970BF0F4681134B6B99C7469E /* BLECentralManager-Swift-OSX.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BLECentralManager-Swift-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MODULEMAP_FILE = "Target Support Files/BLECentralManager-Swift-OSX/BLECentralManager-Swift-OSX.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BLECentralManager;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FDB622A7E02DDE85FAC8A4AD6F9F569B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6846561FD76F64F9949731543328BBDF /* BLECentralManager-ObjC-iOS.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BLECentralManager-ObjC-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BLECentralManager-ObjC-iOS/BLECentralManager-ObjC-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BLECentralManager;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05542C143736CF1088D0993F9F1B1A20 /* Build configuration list for PBXNativeTarget "Pods-BLECentralManager_iOS_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F049580BB8FF1B83196B4D4EEEBF8F4 /* Debug */,
+				BE5CD5E498B61BCC3323D05DBA5A4936 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AD21807278725CD9629118FC0769DAC /* Build configuration list for PBXNativeTarget "BLECentralManager-Swift-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CEFE5EA18C81618B81B8603B1CA750F /* Debug */,
+				EEA4279BD2D265589DD208EE4E31F150 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE1F24C5EFD45C271798A6E55CB63E92 /* Debug */,
+				89A950A3D7361552736E3DBD5B44A644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		717893CBB607BC3C7031690C85725488 /* Build configuration list for PBXNativeTarget "Pods-BLECentralManager_Mac_ObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E31310A7313868B89196D9C6D45D4F64 /* Debug */,
+				4B4768051A9415185BC5AF0992F6D057 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BF45F4566DFDD996A66FD0F804971AD /* Build configuration list for PBXNativeTarget "Pods-BLECentralManager_iOS_ObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DC34D0F0C9C2D8994A29D4981C8B2EE /* Debug */,
+				10B825BC0DC8344BEEAA37FB7272D7C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E3578040C09487A6E14B87F961C6F9A /* Build configuration list for PBXNativeTarget "BLECentralManager-ObjC-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2339D37F4533F527C544C79C2CF0C95F /* Debug */,
+				92611153B685267ED2823BD1E60069E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0AB61F2797175B311D1C02822059027 /* Build configuration list for PBXNativeTarget "Pods-BLECentralManager_Mac_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7D29FFE29C1D798A274120CC241F269 /* Debug */,
+				A324736532A1DDCA50EB9404C7CCB6D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDCDFA6AEAB148A8E806E3A96B311C33 /* Build configuration list for PBXNativeTarget "BLECentralManager-Swift-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC689C38F1E82E1CDF3AD157E3CED194 /* Debug */,
+				2D407558CBC4B0F813EBFE9EA816700C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF4D714B79CB3884434993E83D034710 /* Build configuration list for PBXNativeTarget "BLECentralManager-ObjC-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDB622A7E02DDE85FAC8A4AD6F9F569B /* Debug */,
+				CA29CAFD18765F8ECF4673E951DDD17F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
