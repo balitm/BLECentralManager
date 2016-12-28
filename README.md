@@ -1,6 +1,7 @@
 # BLECentralManager
 
-[![CI Status](http://img.shields.io/travis/Balázs Kilvády/BLECentralManager.svg?style=flat)](https://travis-ci.org/Balázs Kilvády/BLECentralManager)
+[![CI Status](http://img.shields.io/travis/balitm/BLECentralManager.svg?style=flat)](https://travis-ci.org/balitm/BLECentralManager.svg?branch=master)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/balitm/BLECentralManager)
 [![Version](https://img.shields.io/cocoapods/v/BLECentralManager.svg?style=flat)](http://cocoapods.org/pods/BLECentralManager)
 [![License](https://img.shields.io/cocoapods/l/BLECentralManager.svg?style=flat)](http://cocoapods.org/pods/BLECentralManager)
 [![Platform](https://img.shields.io/cocoapods/p/BLECentralManager.svg?style=flat)](http://cocoapods.org/pods/BLECentralManager)
@@ -131,7 +132,19 @@ method of `BLECDevice` class can be used. Characteristic and service indices are
 
 ## Installation
 
-BLECentralManager is available through [CocoaPods](http://cocoapods.org). To install
+### Carthage
+
+To install with Carthage, follow the instruction on [Carthage](https://github.com/Carthage/Carthage).
+Add the following line to your Cartfile
+
+For Swift:
+```
+github "balitm/BLECentralManager"
+```
+
+### Cocoapods
+
+BLECentralManager is also available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 For ObjC:

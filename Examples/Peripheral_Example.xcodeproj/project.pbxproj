@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		29314BF01D1BEDF50084D691 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29314BEF1D1BEDF50084D691 /* Peripheral.swift */; };
-		297944F61DF89619000F8BD2 /* BLECentralManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297944F51DF89619000F8BD2 /* BLECentralManager.framework */; };
 		298358BD1D1BE5D1000F1EE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298358BC1D1BE5D1000F1EE7 /* AppDelegate.swift */; };
 		298358BF1D1BE5D1000F1EE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298358BE1D1BE5D1000F1EE7 /* ViewController.swift */; };
 		298358C11D1BE5D1000F1EE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298358C01D1BE5D1000F1EE7 /* Assets.xcassets */; };
@@ -33,7 +32,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				297944F61DF89619000F8BD2 /* BLECentralManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
