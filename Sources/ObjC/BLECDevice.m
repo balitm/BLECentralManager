@@ -60,7 +60,7 @@
 
 - (void)writeValue:(NSData *)value
  forCharacteristic:(CBCharacteristic *)characteristic
-      WithResponse:(void (^)(NSError *error))response
+      withResponse:(void (^)(NSError *error))response
 {
     if (!_peripheral) return;
 

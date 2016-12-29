@@ -183,7 +183,7 @@ static void _appendNSStringLog(ViewController *self, NSString *str)
             break;
     }
     NSData *data = [NSData dataWithBytesNoCopy:array length:1 freeWhenDone:NO];
-    [_device writeValue:data forCharacteristic:characteristic WithResponse:^(NSError *error) {
+    [_device writeValue:data forCharacteristic:characteristic withResponse:^(NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             _appendNSStringLog(self, [NSString stringWithFormat:@"%s data write responded.",
                                       array[0] == 1 ? "Start" : "Stop"]);

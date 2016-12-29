@@ -306,7 +306,7 @@ didDisconnectDevice:(BLECDevice *)device
     dispatch_once(&onceToken, ^{
         data = [NSData dataWithBytesNoCopy:&byte length:1 freeWhenDone:NO];
     });
-    [_device writeValue:data forCharacteristic:characteristic WithResponse:^(NSError *error) {
+    [_device writeValue:data forCharacteristic:characteristic withResponse:^(NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             _appendNSStringLog(self, @"Start data write responded.");
         });

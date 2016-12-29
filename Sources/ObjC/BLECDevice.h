@@ -42,7 +42,7 @@ typedef NS_OPTIONS(uint32_t, BLECPeripheralState) {
 - (void)readRSSI;
 - (void)writeValue:(NSData *)value
  forCharacteristic:(CBCharacteristic *)characteristic
-      WithResponse:(void (^ __nullable)(NSError * __nullable error))response;
+      withResponse:(void (^ __nullable)(NSError * __nullable error))response;
 
 @end
 
