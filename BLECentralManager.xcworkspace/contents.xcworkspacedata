@@ -14,9 +14,6 @@
       location = "group:Examples/BLECentralManager_Mac_ObjC.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Examples/Peripheral_Example.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "container:BLECentralManager.xcodeproj">
    </FileRef>
    <FileRef

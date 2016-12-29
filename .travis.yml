@@ -18,5 +18,5 @@ script:
   - set -o pipefail && xcodebuild -workspace BLECentralManager.xcworkspace -scheme BLECentralManager_Mac_Swift | xcpretty
   - set -o pipefail && xcodebuild -workspace BLECentralManager.xcworkspace -scheme BLECentralManager_iOS_ObjC -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
   - set -o pipefail && xcodebuild -workspace BLECentralManager.xcworkspace -scheme BLECentralManager_Mac_ObjC | xcpretty
-  - xcodebuild -workspace BLECentralManager.xcworkspace -scheme Peripheral_Example | xcpretty
+  - xcodebuild -project Examples/Peripheral_Example.xcodeproj -scheme Peripheral_Example | xcpretty
   - pod lib lint

@@ -45,10 +45,10 @@ class ViewController: NSViewController {
             if _timer == nil {
                 DLog("start timer.")
                 _timer = Timer.scheduledTimer(timeInterval: 1.0,
-                                                                target: self,
-                                                                selector: #selector(timerFired),
-                                                                userInfo: nil,
-                                                                repeats: true)
+                                              target: self,
+                                              selector: #selector(timerFired),
+                                              userInfo: nil,
+                                              repeats: true)
                 _timer?.fire()
             }
         } else {
