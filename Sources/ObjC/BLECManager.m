@@ -158,13 +158,9 @@
     if ([_delegate respondsToSelector:@selector(central:didConnectPeripheral:)]) {
         [_delegate central:self didConnectPeripheral:peripheral];
     }
-    if ([peripheral.services count] == 0) {
-        //---- Get the services ----
-        NSArray<CBUUID *> *uuids = [_config serviceUUIDs];
-        [peripheral discoverServices:uuids];
-    } else {
-        NSAssert(NO, @"Is it reached ever?");
-    }
+    //---- Get the services ----
+    NSArray<CBUUID *> *uuids = [_config serviceUUIDs];
+    [peripheral discoverServices:uuids];
 }
 
 - (void)centralManager:(CBCentralManager *)central

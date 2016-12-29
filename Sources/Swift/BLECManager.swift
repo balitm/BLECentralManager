@@ -110,16 +110,12 @@ extension BLECManager: CBCentralManagerDelegate {
 
     public func centralManager(_ central: CBCentralManager,
                                didConnect peripheral: CBPeripheral) {
-        DLog("didConnectPeripheral")
+        DLog("didConnectPeripheral, delegate: \(delegate)")
         delegate?.central(self, didConnectPeripheral:peripheral)
 
-        if peripheral.services?.count ?? 0 == 0 {
-            //---- Get the services ----
-            let uuids = _config.serviceUUIDs
-            peripheral.discoverServices(uuids)
-        } else {
-            assert(false, "Is it reached ever?")
-        }
+        //---- Get the services ----
+        let uuids = _config.serviceUUIDs
+        peripheral.discoverServices(uuids)
     }
 
     public func centralManager(_ central: CBCentralManager,
@@ -130,9 +126,10 @@ extension BLECManager: CBCentralManagerDelegate {
             DLog("device not found for \(peripheral)")
             return
         }
-        assert(_devices[index].UUID as UUID == peripheral.identifier, "should be equal.")
+        assert(_devices[index].UUID == peripheral.identifier, "should be equal.")
 
         _devices[index].characteristics.removeAll()
+        DLog("didDisonnectPeripheral, delegate: \(delegate)")
         delegate?.central(self, didDisconnectDevice: _devices[index], error: error)
 
         _devices[index].peripheral = nil

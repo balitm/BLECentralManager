@@ -247,7 +247,7 @@ extension ViewController: BLECDeviceDelegate {
         _device = device
     }
 
-    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: NSError?) {
+    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?) {
         DLog("Disconnected");
         let uuid = device.UUID.uuidString
 
@@ -262,7 +262,7 @@ extension ViewController: BLECDeviceDelegate {
         })
     }
 
-    func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: NSError?) {
+    func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: Error?) {
         if let error = error {
             DLog("error at RSSI reading: \(error)")
             return

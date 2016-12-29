@@ -173,17 +173,17 @@ extension ViewController: BLECDeviceDelegate {
     func central(_ central: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {
         _appendLog("Connected \(peripheral.identifier.uuidString)")
         _timer = Timer.scheduledTimer(timeInterval: 1.0,
-                                                        target: self,
-                                                        selector: #selector(_update),
-                                                        userInfo: nil,
-                                                        repeats: true)
+                                      target: self,
+                                      selector: #selector(_update),
+                                      userInfo: nil,
+                                      repeats: true)
     }
 
     func central(_ central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {
         _device = device
     }
 
-    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: NSError?) {
+    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?) {
         DLog("Disconnected");
         let uuid = device.peripheral?.identifier.uuidString ?? ""
         _appendLog("Disconnected: \(uuid)")
@@ -194,7 +194,7 @@ extension ViewController: BLECDeviceDelegate {
         }
     }
 
-    func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: NSError?) {
+    func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: Error?) {
         if let error = error {
             DLog("error at RSSI reading: \(error)")
             return
@@ -244,16 +244,15 @@ extension ViewController: ControlCharacteristicDelegate {
                 })
             })
         } catch BLECDevice.DeviceError.alredyPending {
-            print("Unresponded write is in progress.")
+            DLog("Unresponded write is in progress.")
         } catch BLECDevice.DeviceError.invalidCharacteristic {
-            print("Characteristic is not maintained by BLECManager.")
+            DLog("Characteristic is not maintained by BLECManager.")
         } catch BLECDevice.DeviceError.noPeripheral {
-            print("Peripheral is not maintained by BLECManager.")
+            DLog("Peripheral is not maintained by BLECManager.")
         } catch {
             assert(false, "Unknown error at write for characteristic.")
         }
     }
-    
 }
 
 
