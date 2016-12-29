@@ -370,11 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Release/BLECentralManager-OSX",
-					"$(PROJECT_DIR)/build/Debug/BLECentralManager-Swift-OSX",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BLECentralManager_Mac_ObjC/BLECentralManager_Mac-prefix.pch";
 				INFOPLIST_FILE = BLECentralManager_Mac_ObjC/Info.plist;
@@ -391,12 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug/BLECentralManager-OSX",
-					"$(PROJECT_DIR)/build/Release/BLECentralManager-OSX",
-					"$(PROJECT_DIR)/build/Debug/BLECentralManager-Swift-OSX",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BLECentralManager_Mac_ObjC/BLECentralManager_Mac-prefix.pch";
 				INFOPLIST_FILE = BLECentralManager_Mac_ObjC/Info.plist;
