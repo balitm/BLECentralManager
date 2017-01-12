@@ -23,10 +23,10 @@ class ViewController: UIViewController {
         didSet {
             switch _buttonState {
             case .stop:
-                startButton.setTitle("Stop", for: UIControlState())
+                startButton.setTitle("Stop", for: .normal)
                 progressView.progress = Float(0)
             case .start:
-                startButton.setTitle("Start", for: UIControlState())
+                startButton.setTitle("Start", for: .normal)
             }
         }
     }
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
 
         let queue = DispatchQueue.global(qos: DispatchQoS.QoSClass.utility)
         _manager = BLECManager(config: config, queue: queue)
-        _manager.delegate = self;
+        _manager.delegate = self
     }
 
     override func viewDidLoad() {
@@ -141,13 +141,13 @@ class ViewController: UIViewController {
                 })
             })
         } catch BLECDevice.DeviceError.alredyPending {
-            print("Unresponded write is in progress.")
+            DLog("Unresponded write is in progress.")
         } catch BLECDevice.DeviceError.invalidCharacteristic {
-            print("Characteristic is not maintained by BLECManager.")
+            DLog("Characteristic is not maintained by BLECManager.")
         } catch BLECDevice.DeviceError.noPeripheral {
-            print("Peripheral is not maintained by BLECManager.")
+            DLog("Peripheral is not maintained by BLECManager.")
         } catch {
-            assert(false, "Unknown error at write for characteristic.")
+            fatalError("Unknown error at write for characteristic.")
         }
     }
 
@@ -248,7 +248,7 @@ extension ViewController: BLECDeviceDelegate {
     }
 
     func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?) {
-        DLog("Disconnected");
+        DLog("Disconnected")
         let uuid = device.UUID.uuidString
 
         DispatchQueue.main.async(execute: {
@@ -283,15 +283,14 @@ extension ViewController: BLECDeviceDelegate {
 extension ViewController: DataCharacteristicDelegate {
     
     func dataFound() {
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async {
             self._appendLog("Data characteristic found!")
-        })
+        }
     }
     
     func dataRead(_ dataSize: Int) {
-        _dataSize += dataSize;
+        _dataSize += dataSize
     }
-
 }
 
 
@@ -302,13 +301,12 @@ extension ViewController: DataCharacteristicDelegate {
 extension ViewController: ControlCharacteristicDelegate {
 
     func controlDidUpdate(_ state: ButtonAction) {
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async {
             self._appendLog("Control characteristic updated!")
             self.startButton.isEnabled = true
             self._buttonState = state
-        })
+        }
     }
-
 }
 
 
@@ -319,9 +317,8 @@ extension ViewController: ControlCharacteristicDelegate {
 extension ViewController: InfoCharacteristicDelegate {
     
     func infoCharacteristicName(_ name: String, value: String) {
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async {
             self._appendLog("\(name): \(value)")
-        })
+        }
     }
-
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -723,7 +723,7 @@
                                 </scroller>
                             </scrollView>
                             <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="5Wj-uv-g1J">
-                                <rect key="frame" x="20" y="231" width="273" height="20"/>
+                                <rect key="frame" x="97" y="231" width="196" height="20"/>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fYF-f9-Mxa">
                                 <rect key="frame" x="343" y="233" width="43" height="17"/>
@@ -747,13 +747,28 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T9k-nu-GmL">
+                                <rect key="frame" x="14" y="224" width="81" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="O0N-hR-Nc7"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XeP-8N-dLR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="actionStart:" target="XNn-Yo-aae" id="CeG-P3-boa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="T9k-nu-GmL" firstAttribute="centerY" secondItem="5Wj-uv-g1J" secondAttribute="centerY" id="0Mf-UO-31B"/>
                             <constraint firstItem="CSv-BP-qgu" firstAttribute="centerY" secondItem="Y5T-aJ-81Y" secondAttribute="centerY" id="2h3-0U-oUm"/>
+                            <constraint firstItem="5Wj-uv-g1J" firstAttribute="leading" secondItem="T9k-nu-GmL" secondAttribute="trailing" constant="8" id="3zW-Bi-HdV"/>
                             <constraint firstItem="EA2-KS-vRH" firstAttribute="centerY" secondItem="5Wj-uv-g1J" secondAttribute="centerY" id="7fN-2r-BAO"/>
-                            <constraint firstItem="5Wj-uv-g1J" firstAttribute="leading" secondItem="U07-6E-gNK" secondAttribute="leading" constant="20" id="7vZ-Zq-ibL"/>
                             <constraint firstItem="Y5T-aJ-81Y" firstAttribute="leading" secondItem="fYF-f9-Mxa" secondAttribute="trailing" constant="8" id="BJU-qb-ayv"/>
                             <constraint firstItem="EA2-KS-vRH" firstAttribute="leading" secondItem="5Wj-uv-g1J" secondAttribute="trailing" constant="8" id="BPT-uW-dLl"/>
+                            <constraint firstItem="T9k-nu-GmL" firstAttribute="leading" secondItem="U07-6E-gNK" secondAttribute="leading" constant="20" id="Gkb-1J-rg0"/>
                             <constraint firstItem="m0G-bW-SDB" firstAttribute="top" secondItem="5Wj-uv-g1J" secondAttribute="bottom" constant="8" id="HxK-TE-Vt9"/>
                             <constraint firstItem="CSv-BP-qgu" firstAttribute="leading" secondItem="Y5T-aJ-81Y" secondAttribute="trailing" constant="8" id="PFp-3h-07D"/>
                             <constraint firstAttribute="trailing" secondItem="m0G-bW-SDB" secondAttribute="trailing" constant="20" id="Tsx-ua-THi"/>
@@ -771,6 +786,7 @@
                         <outlet property="progressView" destination="5Wj-uv-g1J" id="Owi-nz-DPV"/>
                         <outlet property="rssiLabel" destination="CSv-BP-qgu" id="XOh-Nb-4wO"/>
                         <outlet property="speedLabel" destination="EA2-KS-vRH" id="cOT-aC-cXm"/>
+                        <outlet property="startButton" destination="T9k-nu-GmL" id="TFg-f0-Czq"/>
                     </connections>
                 </viewController>
                 <customObject id="sdd-aB-cqJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

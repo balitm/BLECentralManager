@@ -19,18 +19,30 @@ class ViewController: NSViewController {
     fileprivate var _timer: Timer?
     fileprivate var _dataSize: Int = 0
     fileprivate var _device: BLECDevice?
+    fileprivate var _buttonState = ButtonAction.start {
+        didSet {
+            switch _buttonState {
+            case .stop:
+                startButton.title = "Stop"
+                progressView.doubleValue = 0.0
+            case .start:
+                startButton.title = "Start"
+            }
+        }
+    }
 
     @IBOutlet weak var progressView: NSProgressIndicator!
     @IBOutlet weak var rssiLabel: NSTextField!
     @IBOutlet weak var speedLabel: NSTextField!
     @IBOutlet var logView: NSTextView!
+    @IBOutlet weak var startButton: NSButton!
 
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
 
         let dataChar = DataCharacteristic()
-        dataChar.delegate = self;
+        dataChar.delegate = self
 
         let controlChar = ControlCharacteristic()
         controlChar.delegate = self
@@ -87,13 +99,46 @@ class ViewController: NSViewController {
             ])
 
         _manager = BLECManager(config: config, queue: nil)
-        _manager.delegate = self;
+        _manager.delegate = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+    @IBAction func actionStart(_ sender: NSButton) {
+        guard let characteristic = _device?.characteristicAt(1, inServiceAt: 0) else {
+            return
+        }
+
+        var array: [UInt8] = [0]
+
+        switch _buttonState {
+        case .start:
+            array[0] = UInt8(1)
+            _buttonState = .stop
+        case .stop:
+            array[0] = UInt8(0)
+            _buttonState = .start
+        }
+        let data = Data(bytes: UnsafePointer<UInt8>(array), count: 1)
+        do {
+            try _device?.writeValue(data, forCharacteristic: characteristic, response: { error in
+                DispatchQueue.main.async {
+                    self._appendLog("\(array[0] == 1 ? "Start" : "Stop") data write responded.")
+                }
+            })
+        } catch BLECDevice.DeviceError.alredyPending {
+            DLog("Unresponded write is in progress.")
+        } catch BLECDevice.DeviceError.invalidCharacteristic {
+            DLog("Characteristic is not maintained by BLECManager.")
+        } catch BLECDevice.DeviceError.noPeripheral {
+            DLog("Peripheral is not maintained by BLECManager.")
+        } catch {
+            fatalError("Unknown error at write for characteristic.")
+        }
+    }
+    
     @objc fileprivate func _update() {
         //---- compute speed ----
         let bitSize = Double(_dataSize) * 8.0
@@ -184,7 +229,7 @@ extension ViewController: BLECDeviceDelegate {
     }
 
     func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?) {
-        DLog("Disconnected");
+        DLog("Disconnected")
         let uuid = device.peripheral?.identifier.uuidString ?? ""
         _appendLog("Disconnected: \(uuid)")
         _zeroViews()
@@ -216,7 +261,7 @@ extension ViewController: DataCharacteristicDelegate {
     }
 
     func dataRead(_ dataSize: Int) {
-        _dataSize += dataSize;
+        _dataSize += dataSize
     }
 }
 
@@ -228,29 +273,10 @@ extension ViewController: DataCharacteristicDelegate {
 extension ViewController: ControlCharacteristicDelegate {
 
     func controlDidUpdate(_ state: ButtonAction) {
-        guard let characteristic = _device?.characteristicAt(1, inServiceAt: 0) else {
-            return
-        }
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async {
             self._appendLog("Control characteristic updated!")
-        })
-        let data = Data(bytes: UnsafePointer<UInt8>([UInt8(1)]), count: 1)
-        do {
-            try _device?.writeValue(data,
-                                    forCharacteristic: characteristic,
-                                    response: { (error) in
-                DispatchQueue.main.async(execute: {
-                    self._appendLog("Start data write responded.")
-                })
-            })
-        } catch BLECDevice.DeviceError.alredyPending {
-            DLog("Unresponded write is in progress.")
-        } catch BLECDevice.DeviceError.invalidCharacteristic {
-            DLog("Characteristic is not maintained by BLECManager.")
-        } catch BLECDevice.DeviceError.noPeripheral {
-            DLog("Peripheral is not maintained by BLECManager.")
-        } catch {
-            assert(false, "Unknown error at write for characteristic.")
+            self.startButton.isEnabled = true
+            self._buttonState = state
         }
     }
 }

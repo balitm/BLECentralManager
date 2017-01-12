@@ -24,7 +24,6 @@ class Peripheral: NSObject {
     fileprivate var _controlCharacteristic: CBMutableCharacteristic?
     fileprivate var _dataService: CBMutableService?
     fileprivate var _serviceRequiresRegistration = false
-//    private var _pendingData: NSData?
     fileprivate var _subscribers = [CBCentral]()
     var subscribersCount: Int {
         get {
@@ -46,8 +45,7 @@ class Peripheral: NSObject {
         // Create a BTLE Peripheral Service and set it to be the primary. If it
         // is not set to the primary, it will not be found when the app is in the
         // background.
-        _dataService = CBMutableService(type: _kDataServiceUUID,
-                                        primary: true)
+        _dataService = CBMutableService(type: _kDataServiceUUID, primary: true)
 
         // Set up the characteristic in the service. This characteristic is only
         // readable through subscription (CBCharacteristicsPropertyNotify)
