@@ -138,7 +138,7 @@ extension BLECManager: CBCentralManagerDelegate {
         //---- workaround attempt for code 6, 10, ... errors ----
         if error != nil {
             _manager.stopScan()
-            _search()
+            _ = _search()
         }
     }
 
