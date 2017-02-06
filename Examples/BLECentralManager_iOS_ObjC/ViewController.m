@@ -298,6 +298,8 @@ didDisconnectDevice:(BLECDevice *)device
     dispatch_async(dispatch_get_main_queue(), ^{
         _appendNSStringLog(self, message);
         _zeroViews(self);
+        _device = nil;
+        self.startButton.enabled = NO;
         if (_timer) {
             [_timer invalidate];
             _timer = nil;

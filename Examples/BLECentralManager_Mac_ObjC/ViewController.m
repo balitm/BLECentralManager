@@ -243,6 +243,7 @@ didDisconnectDevice:(BLECDevice *)device
     _appendNSStringLog(self, [NSString stringWithFormat:@"Disconnected: %@",
                               device.peripheral.identifier.UUIDString]);
     _zeroViews(self);
+    _device = nil;
     if (_timer) {
         [_timer invalidate];
         _timer = nil;

@@ -233,6 +233,8 @@ extension ViewController: BLECDeviceDelegate {
         let uuid = device.peripheral?.identifier.uuidString ?? ""
         _appendLog("Disconnected: \(uuid)")
         _zeroViews()
+        startButton.isEnabled = false
+        _device = nil
         if let timer = _timer {
             timer.invalidate()
             _timer = nil

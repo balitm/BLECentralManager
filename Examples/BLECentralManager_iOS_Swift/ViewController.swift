@@ -219,20 +219,20 @@ extension ViewController: BLECDeviceDelegate {
     }
 
     func centralDidUpdateState(_ manager: BLECManager) {
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async { [unowned self] in
             self._appendLog(self._stateName(self._manager.state))
-        })
+        }
     }
 
     func central(_ manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int) {
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async { [unowned self] in
             self._appendLog("Discovered: \(peripheral.identifier.uuidString)")
             self._showRSSI(RSSI)
-        })
+        }
     }
 
     func central(_ central: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async { [unowned self] in
             self._appendLog("Connected \(peripheral.identifier.uuidString)")
             self._timer = Timer.scheduledTimer(
                 timeInterval: 1.0,
@@ -240,7 +240,7 @@ extension ViewController: BLECDeviceDelegate {
                 selector: #selector(self._update),
                 userInfo: nil,
                 repeats: true)
-        })
+        }
     }
 
     func central(_ central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {
@@ -251,15 +251,16 @@ extension ViewController: BLECDeviceDelegate {
         DLog("Disconnected")
         let uuid = device.UUID.uuidString
 
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async { [unowned self] in
             self._appendLog("Disconnected: \(uuid)")
             self._zeroViews()
+            self.startButton.isEnabled = false
             self._device = nil
             if let timer = self._timer {
                 timer.invalidate()
                 self._timer = nil
             }
-        })
+        }
     }
 
     func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: Error?) {
@@ -268,9 +269,9 @@ extension ViewController: BLECDeviceDelegate {
             return
         }
         
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async { [unowned self] in
             self._showRSSI(RSSI)
-        })
+        }
     }
 
 }
@@ -301,7 +302,7 @@ extension ViewController: DataCharacteristicDelegate {
 extension ViewController: ControlCharacteristicDelegate {
 
     func controlDidUpdate(_ state: ButtonAction) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             self._appendLog("Control characteristic updated!")
             self.startButton.isEnabled = true
             self._buttonState = state
@@ -317,7 +318,7 @@ extension ViewController: ControlCharacteristicDelegate {
 extension ViewController: InfoCharacteristicDelegate {
     
     func infoCharacteristicName(_ name: String, value: String) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [unowned self] in
             self._appendLog("\(name): \(value)")
         }
     }
