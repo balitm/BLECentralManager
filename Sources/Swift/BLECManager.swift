@@ -59,7 +59,7 @@ extension BLECManager: CBCentralManagerDelegate {
         case .poweredOff:
             state = .poweredOff
         case .poweredOn:
-            _search()
+            if !_search() { return }
         case .resetting:
             state = .resetting
             DLog("resetting called, pairing refused?")
@@ -393,8 +393,8 @@ extension BLECManager: CBPeripheralDelegate {
 
 extension BLECManager {
 
-    fileprivate func _search() {
-        guard state != .searching else { return }
+    fileprivate func _search() -> Bool {
+        guard state != .searching else { return false }
         state = .searching
         DLog(">>>> scan started.")
         _manager.scanForPeripherals(withServices: _config.advertServiceUUIDs, options:_config.scanOptions)
@@ -402,11 +402,12 @@ extension BLECManager {
         let peers = _manager.retrieveConnectedPeripherals(withServices: reqServices)
 
         DLog("already connetcted peripherals: \(peers)")
-        if peers.count == 0 { return }
+        if peers.count == 0 { return true }
 
-        for peripheral in peers {
-            _connect(peripheral)
+        peers.forEach {
+            _connect($0)
         }
+        return true
     }
 
     fileprivate func _connect(_ peripheral: CBPeripheral) {
