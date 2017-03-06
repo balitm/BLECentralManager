@@ -37,7 +37,7 @@ public enum BLECentralState {
     open weak var delegate: BLECDeviceDelegate?
 
 
-    public init?(config: BLECConfig, queue: DispatchQueue?) {
+    public init?(config: BLECConfig, queue: DispatchQueue? = nil) {
         _config = config
         super.init()
         _manager = CBCentralManager(delegate: self, queue: queue)

@@ -16,9 +16,9 @@ public protocol BLECDeviceDelegate: class {
     func centralDidUpdateState(_ manager: BLECManager)
     func central(_ manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int)
     func central(_ manager: BLECManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: Error?)
-    func central(_ central: BLECManager, didConnectPeripheral peripheral: CBPeripheral)
-    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?)
-    func central(_ central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice)
+    func central(_ manager: BLECManager, didConnectPeripheral peripheral: CBPeripheral)
+    func central(_ manager: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?)
+    func central(_ manager: BLECManager, didCheckCharacteristicsDevice device: BLECDevice)
 
     func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: Error?)
     func deviceDidUpdateName(_ device: BLECDevice)
@@ -31,9 +31,9 @@ public extension BLECDeviceDelegate {
     func centralDidUpdateState(_ manager: BLECManager) {}
     func central(_ manager: BLECManager, didDiscoverPeripheral peripheral: CBPeripheral, RSSI: Int) {}
     func central(_ manager: BLECManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: Error?) {}
-    func central(_ central: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {}
-    func central(_ central: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?) {}
-    func central(_ central: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {}
+    func central(_ manager: BLECManager, didConnectPeripheral peripheral: CBPeripheral) {}
+    func central(_ manager: BLECManager, didDisconnectDevice device: BLECDevice, error: Error?) {}
+    func central(_ manager: BLECManager, didCheckCharacteristicsDevice device: BLECDevice) {}
 
     func device(_ device: BLECDevice, didReadRSSI RSSI: Int, error: Error?) {}
     func deviceDidUpdateName(_ device: BLECDevice) {}
